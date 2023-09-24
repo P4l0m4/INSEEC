@@ -1,0 +1,231 @@
+@font-face {
+  font-family: "Custom";
+  src: url(@/assets/fonts/Quicksand-VariableFont.ttf) format("truetype");
+  font-display: swap;
+}
+
+*,
+:before,
+:after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  line-height: $line-height;
+}
+
+body {
+  background-color: $base-color;
+  font-family: "Custom", sans-serif;
+  color: $text-color;
+}
+
+a {
+  text-decoration: none;
+  color: $text-color;
+}
+
+button,
+input {
+  border-radius: $radius;
+}
+
+button {
+  border: 1px solid transparent;
+  background-color: transparent;
+  font-size: 1rem;
+}
+
+input,
+textarea {
+  caret-color: $text-color;
+  background-color: transparent;
+  &:focus {
+    border: 2px solid $text-color;
+    outline: $text-color;
+  }
+}
+/* Change the white to any color */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 30px $primary-color inset !important;
+}
+input[type="search"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+
+  &:-webkit-autofill,
+  &:-webkit-autofill:hover,
+  &:-webkit-autofill:focus,
+  &:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px $primary-color inset !important;
+    border: 2px solid $primary-color !important;
+    outline: $primary-color !important;
+  }
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.button-primary,
+.button-secondary {
+  display: flex;
+  padding: 0.75rem 1.75rem;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: calc($radius * 4);
+  transition: transform 0.2s ease-in-out;
+  // text-shadow: black 0px 0px 1px;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  -webkit-font-smoothing: subpixel-antialiased;
+  font-weight: 500 !important;
+  font-family: "Custom" !important;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
+.button-primary {
+  background-color: $text-color;
+  color: $primary-color;
+  transition: 0.2s ease;
+  position: relative;
+
+  &:hover {
+    -webkit-box-shadow: 0px 2px 4px 5px rgba(250, 255, 0, 0);
+    box-shadow: 0px 2px 4px 5px rgba(250, 255, 0, 0);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+  }
+}
+
+.button-secondary {
+  background-color: transparent;
+  border: $text-color solid 2px;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
+
+.scale-on-hover {
+  transition: transform 0.2s ease-in-out;
+
+  &:hover {
+    transform: scale(1.04);
+  }
+}
+
+//SCROLLBAR
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+  display: none;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #1e1e1e;
+  border-radius: 2px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #1e1e1e;
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #2b2b2b;
+}
+
+//DETAILS
+details > summary {
+  list-style: none;
+}
+
+details > summary::marker, /* Latest Chrome, Edge, Firefox */ 
+details > summary::-webkit-details-marker /* Safari */ {
+  display: none;
+}
+
+//ANIMATIONS
+@keyframes fading {
+  from {
+    opacity: 0;
+    display: none;
+  }
+  to {
+    display: flex;
+    opacity: 1;
+  }
+}
+@keyframes fade {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes slide-from-left {
+  from {
+    transform: translate(-20px);
+  }
+  to {
+    transform: translate(0px);
+  }
+}
+@keyframes slide-from-right {
+  from {
+    transform: translate(20px);
+  }
+  to {
+    transform: translate(0px);
+  }
+}
+@keyframes slide-from-top {
+  from {
+    transform: translateY(-75px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+@keyframes slide-from-bottom {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+@keyframes tilt {
+  from {
+    transform: rotate(4deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
