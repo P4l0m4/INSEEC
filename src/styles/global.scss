@@ -1,7 +1,26 @@
 @font-face {
   font-family: "Custom";
-  src: url(@/assets/fonts/Quicksand-VariableFont.ttf) format("truetype");
+  src: url(@/assets/fonts/figtree/Figtree-Regular.ttf) format("truetype");
   font-display: swap;
+  font-weight: 400;
+}
+@font-face {
+  font-family: "Custom";
+  src: url(@/assets/fonts/figtree/Figtree-Medium.ttf) format("truetype");
+  font-display: swap;
+  font-weight: 500;
+}
+@font-face {
+  font-family: "Custom";
+  src: url(@/assets/fonts/figtree/Figtree-SemiBold.ttf) format("truetype");
+  font-display: swap;
+  font-weight: 600;
+}
+@font-face {
+  font-family: "Custom";
+  src: url(@/assets/fonts/figtree/Figtree-Black.ttf) format("truetype");
+  font-display: swap;
+  font-weight: 900;
 }
 
 *,
@@ -21,6 +40,7 @@ body {
   background-color: $base-color;
   font-family: "Custom", sans-serif;
   color: $text-color;
+  overflow-x: hidden;
 }
 
 a {
@@ -126,11 +146,23 @@ input[type="number"] {
   }
 }
 
+.button-tertiary {
+  font-size: $small-text;
+  text-decoration: underline;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  color: $secondary-color;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .scale-on-hover {
   transition: transform 0.2s ease-in-out;
 
   &:hover {
-    transform: scale(1.04);
+    transform: scale(1.04) !important;
   }
 }
 
@@ -143,19 +175,19 @@ input[type="number"] {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #1e1e1e;
-  border-radius: 2px;
+  background: #e1e1e1;
+  border-radius: 20px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #1e1e1e;
+  background: white;
   border-radius: 2px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #2b2b2b;
+  background: rgb(237, 237, 237);
 }
 
 //DETAILS
@@ -166,6 +198,22 @@ details > summary {
 details > summary::marker, /* Latest Chrome, Edge, Firefox */ 
 details > summary::-webkit-details-marker /* Safari */ {
   display: none;
+}
+
+.not-selectable {
+  -moz-user-select: none; /* Firefox */
+  -webkit-user-select: none; /* Chrome, Safari, Opéra depuis la version 15 */
+  -ms-user-select: none; /* Internet explorer depuis la version 10 et Edge */
+  user-select: none; /* Propriété standard */
+}
+
+.titles {
+  font-size: $titles;
+  font-weight: $overweight;
+}
+.subtitles {
+  font-size: $subtitles;
+  font-weight: $skinny-thick;
 }
 
 //ANIMATIONS
@@ -205,7 +253,7 @@ details > summary::-webkit-details-marker /* Safari */ {
 }
 @keyframes slide-from-top {
   from {
-    transform: translateY(-75px);
+    transform: translateY(-3rem);
   }
   to {
     transform: translateY(0px);
