@@ -3,6 +3,7 @@ defineProps(["error"]);
 </script>
 
 <template>
+  <HeaderComponent />
   <div class="error">
     <div class="error__message">
       <h1>Oooops... erreur {{ error.statusCode }}</h1>
