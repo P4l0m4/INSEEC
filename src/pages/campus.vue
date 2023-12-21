@@ -50,7 +50,7 @@
         <h2 class="campus__environment__title titles">
           UN EMPLACEMENT PROPICE A L’EMPLOI
         </h2>
-        <p class="campus__environment__description subtitles">
+        <p class="campus__environment__description">
           La région Rhône-Alpes, en tant que
           <strong>deuxième région économique de France</strong> et sixième
           d’Europe, représente un
@@ -58,13 +58,13 @@
           soit dans la recherche de stage ou d’alternance mais également en
           débouché après un BAC+3 ou BAC+5.
         </p>
-        <p class="campus__environment__description subtitles">
+        <p class="campus__environment__description">
           La Savoie se distingue par son expertise indéniable dans les
           <strong>sports de montagne et les activités sportives</strong>,
           abritant la plus grande concentration nationale de leaders industriels
           et de PME/PMI innovantes dans les domaines du sport et des loisirs.
         </p>
-        <p class="campus__environment__description subtitles">
+        <p class="campus__environment__description">
           Notre campus est présent sur Savoie Technolac, joyau de l'innovation
           économique et du transfert technologique, qui arbore la certification
           ISO 14001 et s'impose comme un modèle de développement durable.
