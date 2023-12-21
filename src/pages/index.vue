@@ -291,13 +291,14 @@
         box-shadow: $shadow;
         border-radius: $radius;
         text-shadow: $shadow;
+        filter: grayscale(20%);
         transition:
-          background-size 0.4s ease,
+          background-position 0.4s ease,
           filter 0.4s ease;
 
         &:hover {
-          background-size: 140%;
-          filter: grayscale(40%);
+          background-position: center right;
+          filter: grayscale(0%);
         }
 
         @media (min-width: $big-tablet-screen) {
@@ -400,13 +401,14 @@
         background-position: center;
         background-image: url("@/assets/images/placeholder.svg");
         box-shadow: $shadow;
+        filter: grayscale(20%);
         transition:
-          background-size 0.4s ease,
+          background-position 0.4s ease,
           filter 0.4s ease;
 
         &:hover {
-          background-size: 120%;
-          filter: grayscale(40%);
+          background-position: center right;
+          filter: grayscale(0%);
         }
 
         &__title {
