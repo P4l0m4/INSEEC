@@ -210,13 +210,14 @@
         background-position: center;
         text-shadow: $shadow;
         text-wrap: balance;
+        filter: grayscale(20%);
         transition:
-          background-size 0.4s ease,
+          background-position 0.4s ease,
           filter 0.4s ease;
 
         &:hover {
-          background-size: 140%;
-          filter: grayscale(40%);
+          background-position: center right;
+          filter: grayscale(0%);
         }
 
         &:first-of-type,
