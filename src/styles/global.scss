@@ -18,9 +18,9 @@
 }
 @font-face {
   font-family: "Custom";
-  src: url(@/assets/fonts/figtree/Figtree-Black.ttf) format("truetype");
+  src: url(@/assets/fonts/figtree/Figtree-Bold.ttf) format("truetype");
   font-display: swap;
-  font-weight: 900;
+  font-weight: 700;
 }
 
 *,
@@ -33,7 +33,6 @@
 
 html {
   scroll-behavior: smooth;
-  line-height: $line-height;
 }
 
 body {
@@ -46,6 +45,23 @@ body {
 a {
   text-decoration: none;
   color: $text-color;
+  font-size: $base-text;
+}
+
+strong {
+  font-weight: $overweight;
+}
+
+p {
+  font-size: $base-text;
+  line-height: $line-height;
+}
+
+ul,
+li {
+  list-style: none;
+  font-size: $base-text;
+  line-height: $line-height;
 }
 
 button,
@@ -114,22 +130,23 @@ input[type="number"] {
   backface-visibility: hidden;
   transform: translateZ(0);
   -webkit-font-smoothing: subpixel-antialiased;
-  font-weight: 500 !important;
+  font-weight: $skinny-thick !important;
   font-family: "Custom" !important;
+  font-size: $base-text;
 
   &:hover {
     transform: scale(1.04);
   }
 }
 .button-primary {
-  background-color: $text-color;
+  background-color: $secondary-color;
   color: $primary-color;
   transition: 0.2s ease;
   position: relative;
 
   &:hover {
-    -webkit-box-shadow: 0px 2px 4px 5px rgba(250, 255, 0, 0);
-    box-shadow: 0px 2px 4px 5px rgba(250, 255, 0, 0);
+    -webkit-box-shadow: $shadow-secondary;
+    box-shadow: $shadow-secondary;
   }
 
   &:disabled {
@@ -208,12 +225,22 @@ details > summary::-webkit-details-marker /* Safari */ {
 }
 
 .titles {
-  font-size: $titles;
+  font-size: calc($titles - 0.5rem);
   font-weight: $overweight;
+
+  @media (min-width: $big-tablet-screen) {
+    font-size: $titles;
+  }
 }
 .subtitles {
-  font-size: $subtitles;
+  font-size: calc($subtitles - 0.5rem);
   font-weight: $skinny-thick;
+  line-height: calc($line-height-subtitles - 0.5rem);
+
+  @media (min-width: $big-tablet-screen) {
+    font-size: $subtitles;
+    line-height: $line-height-subtitles;
+  }
 }
 
 //ANIMATIONS

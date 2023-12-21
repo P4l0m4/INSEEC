@@ -111,9 +111,13 @@ let isMenuOpen = ref(false);
 .header {
   display: flex;
   justify-content: center;
-  max-width: 2000px;
+  width: 100%;
+  position: fixed;
+  background-color: $primary-color;
+  z-index: 1;
 
   &__nav {
+    max-width: 2000px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -123,7 +127,7 @@ let isMenuOpen = ref(false);
 
     @media (min-width: $big-tablet-screen) {
       gap: 4rem;
-      padding: 2rem;
+      padding: 1rem 2rem;
     }
 
     &__logo {
@@ -158,7 +162,6 @@ let isMenuOpen = ref(false);
       right: 0;
       top: 0;
       bottom: 0;
-      height: 100svh;
       background-color: $primary-color;
       margin: auto;
       box-shadow: $shadow;

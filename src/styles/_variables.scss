@@ -8,32 +8,34 @@ $super-big-screen: 2400px;
 $base-color: #f7f7f7;
 $primary-color: #fffdfa;
 $text-color: #202020;
-$text-color-alt: $primary-color;
 
 $text-color-faded: rgba($text-color, 0.8);
-$primary-color-faded: rgba(247, 247, 247, 0.8);
+$primary-color-faded: rgba($primary-color, 0.8);
 $secondary-color: #2a3b6b;
 $secondary-color-faded: rgba($secondary-color, 0.4);
 
 //BORDERS
-$radius: 8px;
+$radius: 4px;
 
 //SHADOWS
 $shadow: 0px 0px 10px rgba(0, 0, 0, 0.04);
 $shadow-primary: 0px 0px 10px rgba($primary-color, 0.2);
 $shadow-secondary: 0px 0px 10px rgba($secondary-color, 0.2);
 
-// TYPO
-$line-height: 1.15;
-$skinny: 400;
-$skinny-thick: 500;
-$thick: 600;
-$overweight: 900;
-
 //GOLDEN NUMBER
 $golden-number: 1.618;
 
 //FONT SIZES
 $small-text: 0.75rem;
-$subtitles: calc(1rem * $golden-number);
+$base-text: calc($small-text * $golden-number);
+$subtitles: calc($base-text * $golden-number);
 $titles: calc($subtitles * $golden-number);
+
+// TYPO
+$line-height: 1.5rem;
+$line-height-subtitles: calc($line-height * $golden-number);
+
+$skinny: 400;
+$skinny-thick: 500;
+$thick: 600;
+$overweight: 900;

@@ -6,9 +6,11 @@ defineProps(["error"]);
   <HeaderComponent />
   <div class="error">
     <div class="error__message">
-      <h1>Oooops... erreur {{ error.statusCode }}</h1>
+      <h1 class="titles">Oooops... erreur {{ error.statusCode }}</h1>
 
-      <h2>Nous n'avons pas trouvé la page que vous cherchez.</h2>
+      <h2 class="subtitles">
+        Nous n'avons pas trouvé la page que vous cherchez.
+      </h2>
       <NuxtLink
         to="/"
         class="button-primary"
@@ -20,19 +22,23 @@ defineProps(["error"]);
 </template>
 <style lang="scss" scoped>
 .error {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100svh;
+  padding-top: 88px;
+  @media (min-width: $big-tablet-screen) {
+    padding-top: 91px;
+  }
+
   &__message {
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     gap: 2rem;
     padding: 4rem 1rem;
-    height: 100vh;
     text-align: center;
-
-    & h2 {
-      font-weight: $skinny;
-      font-size: 1rem;
-    }
 
     & button {
       padding: 1rem 1.75rem;
