@@ -260,13 +260,6 @@
           gap: 2rem;
         }
 
-        &__img {
-          width: 100%;
-          object-fit: cover;
-          border-radius: $radius;
-          box-shadow: $shadow;
-        }
-
         &__ul {
           display: flex;
           flex-direction: column;
@@ -280,6 +273,12 @@
             }
           }
         }
+      }
+      &__img {
+        width: 100%;
+        object-fit: cover;
+        border-radius: $radius;
+        box-shadow: $shadow;
       }
     }
 
