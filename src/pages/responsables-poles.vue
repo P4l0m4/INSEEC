@@ -135,15 +135,21 @@ const story = await useAsyncStoryblok("poles", { version: "published" });
           margin-bottom: -4rem;
           transition: margin-bottom 0.4s ease;
 
+          &__name {
+            text-shadow: $shadow-text;
+          }
+
           &__role {
             font-size: $base-text;
             font-weight: $thick;
             margin-top: -0.5rem;
+            text-shadow: $shadow-text;
           }
           &__description {
             font-size: $small-text;
             height: 48px;
             overflow: hidden;
+            text-shadow: $shadow-text;
           }
         }
       }

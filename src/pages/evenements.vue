@@ -175,7 +175,7 @@ const story = await useAsyncStoryblok("events", { version: "published" });
         background-image: url("@/assets/images/placeholder.svg");
         background-size: cover;
         background-position: center;
-        text-shadow: $shadow;
+        text-shadow: $shadow-text;
         text-wrap: balance;
         filter: grayscale(20%);
         transition:

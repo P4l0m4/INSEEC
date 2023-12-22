@@ -296,7 +296,7 @@ const story = await useAsyncStoryblok("home", { version: "published" });
         font-weight: $skinny-thick;
         box-shadow: $shadow;
         border-radius: $radius;
-        text-shadow: $shadow;
+        text-shadow: $shadow-text;
         filter: grayscale(20%);
         transition:
           background-position 0.4s ease,
@@ -305,6 +305,13 @@ const story = await useAsyncStoryblok("home", { version: "published" });
         &:hover {
           background-position: center right;
           filter: grayscale(0%);
+        }
+
+        &:nth-of-type(1) {
+          background-image: url("@/assets/images/raclette-cup.webp");
+        }
+        &:nth-of-type(2) {
+          background-image: url("@/assets/images/intervenants.webp");
         }
 
         @media (min-width: $big-tablet-screen) {

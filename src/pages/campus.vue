@@ -7,7 +7,7 @@ const story = await useAsyncStoryblok("campus", { version: "published" });
       class="campus__banner"
       :style="`background-image: url('${story.content.banner.filename}')`"
     >
-      <h1 class="campus__banner__title">
+      <h1 class="campus__banner__title subtitles">
         Découvre l’INSEEC Campus Chambéry Savoie
       </h1>
     </div>
