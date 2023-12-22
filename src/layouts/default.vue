@@ -5,6 +5,7 @@
   <main>
     <slot />
   </main>
+  <PopUp />
   <FooterComponent />
 </template>
 <style scoped lang="scss">

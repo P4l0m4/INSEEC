@@ -134,8 +134,10 @@ input[type="number"] {
   font-family: "Custom" !important;
   font-size: $base-text;
 
-  &:hover {
-    transform: scale(1.04);
+  @media (min-width: $big-tablet-screen) {
+    &:hover {
+      transform: scale(1.04);
+    }
   }
 }
 .button-primary {
