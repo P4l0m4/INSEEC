@@ -106,6 +106,10 @@ let isMenuOpen = ref(false);
   text-decoration-color: $secondary-color;
   text-decoration-thickness: 4px;
   text-underline-offset: 8px;
+
+  &:hover::after {
+    display: none;
+  }
 }
 
 .header {
@@ -179,17 +183,17 @@ let isMenuOpen = ref(false);
           &::after {
             content: "";
             display: block;
-            margin-top: 4px;
             width: 1%;
-            height: 4px;
             transition:
               width 0.3s ease-in-out,
               background-color 0.3s ease-in-out;
           }
 
-          &:hover::after {
-            width: 100%;
-            background-color: $secondary-color;
+          @media (min-width: $big-tablet-screen) {
+            &:hover::after {
+              width: 100%;
+              background-color: $secondary-color;
+            }
           }
         }
       }
