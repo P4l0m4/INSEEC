@@ -1,6 +1,12 @@
+<script setup lang="ts">
+const story = await useAsyncStoryblok("poles", { version: "published" });
+</script>
 <template>
   <section class="responsables-poles">
-    <div class="responsables-poles__banner">
+    <div
+      class="responsables-poles__banner"
+      :style="`background-image: url('${story.content.banner.filename}')`"
+    >
       <h1 class="responsables-poles__banner__title subtitles">
         Mettre des visages sur vos programmes
       </h1>

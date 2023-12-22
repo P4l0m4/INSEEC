@@ -1,6 +1,12 @@
+<script setup lang="ts">
+const story = await useAsyncStoryblok("campus", { version: "published" });
+</script>
 <template>
   <section class="campus">
-    <div class="campus__banner">
+    <div
+      class="campus__banner"
+      :style="`background-image: url('${story.content.banner.filename}')`"
+    >
       <h1 class="campus__banner__title">
         Découvre l’INSEEC Campus Chambéry Savoie
       </h1>

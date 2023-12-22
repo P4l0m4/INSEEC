@@ -1,6 +1,13 @@
+<script setup lang="ts">
+import { stringToSlug } from "~/utils/slugify";
+const story = await useAsyncStoryblok("events", { version: "published" });
+</script>
 <template>
   <section class="events">
-    <div class="events__banner">
+    <div
+      class="events__banner"
+      :style="`background-image: url('${story.content.banner.filename}')`"
+    >
       <h1 class="events__banner__title subtitles">
         Un campus vivant avec nos événements
       </h1>
@@ -32,105 +39,65 @@
           LES ÉVÉNEMENTS DE L'INSEEC CHAMBÉRY
         </h2>
         <div class="events__showcase__list">
-          <NuxtLink to="#eventname" class="events__showcase__list__link"
-            >RACLETTE CUP</NuxtLink
-          >
-          <NuxtLink to="#eventname" class="events__showcase__list__link"
-            >FESTICOLOR</NuxtLink
-          >
-          <NuxtLink to="#eventname" class="events__showcase__list__link"
-            >BUSINESS GAME</NuxtLink
-          >
-          <NuxtLink to="#eventname" class="events__showcase__list__link"
-            >GRAINES DE HIGH FIVE</NuxtLink
-          >
-          <NuxtLink to="#eventname" class="events__showcase__list__link"
-            >ANIMATIONS INTERNES</NuxtLink
-          >
-          <NuxtLink to="#eventname" class="events__showcase__list__link"
-            >SOIREE FRIENDS</NuxtLink
-          >
-          <NuxtLink to="#eventname" class="events__showcase__list__link"
-            >TRIFT SHOP</NuxtLink
-          >
-          <NuxtLink to="#eventname" class="events__showcase__list__link"
-            >CONCOURS DE VENTE</NuxtLink
-          >
-          <NuxtLink to="#eventname" class="events__showcase__list__link"
-            >REMISE DES DIPLÔMES</NuxtLink
-          >
-          <NuxtLink to="#eventname" class="events__showcase__list__link"
-            >CHALLENGE DE PROSPECTION & DE VENTE</NuxtLink
+          <NuxtLink
+            v-for="event in story.content.list"
+            :key="event._uid"
+            :to="`#${stringToSlug(event.previewTitle)}`"
+            class="events__showcase__list__link"
+            :style="`background-image: url('${event.image.filename}')`"
+            >{{ event.previewTitle }}</NuxtLink
           >
         </div>
       </div></Container
     >
 
-    <Container id="#eventname">
+    <Container
+      :id="stringToSlug(event.previewTitle)"
+      v-for="event in story.content.list"
+      :key="event._uid"
+    >
       <div class="events__presentation">
         <h2 class="events__presentation__title titles">
-          RACLETTE CUP, LA PLUS GRANDE RACLETTE ETUDIANTE DU MONDE
+          {{ event.title }}
         </h2>
-        <p class="events__presentation__description subtitles">
-          Depuis 2018, l’association étudiante de l’INSEEC Campus Chambéry
-          Savoie, Campus Events, organise chaque année la
-          <strong>Raclette Cup.</strong>
-        </p>
+        <p
+          class="events__presentation__description subtitles"
+          v-if="event.subtitle"
+          v-html="renderRichText(event.subtitle)"
+        ></p>
+
         <div class="events__presentation__wrapper">
           <div class="events__presentation__wrapper__txt">
-            <p class="events__presentation__wrapper__txt__description">
-              Le temps d’une soirée, un
-              <strong
-                >véritable restaurant éphémère de 2 500 mètres carrés</strong
-              >
-              est agencé sur l’esplanade du campus de l’INSEEC Chambéry Savoie.
-              La réussite de cet événement vient aussi de la prouesse technique
-              pour disposer les 150 tables avec les 150 appareils à raclete
-              TEFAL. <strong>Cet événement 100% étudiant</strong> met en place
-              le principe pédagogique de l’école : le
-              <strong>Learning by doing</strong>, soit l’idée d’apprendre en
-              faisant !
-            </p>
-            <p class="events__presentation__wrapper__txt__description">
-              En effet, ce projet est piloté par de nombreux étudiants de 2e
-              année INSEEC Bachelor qui encadrent l’ensemble des bénévoles
-              INSEEC, les 1ères années. De 19 h 00 à minuit, ce sont 80
-              bénévoles qui découvrent l’événementiel et metent en valeur leur
-              savoir-être ainsi que leur savoir-faire. Ils ont un seul objectif
-              : tout faire pour que les 1200 participants ne manquent de rien et
-              pour les satisfaire, ce sont 10 000 tranches de charcuterie, 500
-              kg de fromage de Raclete d’Entremont et 400 kg de pommes de terre
-              qu’ils vont servir aux convives, marchandises offertes par les
-              partenaires de l’événement (Salaisons du Cayon, Brasserie du
-              Mont-Blanc, etc)
-            </p>
-
-            <p class="events__presentation__wrapper__txt__description">
-              Le soir de l’événement, tous les partenaires se retrouvent au
-              milieu des étudiants, avec des bénévoles qui donnent leur maximum
-              pour donner du bonheur à tous ; c’est
-              <strong
-                >cette magie intergénérationnelle qui donne à ce moment festif
-                et convivial un côté unique et qui rend heureux tout le
-                monde.</strong
-              >
-              Entre déguisement de ski vintage pour l’ensemble des participants
-              et concert de DJ Matafan, sur une piste de danse composée de 200
-              kg de paille, ce moment festif est toujours dès plus agréable !
-            </p>
+            <p
+              class="events__presentation__wrapper__txt__description"
+              v-for="paragraph in event.paragraphs"
+              :key="paragraph._uid"
+              v-html="renderRichText(paragraph.text)"
+            ></p>
           </div>
 
           <img
             class="events__presentation__wrapper__img"
-            src="@/assets/images/placeholder.svg"
-            alt="campus inseec chambéry"
+            :src="event.image.filename"
+            :alt="event.image.alt"
           />
         </div>
         <img
+          v-if="event.image2.filename"
           class="events__presentation__img"
-          src="@/assets/images/placeholder.svg"
-          alt="evenement inseec chambéry"
-        /></div
+          :src="event.image2.filename"
+          :alt="event.image2.alt"
+        />
+
+        <iframe
+          v-if="event.video.filename"
+          class="events__presentation__img"
+          :src="event.video.filename"
+          :title="event.video.title"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen
+        ></iframe></div
     ></Container>
   </section>
 </template>
@@ -286,6 +253,7 @@
 
       &__img {
         width: 100%;
+        max-width: 600px;
         object-fit: cover;
         border-radius: $radius;
         box-shadow: $shadow;

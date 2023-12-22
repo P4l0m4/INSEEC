@@ -7,6 +7,8 @@
 .container {
   width: 100%;
   padding: 1rem;
+  scroll-margin-top: 5rem;
+
   @media (min-width: $big-tablet-screen) {
     width: 80%;
     padding: 2rem;

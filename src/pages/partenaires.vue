@@ -1,6 +1,12 @@
+<script setup lang="ts">
+const story = await useAsyncStoryblok("partners", { version: "published" });
+</script>
 <template>
   <section class="partners">
-    <div class="partners__banner">
+    <div
+      class="partners__banner"
+      :style="`background-image: url('${story.content.banner.filename}')`"
+    >
       <h1 class="partners__banner__title subtitles">
         A nos côtés depuis plusieurs années
       </h1>
