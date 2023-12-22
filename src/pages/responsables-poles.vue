@@ -12,105 +12,29 @@ const story = await useAsyncStoryblok("poles", { version: "published" });
       </h1>
     </div>
 
-    <Container>
+    <Container v-for="pole in story.content.list" :key="pole._uid">
       <div class="responsables-poles__pole">
         <h2 class="responsables-poles__pole__title subtitles">
-          RESPONSABLES PÔLES MSc
+          {{ pole.title }}
         </h2>
         <div class="responsables-poles__pole__people">
-          <div class="responsables-poles__pole__people__person">
+          <div
+            class="responsables-poles__pole__people__person"
+            v-for="person in pole.persons"
+            :key="person._uid"
+          >
             <div class="responsables-poles__pole__people__person__txt">
-              <span class="responsables-poles__pole__people__person__txt__name"
-                >Nicolas Compard</span
+              <span
+                class="responsables-poles__pole__people__person__txt__name"
+                >{{ person.name }}</span
               >
               <span class="responsables-poles__pole__people__person__txt__role">
-                M1 Finance Bancaire
+                {{ person.role }}
               </span>
               <p
                 class="responsables-poles__pole__people__person__txt__description"
               >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-                fuga necessitatibus blanditiis ipsa.
-              </p>
-            </div>
-          </div>
-          <div class="responsables-poles__pole__people__person">
-            <div class="responsables-poles__pole__people__person__txt">
-              <span class="responsables-poles__pole__people__person__txt__name"
-                >Nicolas Compard</span
-              >
-              <span class="responsables-poles__pole__people__person__txt__role">
-                M1 Finance Bancaire
-              </span>
-              <p
-                class="responsables-poles__pole__people__person__txt__description"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-                fuga necessitatibus blanditiis ipsa.
-              </p>
-            </div>
-          </div>
-          <div class="responsables-poles__pole__people__person">
-            <div class="responsables-poles__pole__people__person__txt">
-              <span class="responsables-poles__pole__people__person__txt__name"
-                >Nicolas Compard</span
-              >
-              <span class="responsables-poles__pole__people__person__txt__role">
-                M1 Finance Bancaire
-              </span>
-              <p
-                class="responsables-poles__pole__people__person__txt__description"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-                fuga necessitatibus blanditiis ipsa.
-              </p>
-            </div>
-          </div>
-          <div class="responsables-poles__pole__people__person">
-            <div class="responsables-poles__pole__people__person__txt">
-              <span class="responsables-poles__pole__people__person__txt__name"
-                >Nicolas Compard</span
-              >
-              <span class="responsables-poles__pole__people__person__txt__role">
-                M1 Finance Bancaire
-              </span>
-              <p
-                class="responsables-poles__pole__people__person__txt__description"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-                fuga necessitatibus blanditiis ipsa.
-              </p>
-            </div>
-          </div>
-          <div class="responsables-poles__pole__people__person">
-            <div class="responsables-poles__pole__people__person__txt">
-              <span class="responsables-poles__pole__people__person__txt__name"
-                >Nicolas Compard</span
-              >
-              <span class="responsables-poles__pole__people__person__txt__role">
-                M1 Finance Bancaire
-              </span>
-              <p
-                class="responsables-poles__pole__people__person__txt__description"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-                fuga necessitatibus blanditiis ipsa.
-              </p>
-            </div>
-          </div>
-          <div class="responsables-poles__pole__people__person">
-            <div class="responsables-poles__pole__people__person__txt">
-              <span class="responsables-poles__pole__people__person__txt__name"
-                >Nicolas Compard</span
-              >
-              <span class="responsables-poles__pole__people__person__txt__role">
-                M1 Finance Bancaire
-              </span>
-              <p
-                class="responsables-poles__pole__people__person__txt__description"
-              >
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis,
-                fuga necessitatibus blanditiis ipsa.
+                {{ person.description }}
               </p>
             </div>
           </div>
@@ -218,7 +142,7 @@ const story = await useAsyncStoryblok("poles", { version: "published" });
           }
           &__description {
             font-size: $small-text;
-            max-height: 48px;
+            height: 48px;
             overflow: hidden;
           }
         }
