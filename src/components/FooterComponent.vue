@@ -25,19 +25,28 @@ import { NuxtLink } from '#build/components';
     </div>
 
     <div class="footer__socials">
-      <a class="footer__socials__link" aria-label="facebook inseec chambéry"
+      <a
+        class="footer__socials__link"
+        href="https://www.facebook.com/INSEEC.Chambery/"
+        aria-label="facebook inseec chambéry"
         ><img
           class="footer__socials__link__icon"
           src="@/assets/icons/facebook.svg"
           alt="icone facebook inseec chambéry"
       /></a>
-      <a class="footer__socials__link" aria-label="instagram inseec chambéry"
+      <a
+        class="footer__socials__link"
+        href="https://www.instagram.com/inseec_campus_chambery/"
+        aria-label="instagram inseec chambéry"
         ><img
           class="footer__socials__link__icon"
           src="@/assets/icons/instagram.svg"
           alt="icone instagram inseec chambéry"
       /></a>
-      <a class="footer__socials__link" aria-label="linkedin inseec chambéry"
+      <a
+        class="footer__socials__link"
+        href="https://www.linkedin.com/school/inseeccampuschamberysavoie/?originalSubdomain=fr"
+        aria-label="linkedin inseec chambéry"
         ><img
           class="footer__socials__link__icon"
           src="@/assets/icons/linkedin.svg"
