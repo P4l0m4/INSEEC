@@ -1,12 +1,15 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
 
-let showPopUp = ref(true);
+let showPopUp = ref(false);
 
 onMounted(() => {
   setTimeout(() => {
+    showPopUp.value = true;
+  }, 4000);
+  setTimeout(() => {
     showPopUp.value = false;
-  }, 10000);
+  }, 14000);
 });
 </script>
 <template>
@@ -35,15 +38,6 @@ onMounted(() => {
   </section>
 </template>
 <style lang="scss" scoped>
-@keyframes popUp {
-  0% {
-    transform: scale(0);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
-
 .pop-up {
   display: flex;
   position: fixed;
@@ -74,7 +68,7 @@ onMounted(() => {
     border-radius: $radius;
     width: 100%;
     max-width: 460px;
-    height: 100%;
+    height: 80svh;
     position: relative;
     box-shadow: $shadow;
     pointer-events: all;
