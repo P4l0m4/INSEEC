@@ -21,12 +21,14 @@ onMounted(() => {
     @click="showPopUp = false"
   >
     <div class="pop-up__wrapper" @click.stop>
-      <img
-        class="pop-up__wrapper__icon"
-        src="@/assets/icons/close.svg"
-        alt="close icon"
-        @click="showPopUp = false"
-      />
+      <div class="pop-up__wrapper__close" @click="showPopUp = false">
+        <img
+          class="pop-up__wrapper__close__icon"
+          src="@/assets/icons/close.svg"
+          alt="close icon"
+        />
+      </div>
+
       <img
         class="pop-up__wrapper__logo"
         src="@/assets/images/logo-inseec.svg"
@@ -86,23 +88,25 @@ onMounted(() => {
       height: 550px;
       width: 345px;
     }
-
-    &__icon {
-      width: 26px;
-      height: 26px;
+    &__close {
+      padding: 0 0 0.5rem 0.5rem;
       right: 1rem;
       top: 1rem;
       position: absolute;
-      transition: transform 0.2s;
+      &__icon {
+        width: 26px;
+        height: 26px;
+        transition: transform 0.2s;
 
-      &:hover {
-        transform: scale(1.1);
-        cursor: pointer;
-      }
+        &:hover {
+          transform: scale(1.1);
+          cursor: pointer;
+        }
 
-      @media (min-width: $big-tablet-screen) {
-        left: 1rem;
-        right: inherit;
+        @media (min-width: $big-tablet-screen) {
+          left: 1rem;
+          right: inherit;
+        }
       }
     }
 
