@@ -61,11 +61,11 @@ const story = await useAsyncStoryblok("events", { version: "published" });
         <h2 class="events__presentation__title titles">
           {{ event.title }}
         </h2>
-        <p
+        <h3
           class="events__presentation__description subtitles"
           v-if="event.subtitle"
           v-html="renderRichText(event.subtitle)"
-        ></p>
+        ></h3>
 
         <div class="events__presentation__wrapper">
           <div class="events__presentation__wrapper__txt">
@@ -75,20 +75,31 @@ const story = await useAsyncStoryblok("events", { version: "published" });
               :key="paragraph._uid"
               v-html="renderRichText(paragraph.text)"
             ></p>
+
+            <div class="events__presentation__wrapper__txt__frames">
+              <div
+                class="events__presentation__wrapper__txt__frames__frame"
+                v-for="image in event.images"
+                :key="image._uid"
+              >
+                <img
+                  v-if="event.images[0].filename"
+                  class="events__presentation__wrapper__txt__frames__frame__img"
+                  :src="image.filename"
+                  :alt="image.alt"
+                />
+              </div>
+            </div>
           </div>
 
-          <img
-            class="events__presentation__wrapper__img"
-            :src="event.image.filename"
-            :alt="event.image.alt"
-          />
+          <div class="events__presentation__wrapper__frame">
+            <img
+              class="events__presentation__wrapper__frame__img"
+              :src="event.image.filename"
+              :alt="event.image.alt"
+            />
+          </div>
         </div>
-        <img
-          v-if="event.image2.filename"
-          class="events__presentation__img"
-          :src="event.image2.filename"
-          :alt="event.image2.alt"
-        />
 
         <iframe
           v-if="event.video.filename"
@@ -215,6 +226,20 @@ const story = await useAsyncStoryblok("events", { version: "published" });
       gap: 3rem;
     }
 
+    &__title {
+      width: 100%;
+    }
+
+    &__description {
+      width: 100%;
+
+      &:deep(p) {
+        font-size: $subtitles;
+        font-weight: $skinny-thick;
+        line-height: $line-height-subtitles;
+      }
+    }
+
     &__wrapper {
       display: flex;
       gap: 1rem;
@@ -250,23 +275,64 @@ const story = await useAsyncStoryblok("events", { version: "published" });
             }
           }
         }
+
+        &__frames {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 1rem;
+          margin-top: 1rem;
+
+          &__frame {
+            padding: 1rem 1rem 3rem 1rem;
+            background-color: $primary-color;
+            border-radius: $radius;
+            box-shadow: $shadow;
+            width: 100%;
+            max-width: 300px;
+            max-height: 380px;
+
+            &:nth-of-type(1n) {
+              transform: rotate(0deg);
+            }
+            &:nth-of-type(2n) {
+              transform: rotate(-6deg);
+            }
+            &:nth-of-type(3n) {
+              transform: rotate(6deg);
+            }
+            &:nth-of-type(4n) {
+              transform: rotate(0deg);
+            }
+
+            &__img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: $radius;
+              box-shadow: $shadow;
+            }
+          }
+        }
       }
 
-      &__img {
-        width: 100%;
-        max-width: 600px;
-        object-fit: cover;
+      &__frame {
+        padding: 1rem 1rem 3rem 1rem;
+        background-color: $primary-color;
         border-radius: $radius;
         box-shadow: $shadow;
-      }
-    }
+        width: 100%;
+        max-width: 450px;
+        max-height: 560px;
+        transform: rotate(6deg);
 
-    &__img {
-      width: 100%;
-      object-fit: cover;
-      border-radius: $radius;
-      box-shadow: $shadow;
-      height: 400px;
+        &__img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: $radius;
+          box-shadow: $shadow;
+        }
+      }
     }
   }
 }
