@@ -49,8 +49,7 @@ let eventsGroupedByMonth = computed(() => {
   //     ({ monthByYear }) => monthByYear
   //   );
   //   return sortEvents(groupedEvents);
-  const groupedEvents = Object.groupBy(events, (event) => event.monthByYear);
-
+  const groupedEvents = groupBy(events, "monthByYear");
   return sortEvents(groupedEvents);
 });
 
