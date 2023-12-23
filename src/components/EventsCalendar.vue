@@ -1,5 +1,7 @@
+import { groupBy } from '~/utils/groupBy';
 <script setup lang="ts">
 import { ref, onMounted, computed } from "vue";
+import { groupBy } from "@/utils/groupBy.js";
 const story = await useAsyncStoryblok("events", { version: "published" });
 
 const dayjs = useDayjs();
