@@ -237,7 +237,6 @@ function sortEvents(events) {
       box-shadow: $shadow;
       display: flex;
       flex-direction: column;
-      align-items: space-between;
       width: 100%;
       max-width: 600px;
       animation: popUp 0.4s ease;
@@ -245,6 +244,7 @@ function sortEvents(events) {
       @media (min-width: $tablet-screen) {
         flex-direction: row;
         height: 100%;
+        align-items: space-between;
       }
 
       &__img {
