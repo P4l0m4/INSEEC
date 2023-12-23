@@ -49,9 +49,9 @@ let eventsGroupedByMonth = computed(() => {
 function sortEvents(events) {
   return Object.keys(events)
     .sort()
-    .reduce((acc, key) => {
-      acc[key] = events[key];
-      return acc;
+    .reduce((sortedEvents, key) => {
+      sortedEvents[key] = events[key];
+      return sortedEvents;
     }, {});
 }
 </script>
@@ -98,47 +98,6 @@ function sortEvents(events) {
             }}</span>
           </div>
         </div>
-        <!-- <div class="calendar__events__event">
-          <img
-            class="calendar__events__event__img"
-            src="@/assets/images/placeholder.svg"
-            alt="evenement calendrier inseec"
-          />
-          <div class="calendar__events__event__txt">
-            <div class="calendar__events__event__txt__title">
-              EVENT TITLE
-              <span class="calendar__events__event__txt__title__date"
-                >01 janvier</span
-              >
-            </div>
-            <span class="calendar__events__event__txt__subtitle"
-              >Event subtitle lorem ipsum dolor sit amet, consequitur
-              adiscit.</span
-            >
-            <span class="calendar__events__event__txt__time">10h00</span>
-          </div>
-        </div> -->
-        <!-- <div class="calendar__events__event">
-          <img
-            class="calendar__events__event__img"
-            src="@/assets/images/placeholder.svg"
-            alt="evenement calendrier inseec"
-          />
-          <div class="calendar__events__event__txt">
-            <div class="calendar__events__event__txt__title">
-              EVENT TITLE
-              <span class="calendar__events__event__txt__title__date"
-                >01 janvier</span
-              >
-            </div>
-            <span class="calendar__events__event__txt__subtitle"
-              >Event subtitle lorem ipsum dolor sit amet consequitur
-              adiscit.</span
-            >
-
-            <span class="calendar__events__event__txt__time">10h00</span>
-          </div>
-        </div> -->
       </div>
     </div></Container
   >
@@ -215,16 +174,18 @@ function sortEvents(events) {
       box-shadow: $shadow;
       cursor: pointer;
       font-size: calc($titles / 2);
-      font-weight: $skinny;
+      font-weight: $skinny-thick;
       transition:
         background-color 0.2s,
         color 0.2s,
-        box-shadow 0.2s;
+        box-shadow 0.2s,
+        font-weight 0.2s;
 
       &--selected {
         background-color: $secondary-color;
         color: $primary-color;
         box-shadow: $shadow-secondary;
+        font-weight: $skinny;
       }
 
       &__number {

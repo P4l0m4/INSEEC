@@ -12,6 +12,7 @@ const story = await useAsyncStoryblok("events", { version: "published" });
         Un campus vivant avec nos événements
       </h1>
     </div>
+    <EventsCalendar />
     <Container>
       <p class="events__description">
         Le campus de l'INSEEC Chambéry
