@@ -23,6 +23,8 @@ const story = await useAsyncStoryblok("home", { version: "published" });
       </div>
     </div>
 
+    <EventsCalendar />
+
     <Container>
       <div class="index__presentation">
         <div class="index__presentation__txt">
