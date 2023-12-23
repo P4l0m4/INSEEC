@@ -9,7 +9,7 @@ import { stringToSlug } from "@/utils/slugify.js";
       <div class="news__articles">
         <NuxtLink
           class="news__articles__article"
-          :to="'/actualites' + stringToSlug(article.title)"
+          :to="'/actualites/' + stringToSlug(article.title)"
           v-for="article in story.content.newsList"
           :key="article._uid"
           :style="`background-image: url('${article.images[0].filename}')`"
@@ -68,6 +68,7 @@ import { stringToSlug } from "@/utils/slugify.js";
       align-items: center;
       width: 100%;
       height: 200px;
+      padding: 1rem;
       border-radius: $radius;
       background-size: cover;
       background-position: center;
@@ -86,7 +87,8 @@ import { stringToSlug } from "@/utils/slugify.js";
       &__title {
         color: $primary-color;
         font-weight: $skinny-thick;
-        text-shadow: $shadow;
+        text-shadow: $shadow-text;
+        text-align: center;
       }
     }
   }

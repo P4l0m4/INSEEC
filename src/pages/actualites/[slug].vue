@@ -103,6 +103,9 @@ const article = story.value.content.newsList.find(
         &:nth-of-type(3n) {
           transform: rotate(-6deg);
         }
+        &:nth-of-type(4n) {
+          transform: rotate(0deg);
+        }
 
         &__img {
           width: 100%;
