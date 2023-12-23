@@ -9,9 +9,9 @@ onMounted(() => {
   setTimeout(() => {
     showPopUp.value = true;
   }, 4000);
-  // setTimeout(() => {
-  //   showPopUp.value = false;
-  // }, 14000);
+  setTimeout(() => {
+    showPopUp.value = false;
+  }, 20000);
 });
 </script>
 <template>
@@ -72,9 +72,8 @@ onMounted(() => {
     padding: 1rem;
     background-color: $primary-color;
     border-radius: $radius;
-    width: 100%;
-    max-width: 460px;
-    height: 80svh;
+    width: 343px;
+    height: calc(343px * 1.48);
     position: relative;
     box-shadow: $shadow;
     pointer-events: all;
