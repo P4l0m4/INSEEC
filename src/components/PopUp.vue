@@ -29,7 +29,10 @@ onMounted(() => {
         alt="logo"
       />
 
-      <div class="pop-up__wrapper__img"></div>
+      <div
+        class="pop-up__wrapper__img"
+        :style="`background-image: url(${story.content.image.filename})`"
+      ></div>
       <a
         class="pop-up__wrapper__link button-primary"
         :href="story.content.link.url"
@@ -76,7 +79,7 @@ onMounted(() => {
     box-shadow: $shadow;
     pointer-events: all;
     @media (min-width: $big-tablet-screen) {
-      height: 450px;
+      height: 550px;
       width: 345px;
     }
 
@@ -109,7 +112,6 @@ onMounted(() => {
       height: 100%;
       background-image: url("@/assets/images/placeholder.svg");
       background-size: cover;
-      background-position: center;
       border-radius: $radius;
     }
 
