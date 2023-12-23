@@ -101,10 +101,12 @@ function sortEvents(events) {
               >
               <NuxtLink
                 class="calendar__events__event__txt__time-and-place__place"
+                :to="event.maps.url"
+                target="_blank"
                 ><img src="@/assets/icons/distance.svg" alt="icon location" />{{
                   event.location
-                }}</NuxtLink
-              >
+                }}
+              </NuxtLink>
             </div>
           </div>
         </div>
