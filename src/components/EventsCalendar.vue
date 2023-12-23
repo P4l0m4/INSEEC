@@ -80,7 +80,7 @@ function sortEvents(events) {
         <div v-for="event in displayedEvents" class="calendar__events__event">
           <img
             class="calendar__events__event__img"
-            src="@/assets/images/placeholder.svg"
+            :src="event.image.filename"
             alt="evenement calendrier inseec"
           />
           <div class="calendar__events__event__txt">
@@ -93,9 +93,19 @@ function sortEvents(events) {
             <span class="calendar__events__event__txt__subtitle">{{
               event.description
             }}</span>
-            <span class="calendar__events__event__txt__time">{{
-              dayjs(event.date).format("HH[h]hh")
-            }}</span>
+            <div class="calendar__events__event__txt__time-and-place">
+              <span class="calendar__events__event__txt__time-and-place__time"
+                ><img src="@/assets/icons/schedule.svg" alt="icon location" />{{
+                  dayjs(event.date).format("HH[h]mm")
+                }}</span
+              >
+              <NuxtLink
+                class="calendar__events__event__txt__time-and-place__place"
+                ><img src="@/assets/icons/distance.svg" alt="icon location" />{{
+                  event.location
+                }}</NuxtLink
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -203,10 +213,14 @@ function sortEvents(events) {
 
   &__events {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(343px, 1fr));
     place-items: center;
     gap: 2rem;
     width: 100%;
+
+    @media (min-width: $big-tablet-screen) {
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    }
 
     &__event {
       background-color: $primary-color;
@@ -251,7 +265,7 @@ function sortEvents(events) {
 
           &__date {
             font-size: $base-text;
-            font-weight: $thick;
+            font-weight: $overweight;
             opacity: 0.6;
             color: $secondary-color;
           }
@@ -261,13 +275,40 @@ function sortEvents(events) {
           font-size: calc($base-text + 0.25rem);
           font-weight: $skinny-thick;
         }
+        &__time-and-place {
+          display: flex;
+          gap: 1rem;
+          justify-content: space-between;
+          margin-top: 1rem;
 
-        &__time {
-          font-size: $base-text;
-          font-weight: $overweight;
-          opacity: 0.6;
-          color: $secondary-color;
-          height: 100%;
+          &__time {
+            font-size: $base-text;
+            font-weight: $overweight;
+            opacity: 0.6;
+            color: $secondary-color;
+            height: 100%;
+            display: flex;
+
+            & img {
+              width: 24px;
+              height: 24px;
+            }
+          }
+
+          &__place {
+            display: flex;
+            opacity: 0.6;
+            font-size: 1rem;
+            font-weight: $skinny-thick;
+            color: $secondary-color;
+            text-decoration: underline;
+            align-items: center;
+
+            & img {
+              width: 24px;
+              height: 24px;
+            }
+          }
         }
       }
     }
