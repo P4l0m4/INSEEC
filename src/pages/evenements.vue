@@ -103,7 +103,7 @@ const story = await useAsyncStoryblok("events", { version: "published" });
 
         <iframe
           v-if="event.video.filename"
-          class="events__presentation__img"
+          class="events__presentation__video"
           :src="event.video.filename"
           :title="event.video.title"
           frameborder="0"
@@ -275,6 +275,7 @@ const story = await useAsyncStoryblok("events", { version: "published" });
           grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
           gap: 1rem;
           margin-top: 1rem;
+          place-items: center;
 
           &__frame {
             padding: 1rem 1rem 3rem 1rem;
@@ -327,6 +328,12 @@ const story = await useAsyncStoryblok("events", { version: "published" });
           box-shadow: $shadow;
         }
       }
+    }
+
+    &__video {
+      width: 100%;
+      height: 400px;
+      border-radius: $radius;
     }
   }
 }

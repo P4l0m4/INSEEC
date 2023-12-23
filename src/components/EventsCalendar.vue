@@ -4,6 +4,7 @@ const story = await useAsyncStoryblok("events", { version: "published" });
 
 const dayjs = useDayjs();
 const currentMonthWithYear = dayjs().format("YYYY-MM");
+const currentMonth = dayjs().format("MM");
 
 const monthsRef = ref();
 const displayedEvents = ref([]);
@@ -86,9 +87,14 @@ function sortEvents(events) {
           <div class="calendar__events__event__txt">
             <div class="calendar__events__event__txt__title">
               {{ event.title }}
-              <span class="calendar__events__event__txt__title__date">{{
-                dayjs(event.date).format("DD MMMM")
-              }}</span>
+              <span
+                class="calendar__events__event__txt__title__date"
+                :class="{
+                  'calendar__events__event__txt__title__date--past':
+                    dayjs(event.date).format('MM') < currentMonth,
+                }"
+                >{{ dayjs(event.date).format("DD MMMM") }}</span
+              >
             </div>
             <span class="calendar__events__event__txt__subtitle">{{
               event.description
@@ -273,6 +279,12 @@ function sortEvents(events) {
             font-weight: $overweight;
             opacity: 0.6;
             color: $secondary-color;
+
+            &--past {
+              text-decoration: line-through;
+              text-decoration-thickness: 4px;
+              text-decoration-color: $secondary-color-faded;
+            }
           }
         }
 
