@@ -232,6 +232,7 @@ function sortEvents(events) {
       flex-direction: column;
       align-items: space-between;
       width: 100%;
+      height: 100%;
       max-width: 600px;
       animation: popUp 0.4s ease;
 
@@ -259,6 +260,8 @@ function sortEvents(events) {
         gap: 0.5rem;
         padding: 1rem;
         width: 100%;
+        height: 100%;
+        justify-content: space-between;
 
         &__title {
           font-weight: $thick;

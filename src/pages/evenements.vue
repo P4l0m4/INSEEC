@@ -155,6 +155,10 @@ const story = await useAsyncStoryblok("events", { version: "published" });
     }
   }
 
+  &__description {
+    font-size: $base-text;
+  }
+
   &__showcase {
     display: flex;
     flex-direction: column;
@@ -197,16 +201,6 @@ const story = await useAsyncStoryblok("events", { version: "published" });
         &:hover {
           background-position: center right;
           filter: grayscale(0%);
-        }
-
-        &:first-of-type,
-        &:nth-of-type(5),
-        &:nth-of-type(9),
-        &:nth-of-type(13) {
-          @media (min-width: $laptop-screen) {
-            height: 300px;
-            grid-column: 1 / 4;
-          }
         }
 
         @media (min-width: $big-tablet-screen) {
@@ -289,7 +283,7 @@ const story = await useAsyncStoryblok("events", { version: "published" });
             box-shadow: $shadow;
             width: 100%;
             max-width: 300px;
-            max-height: 380px;
+            height: 380px;
 
             &:nth-of-type(1n) {
               transform: rotate(0deg);
