@@ -1,4 +1,5 @@
-import { groupBy } from '~/utils/groupBy';
+import { groupBy } from '~/utils/groupBy'; import { groupBy } from
+'~/utils/groupBy';
 <script setup lang="ts">
 import { ref, onMounted, computed } from "vue";
 import { groupBy } from "@/utils/groupBy.js";
@@ -43,10 +44,13 @@ let eventsGroupedByMonth = computed(() => {
     ...event,
     monthByYear: dayjs(event.date).format("YYYY-MM"),
   }));
-  const groupedEvents = Object.groupBy(
-    events,
-    ({ monthByYear }) => monthByYear
-  );
+  //   const groupedEvents = Object.groupBy(
+  //     events,
+  //     ({ monthByYear }) => monthByYear
+  //   );
+  //   return sortEvents(groupedEvents);
+  const groupedEvents = Object.groupBy(events, (event) => event.monthByYear);
+
   return sortEvents(groupedEvents);
 });
 
@@ -246,7 +250,7 @@ function sortEvents(events) {
 
       &__img {
         width: 100%;
-        height: 120px;
+        height: 140px;
         object-fit: cover;
         border-radius: $radius $radius 0 0;
 
