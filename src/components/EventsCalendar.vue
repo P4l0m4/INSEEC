@@ -204,7 +204,6 @@ function sortEvents(events) {
   &__events {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
     place-items: center;
     gap: 2rem;
     width: 100%;
@@ -218,6 +217,7 @@ function sortEvents(events) {
       align-items: space-between;
       width: 100%;
       max-width: 600px;
+      animation: popUp 0.4s ease;
 
       @media (min-width: $tablet-screen) {
         flex-direction: row;

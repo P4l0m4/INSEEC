@@ -19,19 +19,23 @@ let isMenuOpen = ref(false);
         alt="menu burger"
         @click="isMenuOpen = !isMenuOpen"
       />
-      <div
-        class="header__nav__invisible"
-        v-if="isMenuOpen"
-        @click="isMenuOpen = !isMenuOpen"
-      ></div>
+      <div class="header__nav__invisible" v-if="isMenuOpen"></div>
       <ul class="header__nav__ul" v-if="isMenuOpen">
         <li class="header__nav__ul__li">
-          <NuxtLink class="header__nav__ul__li__link" to="/campus" exact
+          <NuxtLink
+            class="header__nav__ul__li__link"
+            to="/campus"
+            exact
+            @click="isMenuOpen = !isMenuOpen"
             >Le campus</NuxtLink
           >
         </li>
         <li class="header__nav__ul__li">
-          <NuxtLink class="header__nav__ul__li__link" to="/evenements" exact
+          <NuxtLink
+            class="header__nav__ul__li__link"
+            to="/evenements"
+            exact
+            @click="isMenuOpen = !isMenuOpen"
             >Evénements</NuxtLink
           >
         </li>
@@ -40,16 +44,25 @@ let isMenuOpen = ref(false);
             class="header__nav__ul__li__link"
             to="/responsables-poles"
             exact
+            @click="isMenuOpen = !isMenuOpen"
             >RP</NuxtLink
           >
         </li>
         <li class="header__nav__ul__li">
-          <NuxtLink class="header__nav__ul__li__link" to="/partenaires" exact
+          <NuxtLink
+            class="header__nav__ul__li__link"
+            to="/partenaires"
+            exact
+            @click="isMenuOpen = !isMenuOpen"
             >Partenaires</NuxtLink
           >
         </li>
         <li class="header__nav__ul__li">
-          <NuxtLink class="header__nav__ul__li__link" to="/contact" exact
+          <NuxtLink
+            class="header__nav__ul__li__link"
+            to="/contact"
+            exact
+            @click="isMenuOpen = !isMenuOpen"
             >Contact</NuxtLink
           >
         </li>

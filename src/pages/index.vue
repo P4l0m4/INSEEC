@@ -128,50 +128,8 @@ const story = await useAsyncStoryblok("home", { version: "published" });
           alt="campus inseec chambéry"
         /></div
     ></Container>
-    <Container>
-      <div class="index__news">
-        <h2 class="index__news__title titles">
-          Plus de news
-          <NuxtLink
-            class="index__news__title__link button-primary"
-            to="/actualites"
-            >Voir toutes les actualités</NuxtLink
-          >
-        </h2>
-        <div class="index__news__articles">
-          <NuxtLink class="index__news__articles__article" to="/">
-            <h3 class="index__news__articles__article__title">
-              Titre de l'article
-            </h3>
-          </NuxtLink>
-          <NuxtLink class="index__news__articles__article" to="/">
-            <h3 class="index__news__articles__article__title">
-              Titre de l'article
-            </h3>
-          </NuxtLink>
-          <NuxtLink class="index__news__articles__article" to="/">
-            <h3 class="index__news__articles__article__title">
-              Titre de l'article
-            </h3>
-          </NuxtLink>
-          <NuxtLink class="index__news__articles__article" to="/">
-            <h3 class="index__news__articles__article__title">
-              Titre de l'article
-            </h3>
-          </NuxtLink>
-          <NuxtLink class="index__news__articles__article" to="/">
-            <h3 class="index__news__articles__article__title">
-              Titre de l'article
-            </h3>
-          </NuxtLink>
-          <NuxtLink class="index__news__articles__article" to="/">
-            <h3 class="index__news__articles__article__title">
-              Titre de l'article
-            </h3>
-          </NuxtLink>
-        </div>
-      </div></Container
-    >
+
+    <News />
   </section>
 </template>
 <style lang="scss" scoped>
@@ -186,7 +144,7 @@ const story = await useAsyncStoryblok("home", { version: "published" });
   }
 
   &__banner {
-    background-image: url("@/assets/images/placeholder.svg");
+    background: url("@/assets/images/placeholder.svg");
     background-size: cover;
     background-position: center;
     height: 60svh;
@@ -315,6 +273,9 @@ const story = await useAsyncStoryblok("home", { version: "published" });
         &:nth-of-type(2) {
           background-image: url("@/assets/images/intervenants.webp");
         }
+        &:nth-of-type(3) {
+          background-image: url("@/assets/images/hands.webp");
+        }
 
         @media (min-width: $big-tablet-screen) {
           height: 340px;
@@ -363,75 +324,6 @@ const story = await useAsyncStoryblok("home", { version: "published" });
       object-fit: cover;
       border-radius: $radius;
       box-shadow: $shadow;
-    }
-  }
-
-  &__news {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-
-    @media (min-width: $big-tablet-screen) {
-      gap: 2rem;
-    }
-
-    &__title {
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-
-      &__link {
-        width: 100%;
-        max-width: 400px;
-        margin-top: 1rem;
-
-        @media (min-width: $big-tablet-screen) {
-          margin-top: 0;
-          max-width: 360px;
-        }
-      }
-    }
-
-    &__articles {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      justify-content: center;
-      width: 100%;
-      gap: 1rem;
-      @media (min-width: $big-tablet-screen) {
-        gap: 2rem;
-      }
-
-      &__article {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        height: 200px;
-        border-radius: $radius;
-        background-size: cover;
-        background-position: center;
-        background-image: url("@/assets/images/placeholder.svg");
-        box-shadow: $shadow;
-        filter: grayscale(20%);
-        transition:
-          background-position 0.4s ease,
-          filter 0.4s ease;
-
-        &:hover {
-          background-position: center right;
-          filter: grayscale(0%);
-        }
-
-        &__title {
-          color: $primary-color;
-          font-weight: $skinny-thick;
-          text-shadow: $shadow;
-        }
-      }
     }
   }
 }

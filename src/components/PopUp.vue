@@ -1,5 +1,7 @@
+import { Link } from '#build/components';
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
+const story = await useAsyncStoryblok("popup", { version: "published" });
 
 let showPopUp = ref(false);
 
@@ -7,9 +9,9 @@ onMounted(() => {
   setTimeout(() => {
     showPopUp.value = true;
   }, 4000);
-  setTimeout(() => {
-    showPopUp.value = false;
-  }, 14000);
+  // setTimeout(() => {
+  //   showPopUp.value = false;
+  // }, 14000);
 });
 </script>
 <template>
@@ -28,11 +30,12 @@ onMounted(() => {
       />
 
       <div class="pop-up__wrapper__img"></div>
-      <NuxtLink
+      <a
         class="pop-up__wrapper__link button-primary"
-        to="/evenements"
+        :href="story.content.link.url"
+        :target="story.content.link.target"
         @click="showPopUp = false"
-        >En savoir plus</NuxtLink
+        >{{ story.content.linkText }}</a
       >
     </div>
   </section>
