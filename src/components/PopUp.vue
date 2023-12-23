@@ -15,7 +15,11 @@ onMounted(() => {
 });
 </script>
 <template>
-  <section class="pop-up" v-if="showPopUp" @click="showPopUp = false">
+  <section
+    class="pop-up"
+    v-if="showPopUp && story.content.image.filename"
+    @click="showPopUp = false"
+  >
     <div class="pop-up__wrapper" @click.stop>
       <img
         class="pop-up__wrapper__icon"
@@ -38,6 +42,7 @@ onMounted(() => {
         :href="story.content.link.url"
         :target="story.content.link.target"
         @click="showPopUp = false"
+        v-if="story.content.linkText && story.content.link.url"
         >{{ story.content.linkText }}</a
       >
     </div>
