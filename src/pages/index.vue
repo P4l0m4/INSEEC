@@ -198,7 +198,7 @@ useHead(() => {
 
   &__banner {
     display: flex;
-    background: url("@/assets/images/placeholder.svg");
+    background-image: url("@/assets/images/placeholder.svg");
     background-size: cover;
     background-position: center;
     height: calc(100svh - 96px);
@@ -210,10 +210,10 @@ useHead(() => {
     justify-content: space-between;
     align-items: flex-end;
     gap: 1rem;
+    position: relative;
 
     @media (min-width: $big-tablet-screen) {
       margin-bottom: 2rem;
-
       padding: 2rem;
       gap: 2rem;
     }
@@ -246,13 +246,13 @@ useHead(() => {
         width: 100%;
         font-size: 1.25rem;
         font-weight: $thick;
+        font-size: $subtitles;
         text-shadow: $shadow-text;
       }
 
       &__description {
         font-size: $base-text;
         font-weight: $skinny;
-        opacity: 0.8;
         text-shadow: $shadow-text;
         width: 100%;
       }
