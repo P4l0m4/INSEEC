@@ -15,7 +15,8 @@
     padding: 2rem;
   }
   @media (min-width: $super-big-screen) {
-    width: 70%;
+    width: 100%;
+    max-width: 2064px;
   }
 }
 </style>

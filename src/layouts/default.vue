@@ -17,7 +17,7 @@ main {
 
   @media (min-width: $big-tablet-screen) {
     gap: 4rem;
-    padding-top: 91px;
+    padding-top: 96px;
   }
 }
 </style>

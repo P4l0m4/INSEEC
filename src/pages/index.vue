@@ -38,6 +38,38 @@ useHead(() => {
           >M'inscrire à l'INSEEC Chambéry</NuxtLink
         >
       </div>
+      <div class="index__banner__socials">
+        <a
+          class="index__banner__socials__link"
+          href="https://www.facebook.com/INSEEC.Chambery/"
+          aria-label="facebook inseec chambéry"
+          target="_blank"
+          ><img
+            class="index__banner__socials__link__icon scale-on-hover"
+            src="@/assets/icons/facebook.svg"
+            alt="icone facebook inseec chambéry"
+        /></a>
+        <a
+          class="index__banner__socials__link"
+          href="https://www.instagram.com/inseec_campus_chambery/"
+          aria-label="instagram inseec chambéry"
+          target="_blank"
+          ><img
+            class="index__banner__socials__link__icon scale-on-hover"
+            src="@/assets/icons/instagram.svg"
+            alt="icone instagram inseec chambéry"
+        /></a>
+        <a
+          class="index__banner__socials__link"
+          href="https://www.linkedin.com/school/inseeccampuschamberysavoie/?originalSubdomain=fr"
+          aria-label="linkedin inseec chambéry"
+          target="_blank"
+          ><img
+            class="index__banner__socials__link__icon scale-on-hover"
+            src="@/assets/icons/linkedin.svg"
+            alt="icone linkedin inseec chambéry"
+        /></a>
+      </div>
     </div>
 
     <!-- <EventsCalendar /> -->
@@ -165,47 +197,85 @@ useHead(() => {
   }
 
   &__banner {
+    display: flex;
     background: url("@/assets/images/placeholder.svg");
     background-size: cover;
     background-position: center;
-    height: 60svh;
+    height: calc(100svh - 96px);
+    max-height: 1200px;
     width: 100%;
-    position: relative;
+    max-width: 2000px;
     margin-bottom: 6rem;
+    padding: 1rem;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 1rem;
 
     @media (min-width: $big-tablet-screen) {
       margin-bottom: 2rem;
+
+      padding: 2rem;
+      gap: 2rem;
     }
 
     &__txt {
       display: flex;
       flex-direction: column;
-      background-color: $secondary-color;
+      // background-color: $secondary-color;
       padding: 1rem;
       border-radius: $radius;
       color: $primary-color;
-      max-width: 450px;
+      width: 100%;
       gap: 1rem;
-      position: absolute;
-      bottom: -6rem;
-      left: 1rem;
-      right: 1rem;
+      // height: 100%;
+      justify-content: flex-end;
+      backdrop-filter: blur(4px);
 
       @media (min-width: $big-tablet-screen) {
+        max-width: 400px;
         bottom: -4rem;
         right: 4rem;
         left: inherit;
+        padding: 2rem;
       }
 
       &__title {
         font-size: 1.25rem;
         font-weight: $thick;
+        text-shadow: $shadow-text;
+      }
+
+      &__description {
+        font-size: $base-text;
+        font-weight: $skinny;
+        opacity: 0.8;
+        text-shadow: $shadow-text;
       }
 
       &__link {
+        font-size: $small-text;
         color: $primary-color;
         text-decoration: underline;
         text-underline-offset: 2px;
+        text-shadow: $shadow-text;
+      }
+    }
+    &__socials {
+      display: flex;
+      gap: 0.5rem;
+      flex-direction: column;
+      @media (min-width: $big-tablet-screen) {
+        flex-direction: row;
+      }
+
+      &__link {
+        display: flex;
+        cursor: pointer;
+
+        &__icon {
+          width: 24px;
+          height: 24px;
+        }
       }
     }
   }
