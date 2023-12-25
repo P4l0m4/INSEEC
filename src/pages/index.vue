@@ -201,7 +201,7 @@ useHead(() => {
     background-image: url("@/assets/images/placeholder.svg");
     background-size: cover;
     background-position: center;
-    height: calc(100svh - 96px);
+    height: calc(100svh - 88px);
     max-height: 1200px;
     width: 100%;
     max-width: 2000px;
@@ -216,6 +216,7 @@ useHead(() => {
       margin-bottom: 2rem;
       padding: 2rem;
       gap: 2rem;
+      height: calc(100svh - 96px);
     }
 
     &__txt {
