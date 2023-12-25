@@ -1,5 +1,19 @@
 <script setup lang="ts">
 const story = await useAsyncStoryblok("home", { version: "published" });
+
+useHead(() => {
+  return {
+    title: "Accueil | INSEEC Campus Chambéry Savoie",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "L’INSEEC Campus Chambéry Savoie regroupe de nombreux étudiants Bachelor (BAC+1 à BAC+3) et MSc (BAC+4 à BAC+5). De multiples formations peuvent également être suivies en rythme classique mais également en alternance",
+      },
+    ],
+  };
+});
 </script>
 <template>
   <section class="index">
@@ -116,7 +130,8 @@ const story = await useAsyncStoryblok("home", { version: "published" });
             <strong>MSc</strong> (BAC+4 à BAC+5) au sein du campus.
           </p>
           <p class="index__stats__txt__description">
-            De multiples formations peuvent également être suivi que ce soit en
+            De multiples formations peuvent également être suivies que ce soit
+            en
             <strong>rythme classique</strong> mais également en
             <strong>alternance</strong> (à partir de BAC+3).
           </p>
