@@ -83,7 +83,9 @@ const story = await useAsyncStoryblok("home", { version: "published" });
           <NuxtLink class="index__categories__boxes__link" to="/evenements"
             >ÉVÉNEMENTS</NuxtLink
           >
-          <NuxtLink class="index__categories__boxes__link" to="/intervenants"
+          <NuxtLink
+            class="index__categories__boxes__link"
+            to="/responsables-poles"
             >INTERVENANTS</NuxtLink
           >
           <NuxtLink class="index__categories__boxes__link" to="/partenaires"
