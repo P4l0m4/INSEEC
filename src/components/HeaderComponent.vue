@@ -19,7 +19,11 @@ let isMenuOpen = ref(false);
         alt="menu burger"
         @click="isMenuOpen = !isMenuOpen"
       />
-      <div class="header__nav__invisible" v-if="isMenuOpen"></div>
+      <div
+        class="header__nav__invisible"
+        v-if="isMenuOpen"
+        @click="isMenuOpen = false"
+      ></div>
       <ul class="header__nav__ul" v-if="isMenuOpen">
         <li class="header__nav__ul__li">
           <NuxtLink
@@ -45,7 +49,7 @@ let isMenuOpen = ref(false);
             to="/responsables-poles"
             exact
             @click="isMenuOpen = !isMenuOpen"
-            >RP</NuxtLink
+            >Responsables de Pôles</NuxtLink
           >
         </li>
         <li class="header__nav__ul__li">
@@ -90,7 +94,7 @@ let isMenuOpen = ref(false);
             class="header__nav__ul--desktop__li__link"
             to="/responsables-poles"
             exact
-            >RP</NuxtLink
+            >Responsables de Pôles</NuxtLink
           >
         </li>
         <li class="header__nav__ul--desktop__li">

@@ -31,13 +31,16 @@ useHead(() => {
           majestueuses montagnes, offrant ainsi un cadre remarquable à nos
           étudiants.
         </p>
-        <NuxtLink class="index__banner__txt__link" to="/campus"
-          >En savoir plus</NuxtLink
+        <NuxtLink
+          class="index__banner__txt__link"
+          target="_blank"
+          to="https://www.inseec.com/procedures-admissions/"
+          >M'inscrire à l'INSEEC Chambéry</NuxtLink
         >
       </div>
     </div>
 
-    <EventsCalendar />
+    <!-- <EventsCalendar /> -->
 
     <Container>
       <div class="index__presentation">
