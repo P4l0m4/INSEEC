@@ -229,10 +229,13 @@ useHead(() => {
       gap: 1rem;
       // height: 100%;
       justify-content: flex-end;
-      backdrop-filter: blur(4px);
+      align-items: flex-end;
+      backdrop-filter: blur(2px);
+      box-shadow: $shadow;
+      border: 1px solid rgba(255, 255, 255, 0.1);
 
       @media (min-width: $big-tablet-screen) {
-        max-width: 400px;
+        max-width: 720px;
         bottom: -4rem;
         right: 4rem;
         left: inherit;
@@ -240,6 +243,7 @@ useHead(() => {
       }
 
       &__title {
+        width: 100%;
         font-size: 1.25rem;
         font-weight: $thick;
         text-shadow: $shadow-text;
@@ -250,6 +254,7 @@ useHead(() => {
         font-weight: $skinny;
         opacity: 0.8;
         text-shadow: $shadow-text;
+        width: 100%;
       }
 
       &__link {
