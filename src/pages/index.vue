@@ -111,15 +111,16 @@ useHead(() => {
         </div>
       </div></Container
     >
-
-    <iframe
-      class="index__video"
-      src="https://www.youtube.com/embed/1N-n2IGfsps?si=WHCjPNyIiYvzkOoU"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-    ></iframe>
+    <Container>
+      <iframe
+        class="index__video"
+        src="https://www.youtube.com/embed/1N-n2IGfsps?si=WHCjPNyIiYvzkOoU"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe
+    ></Container>
 
     <Container>
       <div class="index__stats">
