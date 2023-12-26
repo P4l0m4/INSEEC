@@ -136,14 +136,13 @@ input[type="number"] {
 
   @media (min-width: $big-tablet-screen) {
     &:hover {
-      transform: scale(1.04);
+      transform: scale(1.01);
     }
   }
 }
 .button-primary {
   background-color: $secondary-color;
   color: $primary-color;
-  transition: 0.2s ease;
   position: relative;
 
   &:hover {
@@ -161,7 +160,7 @@ input[type="number"] {
   border: $text-color solid 2px;
 
   &:hover {
-    transform: scale(1.04);
+    transform: scale(1.02);
   }
 }
 
@@ -181,7 +180,7 @@ input[type="number"] {
   transition: transform 0.2s ease-in-out;
 
   &:hover {
-    transform: scale(1.04) !important;
+    transform: scale(1.02) !important;
   }
 }
 

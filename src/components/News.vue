@@ -5,25 +5,23 @@ const story = await useAsyncStoryblok("news", { version: "published" });
 <template>
   <Container>
     <div class="news">
-      <h2 class="news__title titles">
-        Plus de news
-        <NuxtLink class="news__title__link button-primary" to="/actualites"
-          >Voir toutes les actualités</NuxtLink
-        >
-      </h2>
+      <h2 class="news__title titles">Plus de news</h2>
       <div class="news__articles">
         <NuxtLink
           class="news__articles__article"
           :to="'/actualites/' + stringToSlug(article.title)"
           v-for="article in story.content.newsList"
           :key="article._uid"
-          :style="`background-image: url('${article.images[0].filename}')`"
+          :style="`backgroundImage: url(${article.images[0].filename})`"
         >
           <h3 class="news__articles__article__title">
             {{ article.title }}
           </h3>
         </NuxtLink>
       </div>
+      <!-- <NuxtLink class="news__link" to="/actualites"
+        >Toutes les actualités</NuxtLink
+      > -->
     </div></Container
   >
 </template>
@@ -35,6 +33,7 @@ const story = await useAsyncStoryblok("news", { version: "published" });
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  position: relative;
 
   @media (min-width: $big-tablet-screen) {
     gap: 2rem;
@@ -45,42 +44,53 @@ const story = await useAsyncStoryblok("news", { version: "published" });
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+  }
 
-    &__link {
-      width: 100%;
-      max-width: 400px;
-      margin-top: 1rem;
+  &__link {
+    height: 200px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    width: 1rem;
+    white-space: break-word;
+    border: red solid 1px;
 
-      @media (min-width: $big-tablet-screen) {
-        margin-top: 0;
-        max-width: 360px;
-      }
+    @media (min-width: $big-tablet-screen) {
     }
   }
 
   &__articles {
     // display: grid;
     // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    border-radius: $radius;
     display: flex;
     width: 100%;
     gap: 1rem;
     overflow-x: scroll;
+    height: 340px;
+
     @media (min-width: $big-tablet-screen) {
       gap: 2rem;
     }
 
     &__article {
       display: flex;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
+      // justify-content: center;
+      // align-items: center;
+      width: 300px;
       min-width: 300px;
-      height: 200px;
+      height: 100%;
       padding: 1rem;
+      background-color: $primary-color;
+      flex-direction: column;
       text-align: center;
-      border-radius: $radius;
+      justify-content: flex-end;
+      // border-radius: $radius;
+      border-radius: $radius 50% $radius $radius;
       background-size: cover;
       background-position: center;
+      gap: 1rem;
       background-image: url("@/assets/images/placeholder.svg");
       box-shadow: $shadow;
       filter: grayscale(20%);
@@ -95,8 +105,12 @@ const story = await useAsyncStoryblok("news", { version: "published" });
 
       &__title {
         color: $primary-color;
-        font-weight: $skinny-thick;
         text-shadow: $shadow-text;
+        font-weight: $skinny-thick;
+        width: 100%;
+        text-align: left;
+        padding: 0 1rem;
+        // text-shadow: $shadow-text;
       }
     }
   }
