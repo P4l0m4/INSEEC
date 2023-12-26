@@ -153,14 +153,18 @@ let isMenuOpen = ref(false);
 
     &__logo {
       width: 200px;
+      height: 52px;
 
       &__img {
         width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
     }
 
     &__icon {
       width: 24px;
+      height: 24px;
       position: relative;
 
       @media (min-width: $big-tablet-screen) {
