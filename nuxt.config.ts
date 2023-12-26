@@ -27,15 +27,15 @@ export default defineNuxtConfig({
       },
     },
   },
-  // sitemap: {
-  //   sitemaps: true,
-  //   siteUrl: "https://tekilawebfactory.com",
-  //   urls: async () => {
-  //     const blogPages = await getBlogPages();
-  //     const portfolioPages = await getPortfolioPages();
-  //     return [...blogPages, ...portfolioPages];
-  //   },
-  // },
+  sitemap: {
+    sitemaps: true,
+    siteUrl: "https://chamberycampus.com/",
+    // urls: async () => {
+    //   const blogPages = await getBlogPages();
+    //   const portfolioPages = await getPortfolioPages();
+    //   return [...blogPages, ...portfolioPages];
+    // },
+  },
   vue: {
     compilerOptions: {
       isCustomElement: (tag) =>

@@ -23,10 +23,17 @@ useHead(() => {
 </script>
 <template>
   <section class="index">
-    <div
-      class="index__banner"
-      :style="`background-image: url('${story.content.banner.filename}')`"
-    >
+    <picture class="index__banner">
+      <source
+        media="(min-width: 1000px)"
+        :srcset="story.content.banner.filename"
+      />
+
+      <img
+        class="index__banner__img"
+        :src="story.content.smallBanner.filename"
+        :alt="story.content.smallBanner.filename.alt"
+      />
       <div class="index__banner__txt">
         <h1 class="index__banner__txt__title subtitles">
           L’INSEEC Campus Chambéry Savoie
@@ -76,7 +83,7 @@ useHead(() => {
             alt="icone linkedin inseec chambéry"
         /></a>
       </div>
-    </div>
+    </picture>
 
     <!-- <EventsCalendar /> -->
 
@@ -225,6 +232,19 @@ useHead(() => {
       height: calc(100svh - 80px);
     }
 
+    & source {
+      display: none;
+    }
+
+    &__img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     &__txt {
       display: flex;
       flex-direction: column;
@@ -275,6 +295,7 @@ useHead(() => {
     &__socials {
       display: flex;
       gap: 0.5rem;
+      z-index: 1;
       flex-direction: row;
 
       &__link {
