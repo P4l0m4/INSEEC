@@ -12,6 +12,12 @@ useHead(() => {
           "L’INSEEC Campus Chambéry Savoie regroupe de nombreux étudiants Bachelor (BAC+1 à BAC+3) et MSc (BAC+4 à BAC+5). De multiples formations peuvent également être suivies en rythme classique mais également en alternance",
       },
     ],
+    link: [
+      {
+        rel: "prefetch",
+        href: `${story.value.content.banner.filename}`,
+      },
+    ],
   };
 });
 </script>
@@ -205,7 +211,6 @@ useHead(() => {
     max-height: 1200px;
     width: 100%;
     max-width: 2000px;
-
     padding: 1rem;
     justify-content: space-between;
     flex-direction: column;
@@ -215,10 +220,9 @@ useHead(() => {
 
     @media (min-width: $big-tablet-screen) {
       flex-direction: row;
-
       padding: 2rem;
       gap: 2rem;
-      height: calc(100svh - 96px);
+      height: calc(100svh - 80px);
     }
 
     &__txt {
