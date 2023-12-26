@@ -205,15 +205,17 @@ useHead(() => {
     max-height: 1200px;
     width: 100%;
     max-width: 2000px;
-    margin-bottom: 6rem;
+
     padding: 1rem;
     justify-content: space-between;
+    flex-direction: column;
     align-items: flex-end;
     gap: 1rem;
     position: relative;
 
     @media (min-width: $big-tablet-screen) {
-      margin-bottom: 2rem;
+      flex-direction: row;
+
       padding: 2rem;
       gap: 2rem;
       height: calc(100svh - 96px);
@@ -269,10 +271,7 @@ useHead(() => {
     &__socials {
       display: flex;
       gap: 0.5rem;
-      flex-direction: column;
-      @media (min-width: $big-tablet-screen) {
-        flex-direction: row;
-      }
+      flex-direction: row;
 
       &__link {
         display: flex;

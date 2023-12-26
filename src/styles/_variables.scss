@@ -30,7 +30,7 @@ $golden-number: 1.618;
 $small-text: 0.75rem;
 $base-text: calc($small-text * $golden-number);
 $subtitles: calc($base-text * $golden-number);
-$titles: calc($subtitles * $golden-number);
+$titles: calc($subtitles * $golden-number - 1rem);
 
 // TYPO
 $line-height: 1.5rem;

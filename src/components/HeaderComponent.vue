@@ -148,7 +148,7 @@ let isMenuOpen = ref(false);
 
     @media (min-width: $big-tablet-screen) {
       gap: 4rem;
-      padding: 1rem 2rem;
+      padding: 0.5rem 2rem;
     }
 
     &__logo {
