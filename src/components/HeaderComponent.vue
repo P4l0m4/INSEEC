@@ -31,7 +31,7 @@ let isMenuOpen = ref(false);
             to="/campus"
             exact
             @click="isMenuOpen = !isMenuOpen"
-            >Le campus</NuxtLink
+            >Campus</NuxtLink
           >
         </li>
         <li class="header__nav__ul__li">
@@ -78,7 +78,7 @@ let isMenuOpen = ref(false);
             class="header__nav__ul--desktop__li__link"
             to="/campus"
             exact
-            >Le campus</NuxtLink
+            >Campus</NuxtLink
           >
         </li>
         <li class="header__nav__ul--desktop__li">

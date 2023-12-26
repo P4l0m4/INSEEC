@@ -110,12 +110,12 @@ const story = await useAsyncStoryblok("campus", { version: "published" });
         </div>
       </div></Container
     >
-
-    <img
-      class="campus__img"
-      src="@/assets/images/placeholder.svg"
-      alt="campus inseec chambéry savoie"
-    />
+    <Container>
+      <img
+        class="campus__img"
+        src="@/assets/images/placeholder.svg"
+        alt="campus inseec chambéry savoie"
+    /></Container>
     <Container>
       <div class="campus__presentation">
         <h2 class="campus__presentation__title titles">
@@ -242,6 +242,10 @@ const story = await useAsyncStoryblok("campus", { version: "published" });
 
     @media (min-width: $big-tablet-screen) {
       gap: 3rem;
+    }
+
+    &__title {
+      width: 100%;
     }
 
     &__wrapper {
