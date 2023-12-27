@@ -339,7 +339,6 @@ useHead(() => {
     &__img {
       width: 100%;
       object-fit: cover;
-      border-radius: $radius;
       box-shadow: $shadow;
     }
   }
