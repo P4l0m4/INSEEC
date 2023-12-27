@@ -6,7 +6,7 @@ import { NuxtLink } from '#build/components';
       ><NuxtLink class="footer__links__link" to="/campus">Le campus</NuxtLink
       ><NuxtLink class="footer__links__link" to="/evenements"
         >Evénements</NuxtLink
-      ><NuxtLink class="footer__links__link" to="/responsables-poles"
+      ><NuxtLink class="footer__links__link" to="/responsables-intervenants"
         >RP</NuxtLink
       >
       <NuxtLink class="footer__links__link" to="/partenaires"

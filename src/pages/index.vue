@@ -139,7 +139,7 @@ useHead(() => {
           >
           <NuxtLink
             class="index__categories__boxes__link"
-            to="/responsables-poles"
+            to="/responsables-intervenants"
             >INTERVENANTS</NuxtLink
           >
           <NuxtLink class="index__categories__boxes__link" to="/partenaires"
