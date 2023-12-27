@@ -65,9 +65,9 @@ import { stringToSlug } from "@/utils/slugify.js";
     &__article {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-end;
       width: 100%;
-      height: 200px;
+      height: 400px;
       padding: 1rem;
       border-radius: $radius;
       background-size: cover;
@@ -88,7 +88,7 @@ import { stringToSlug } from "@/utils/slugify.js";
         color: $primary-color;
         font-weight: $skinny-thick;
         text-shadow: $shadow-text;
-        text-align: center;
+        width: 100%;
       }
     }
   }
