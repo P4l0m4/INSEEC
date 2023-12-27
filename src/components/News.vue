@@ -19,9 +19,9 @@ const story = await useAsyncStoryblok("news", { version: "published" });
           </h3>
         </NuxtLink>
       </div>
-      <!-- <NuxtLink class="news__link" to="/actualites"
+      <NuxtLink class="news__link button-secondary" to="/actualites"
         >Toutes les actualités</NuxtLink
-      > -->
+      >
     </div></Container
   >
 </template>
@@ -31,7 +31,7 @@ const story = await useAsyncStoryblok("news", { version: "published" });
   display: flex;
   gap: 1rem;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   flex-direction: column;
   position: relative;
 
@@ -47,22 +47,13 @@ const story = await useAsyncStoryblok("news", { version: "published" });
   }
 
   &__link {
-    height: 200px;
-    position: absolute;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    width: 1rem;
-    white-space: break-word;
-    border: red solid 1px;
-
+    width: 100%;
     @media (min-width: $big-tablet-screen) {
+      width: 300px;
     }
   }
 
   &__articles {
-    // display: grid;
-    // grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     border-radius: $radius;
     display: flex;
     width: 100%;

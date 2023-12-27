@@ -24,13 +24,13 @@ $shadow-primary: 0px 0px 10px rgba($primary-color, 0.2);
 $shadow-secondary: 0px 0px 10px rgba($secondary-color, 0.2);
 
 //GOLDEN NUMBER
-$golden-number: 1.618;
+$golden-number: 1.4;
 
 //FONT SIZES
-$small-text: 0.75rem;
+$small-text: 0.8rem;
 $base-text: calc($small-text * $golden-number);
 $subtitles: calc($base-text * $golden-number);
-$titles: calc($subtitles * $golden-number - 1rem);
+$titles: calc($subtitles * $golden-number);
 
 // TYPO
 $line-height: 1.5rem;

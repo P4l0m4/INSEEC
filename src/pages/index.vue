@@ -89,18 +89,22 @@ useHead(() => {
 
     <Container>
       <div class="index__presentation">
-        <div class="index__presentation__txt">
-          <h2 class="index__presentation__txt__title titles">
+        <div class="index__presentation__img">
+          <h2 class="index__presentation__img__title titles">
             L’INSEEC Campus Chambéry Savoie
           </h2>
+        </div>
+        <div class="index__presentation__txt">
+          <h3 class="index__presentation__txt__subtitle">
+            L’INSEEC Campus Chambéry Savoie adopte une ambiance à l'américaine
+          </h3>
           <p class="index__presentation__txt__description">
-            L’INSEEC Campus Chambéry Savoie adopte une ambiance à l'américaine,
-            offrant
+            Offrant
             <strong
               >de nombreuses installations destinées à l’ensemble des
-              étudiants.</strong
+              étudiants,</strong
             >
-            Il abonde en espaces de travail favorisant le co-working convivial.
+            il abonde en espaces de travail favorisant le co-working convivial.
             Une "salle du futur" a également vu le jour il y a quelques années,
             révolutionnant l'approche pédagogique avec un écran interactif
             novateur.
@@ -128,12 +132,6 @@ useHead(() => {
             >
           </p>
         </div>
-
-        <img
-          class="index__presentation__img"
-          src="@/assets/images/placeholder.svg"
-          alt="campus inseec chambéry"
-        />
       </div>
     </Container>
     <Container>
@@ -170,7 +168,7 @@ useHead(() => {
     <Container>
       <div class="index__stats">
         <div class="index__stats__txt">
-          <h2 class="index__stats__txt__title titles">
+          <h2 class="index__stats__txt__title subtitles">
             L’INSEEC Campus Chambéry Savoie, en chiffres...
           </h2>
           <p class="index__stats__txt__description">
@@ -189,7 +187,7 @@ useHead(() => {
           </p>
         </div>
         <img
-          class="index__presentation__img"
+          class="index__stats__img"
           src="@/assets/images/placeholder.svg"
           alt="campus inseec chambéry"
         /></div
@@ -312,13 +310,11 @@ useHead(() => {
 
   &__presentation {
     display: flex;
-    gap: 1rem;
     justify-content: center;
     flex-direction: column;
 
     @media (min-width: $big-tablet-screen) {
       flex-direction: row;
-      gap: 3rem;
     }
 
     &__txt {
@@ -326,16 +322,40 @@ useHead(() => {
       flex-direction: column;
       gap: 1rem;
       width: 100%;
+      background-color: $primary-color;
+      padding: 1rem;
+      // color: $primary-color;
 
       @media (min-width: $big-tablet-screen) {
         gap: 2rem;
+        padding: 2rem;
+      }
+
+      &__subtitle {
+        font-size: $subtitles;
+        font-weight: $skinny-thick;
       }
     }
 
     &__img {
       width: 100%;
-      object-fit: cover;
-      border-radius: $radius;
+      min-height: 400px;
+      background-image: url("@/assets/images/eleve-inseec.webp");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+      padding: 1rem;
+
+      @media (min-width: $big-tablet-screen) {
+        padding: 2rem;
+      }
+
+      &__title {
+        text-wrap: balance;
+        color: $primary-color;
+        text-shadow: $shadow-text;
+      }
     }
   }
 
@@ -347,6 +367,10 @@ useHead(() => {
 
     @media (min-width: $big-tablet-screen) {
       gap: 2rem;
+    }
+
+    &__title {
+      width: 100%;
     }
 
     &__boxes {
@@ -416,13 +440,11 @@ useHead(() => {
 
   &__stats {
     display: flex;
-    gap: 1rem;
     justify-content: center;
     flex-direction: column;
 
     @media (min-width: $big-tablet-screen) {
       flex-direction: row;
-      gap: 2rem;
     }
 
     &__txt {
@@ -430,9 +452,12 @@ useHead(() => {
       flex-direction: column;
       gap: 1rem;
       width: 100%;
+      background-color: $primary-color;
+      padding: 1rem;
 
       @media (min-width: $big-tablet-screen) {
         gap: 2rem;
+        padding: 2rem;
       }
 
       &__title {
