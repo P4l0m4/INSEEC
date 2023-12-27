@@ -306,6 +306,7 @@ function sortEvents(events) {
             color: $secondary-color;
             height: 100%;
             display: flex;
+            align-items: center;
 
             & img {
               width: 24px;
