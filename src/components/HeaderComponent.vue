@@ -28,10 +28,10 @@ let isMenuOpen = ref(false);
         <li class="header__nav__ul__li">
           <NuxtLink
             class="header__nav__ul__li__link"
-            to="/campus"
+            to="/programmes"
             exact
             @click="isMenuOpen = !isMenuOpen"
-            >Campus</NuxtLink
+            >Programmes</NuxtLink
           >
         </li>
         <li class="header__nav__ul__li">
@@ -76,9 +76,9 @@ let isMenuOpen = ref(false);
         <li class="header__nav__ul--desktop__li">
           <NuxtLink
             class="header__nav__ul--desktop__li__link"
-            to="/campus"
+            to="/programmes"
             exact
-            >Campus</NuxtLink
+            >Programmes</NuxtLink
           >
         </li>
         <li class="header__nav__ul--desktop__li">

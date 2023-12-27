@@ -197,7 +197,206 @@ useHead(() => {
         /></div
     ></Container>
 
+    <Container>
+      <div class="index__presentation">
+        <div class="index__presentation__img">
+          <h2 class="index__presentation__img__title titles">
+            L'EXCEPTIONNEL CAMPUS DE L’INSEEC CHAMBÉRY
+          </h2>
+        </div>
+
+        <div class="index__presentation__txt">
+          <h3 class="index__presentation__txt__title subtitles">
+            Un environnement d'exception au coeur de la Savoie
+          </h3>
+          <p class="index__presentation__txt__description">
+            Niché au cœur d'Aix Riviera, le campus de Chambéry bénéficie d'un
+            <strong
+              >emplacement privilégié, entre les eaux sereines du lac et les
+              majestueuses montagnes</strong
+            >, offrant ainsi un cadre remarquable à nos étudiants.
+          </p>
+          <p class="index__presentation__txt__description">
+            S'étendant aux pieds des Alpes, Chambéry est du fait de son
+            emplacement proche des plus grands lacs naturels de France. Cete
+            ville se trouve à
+            <strong
+              >proximité immédiate de la Suisse, de l'Italie et de l'Allemagne,
+              offrant ainsi un environnement géographique exceptionnel pour les
+              études et pour la poursuite professionnelle</strong
+            >
+            de nos étudiants.
+          </p>
+          <NuxtLink
+            class="index__presentation__txt__link button-tertiary"
+            target="_blank"
+            to="https://www.inseec.com/procedures-admissions/"
+            >M'inscrire à l'INSEEC Chambéry</NuxtLink
+          >
+        </div>
+      </div></Container
+    >
+
+    <Container>
+      <div class="index__presentation">
+        <div class="index__presentation__img">
+          <h2 class="index__presentation__img__title titles">
+            UN EMPLACEMENT PROPICE A L’EMPLOI
+          </h2>
+        </div>
+        <div class="index__presentation__txt">
+          <h3 class="index__presentation__txt__subtitle subtitles">
+            Un campus au cœur d'un bassin économique dynamique
+          </h3>
+          <p class="index__presentation__txt__description">
+            La région Rhône-Alpes, en tant que
+            <strong>deuxième région économique de France</strong> et sixième
+            d’Europe, représente un
+            <strong>vivier considérable en termes d'emplois</strong>... Que ce
+            soit dans la recherche de stage ou d’alternance mais également en
+            débouché après un BAC+3 ou BAC+5.
+          </p>
+          <p class="index__presentation__txt__description">
+            La Savoie se distingue par son expertise indéniable dans les
+            <strong>sports de montagne et les activités sportives</strong>,
+            abritant la plus grande concentration nationale de leaders
+            industriels et de PME/PMI innovantes dans les domaines du sport et
+            des loisirs.
+          </p>
+          <p class="index__presentation__txt__description">
+            Notre campus est présent sur Savoie Technolac, joyau de l'innovation
+            économique et du transfert technologique, qui arbore la
+            certification ISO 14001 et s'impose comme un modèle de développement
+            durable.
+          </p>
+        </div>
+      </div></Container
+    >
+
+    <Container>
+      <img
+        class="index__img"
+        src="@/assets/images/placeholder.svg"
+        alt="campus inseec chambéry savoie"
+    /></Container>
+
+    <Container>
+      <div class="index__presentation">
+        <div class="index__presentation__img">
+          <h2 class="index__presentation__img__title titles">
+            UN LIEN FORT AVEC LE SPORT
+          </h2>
+        </div>
+
+        <div class="index__presentation__txt">
+          <h3 class="index__presentation__txt__subtitle subtitles">
+            Un territoire et un campus propices aux activités sportives
+          </h3>
+          <p class="index__presentation__txt__description">
+            La région Savoie - Haute-Savoie regorge d'opportunités touristiques,
+            notamment grâce à ses
+            <strong
+              >stations de ski et ses nombreuses opportunités de sport
+              outdoor.</strong
+            >
+            La destination Savoie Mont- Blanc, avec ses stations d'altitude
+            parmi les plus prisées de France, offre des paysages idylliques pour
+            les amateurs de tourisme.
+          </p>
+          <p class="index__presentation__txt__description">
+            Chambéry se distingue par une architecture d'inspiration
+            piémontaise. Son centre historique, niché au pied du château,
+            dévoile un tissu urbain dense et singulier.
+          </p>
+
+          <NuxtLink
+            class="index__presentation__txt__link button-tertiary"
+            target="_blank"
+            to="https://www.inseec.com/procedures-admissions/"
+            >M'inscrire à l'INSEEC Chambéry</NuxtLink
+          >
+        </div>
+      </div></Container
+    >
+
+    <Container>
+      <div class="index__presentation">
+        <div class="index__presentation__img">
+          <h2 class="index__presentation__img__title titles">
+            UNE PÉDAGOGIE TOURNÉE A 100% VERS NOS ÉTUDIANTS
+          </h2>
+        </div>
+        <div class="index__presentation__txt">
+          <p class="index__presentation__txt__description subtitles">
+            L’approche pédagogique sur notre campus de Chambéry se distingue par
+            sa dynamique, axée sur le
+            <strong>"Learning by doing"</strong>.
+          </p>
+
+          <p class="index__presentation__txt__description">
+            Nous formons nos étudiants à la gestion de projets, les encourageant
+            ainsi à
+            <strong
+              >développer leurs compétences entrepreneuriales tout en renforçant
+              leur réseau professionnel. Le département des relations avec les
+              entreprises</strong
+            >, en collaboration avec notre système de "matching",
+            <strong
+              >prépare chaque étudiant à son immersion dans le monde
+              professionnel.</strong
+            >
+          </p>
+          <ul class="index__presentation__txt__ul">
+            Nos étudiants bénéficient :
+            <li class="index__presentation__txt__ul__li">
+              D’un réseau exclusif de plus de
+              <strong>1 000 partenaires</strong>
+            </li>
+            <li class="index__presentation__txt__ul__li">
+              D’un
+              <strong>dispositif adapté aux sportifs de haut niveau :</strong>
+              un campus en ligne spécialement conçu pour répondre à leurs
+              exigences
+            </li>
+            <li class="index__presentation__txt__description__ul__li">
+              D’un<strong> suivi personnalisé</strong> pour chacun
+            </li>
+            <li class="index__presentation__wrapper__txt__ul__li">
+              D’<strong>associations étudiantes</strong> dynamiques
+            </li>
+            <li class="index__presentation__wrapper__txt__ul__li">
+              D’un
+              <strong
+                >enseignement dispensé par de nombreux professionnels</strong
+              >
+              du secteur
+            </li>
+          </ul>
+          <p class="index__presentation__txt__description">
+            Le campus de Chambéry offre une variété de services adaptés à toutes
+            les atentes et besoins de nos étudiants.
+          </p>
+
+          <NuxtLink
+            class="index__presentation__txt__link button-tertiary"
+            target="_blank"
+            to="https://www.inseec.com/procedures-admissions/"
+            >M'inscrire à l'INSEEC Chambéry</NuxtLink
+          >
+        </div>
+      </div></Container
+    >
+
     <News />
+
+    <div class="index__mini-banner">
+      <span class="index__mini-banner__txt">Pour en savoir plus, RDV sur</span
+      ><a
+        class="index__mini-banner__link button-primary"
+        href="https://www.inseec.com/"
+        >INSEEC.COM</a
+      >
+    </div>
   </section>
 </template>
 <style lang="scss" scoped>
@@ -342,6 +541,20 @@ useHead(() => {
         width: 100%;
       }
 
+      &__ul {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        width: 100%;
+
+        &__li {
+          list-style: none;
+
+          &:first-of-type {
+            margin-top: 1rem;
+          }
+        }
+      }
       &__link {
         margin-top: auto;
       }
@@ -484,6 +697,36 @@ useHead(() => {
       width: 100%;
       object-fit: cover;
       box-shadow: $shadow;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    object-fit: cover;
+    height: 400px;
+
+    @media (min-width: $big-tablet-screen) {
+      height: 600px;
+    }
+  }
+
+  &__mini-banner {
+    display: flex;
+    background-color: $secondary-color;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    width: 100%;
+
+    &__txt {
+      color: $primary-color;
+    }
+
+    &__link {
+      background-color: $primary-color;
+      color: $secondary-color;
     }
   }
 }
