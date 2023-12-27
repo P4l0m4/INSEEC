@@ -563,7 +563,12 @@ useHead(() => {
     &__img {
       width: 100%;
       min-height: 400px;
-      background-image: url("@/assets/images/eleve-inseec.webp");
+      background-image: linear-gradient(
+          190deg,
+          rgba(255, 255, 255, 0) 20%,
+          $secondary-color
+        ),
+        url("@/assets/images/eleve-inseec.webp");
       background-size: cover;
       background-position: center;
       display: flex;
@@ -731,7 +736,12 @@ useHead(() => {
   }
 }
 
-// #sport {
-//   background-image: url("@/assets/images/sport.webp");
-// }
+#sport {
+  background-image: linear-gradient(
+      190deg,
+      rgba(255, 255, 255, 0) 20%,
+      $secondary-color
+    ),
+    url("@/assets/images/sport.webp");
+}
 </style>

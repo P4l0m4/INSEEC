@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const story = await useAsyncStoryblok("campus", { version: "published" });
+const story = await useAsyncStoryblok("programs", { version: "published" });
 
 useHead(() => {
   return {
