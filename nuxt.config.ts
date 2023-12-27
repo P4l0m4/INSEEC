@@ -1,6 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import { getBlogPages, getPortfolioPages } from "./src/utils/sitemap.js";
+import { getNews } from "./src/utils/sitemap.js";
 
 export default defineNuxtConfig({
   ssr: false,
@@ -30,11 +30,11 @@ export default defineNuxtConfig({
   sitemap: {
     sitemaps: true,
     siteUrl: "https://chamberycampus.com/",
-    // urls: async () => {
-    //   const blogPages = await getBlogPages();
-    //   const portfolioPages = await getPortfolioPages();
-    //   return [...blogPages, ...portfolioPages];
-    // },
+    urls: async () => {
+      const newsPages = await getNews();
+
+      return [...newsPages];
+    },
   },
   vue: {
     compilerOptions: {
