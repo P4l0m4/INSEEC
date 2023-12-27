@@ -282,7 +282,7 @@ useHead(() => {
 
     <Container>
       <div class="index__presentation">
-        <div class="index__presentation__img">
+        <div id="sport" class="index__presentation__img">
           <h2 class="index__presentation__img__title titles">
             UN LIEN FORT AVEC LE SPORT
           </h2>
@@ -730,4 +730,8 @@ useHead(() => {
     }
   }
 }
+
+// #sport {
+//   background-image: url("@/assets/images/sport.webp");
+// }
 </style>
