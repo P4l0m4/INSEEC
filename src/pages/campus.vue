@@ -55,6 +55,12 @@ useHead(() => {
               >
               de nos étudiants.
             </p>
+            <NuxtLink
+              class="campus__presentation__wrapper__txt__link button-tertiary"
+              target="_blank"
+              to="https://www.inseec.com/procedures-admissions/"
+              >M'inscrire à l'INSEEC Chambéry</NuxtLink
+            >
           </div>
 
           <img
@@ -120,6 +126,13 @@ useHead(() => {
               piémontaise. Son centre historique, niché au pied du château,
               dévoile un tissu urbain dense et singulier.
             </p>
+
+            <NuxtLink
+              class="campus__presentation__wrapper__txt__link button-tertiary"
+              target="_blank"
+              to="https://www.inseec.com/procedures-admissions/"
+              >M'inscrire à l'INSEEC Chambéry</NuxtLink
+            >
           </div>
         </div>
       </div></Container
@@ -185,6 +198,13 @@ useHead(() => {
               Le campus de Chambéry offre une variété de services adaptés à
               toutes les atentes et besoins de nos étudiants.
             </p>
+
+            <NuxtLink
+              class="campus__presentation__wrapper__txt__link button-tertiary"
+              target="_blank"
+              to="https://www.inseec.com/procedures-admissions/"
+              >M'inscrire à l'INSEEC Chambéry</NuxtLink
+            >
           </div>
 
           <img
@@ -264,14 +284,12 @@ useHead(() => {
 
     &__wrapper {
       display: flex;
-      gap: 1rem;
       justify-content: center;
       flex-direction: column;
       width: 100%;
 
       @media (min-width: $big-tablet-screen) {
         flex-direction: row;
-        gap: 3rem;
       }
 
       &__txt {
@@ -279,15 +297,20 @@ useHead(() => {
         flex-direction: column;
         gap: 1rem;
         width: 100%;
+        background-color: $primary-color;
+        padding: 1rem;
+        align-items: flex-end;
 
         @media (min-width: $big-tablet-screen) {
           gap: 2rem;
+          padding: 2rem;
         }
 
         &__ul {
           display: flex;
           flex-direction: column;
           gap: 1rem;
+          width: 100%;
 
           &__li {
             list-style: none;
@@ -297,11 +320,18 @@ useHead(() => {
             }
           }
         }
+
+        &__description {
+          width: 100%;
+        }
+
+        &__link {
+          margin-top: auto;
+        }
       }
       &__img {
         width: 100%;
         object-fit: cover;
-        border-radius: $radius;
         box-shadow: $shadow;
       }
     }
