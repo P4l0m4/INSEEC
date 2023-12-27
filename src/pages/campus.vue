@@ -1,5 +1,19 @@
 <script setup lang="ts">
 const story = await useAsyncStoryblok("campus", { version: "published" });
+
+useHead(() => {
+  return {
+    title: "Campus | INSEEC Campus Chambéry Savoie",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Découvrez le campus de l’INSEEC Chambéry Savoie. Un environnement d'exception au coeur de la Savoie.",
+      },
+    ],
+  };
+});
 </script>
 <template>
   <section class="campus">

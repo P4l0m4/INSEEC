@@ -1,3 +1,19 @@
+<script setup>
+useHead(() => {
+  return {
+    title: "Contact | INSEEC Campus Chambéry Savoie",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Contacter l’INSEEC Campus Chambéry Savoie. Vos interlocuteurs sur le campus.",
+      },
+    ],
+  };
+});
+</script>
+
 <template>
   <section class="contact">
     <Container>

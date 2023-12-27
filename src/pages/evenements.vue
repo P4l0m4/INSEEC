@@ -1,6 +1,20 @@
 <script setup lang="ts">
 import { stringToSlug } from "~/utils/slugify";
 const story = await useAsyncStoryblok("events", { version: "published" });
+
+useHead(() => {
+  return {
+    title: "Evénements | INSEEC Campus Chambéry Savoie",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Découvrez les événements exclusifs de l’INSEEC Campus Chambéry Savoie.",
+      },
+    ],
+  };
+});
 </script>
 <template>
   <section class="events">

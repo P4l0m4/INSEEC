@@ -1,5 +1,19 @@
 <script setup lang="ts">
 const story = await useAsyncStoryblok("poles", { version: "published" });
+
+useHead(() => {
+  return {
+    title: "Responsables de Pôles | INSEEC Campus Chambéry Savoie",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Découvrez les responsables de pôles de l’INSEEC Campus Chambéry Savoie.",
+      },
+    ],
+  };
+});
 </script>
 <template>
   <section class="responsables-poles">

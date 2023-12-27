@@ -1,5 +1,18 @@
 <script setup lang="ts">
 const story = await useAsyncStoryblok("partners", { version: "published" });
+
+useHead(() => {
+  return {
+    title: "Partenaires | INSEEC Campus Chambéry Savoie",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: "Déouvrez les partenaires de l’INSEEC Campus Chambéry Savoie.",
+      },
+    ],
+  };
+});
 </script>
 <template>
   <section class="partners">
