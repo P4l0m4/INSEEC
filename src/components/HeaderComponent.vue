@@ -135,7 +135,7 @@ let isMenuOpen = ref(false);
   width: 100%;
   position: fixed;
   background-color: $primary-color;
-  z-index: 1;
+  z-index: 2;
 
   &__nav {
     max-width: 2000px;
