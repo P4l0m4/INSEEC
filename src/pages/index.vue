@@ -199,7 +199,7 @@ useHead(() => {
 
     <Container>
       <div class="index__presentation">
-        <div class="index__presentation__img">
+        <div id="savoie" class="index__presentation__img">
           <h2 class="index__presentation__img__title titles">
             L'EXCEPTIONNEL CAMPUS DE L’INSEEC CHAMBÉRY
           </h2>
@@ -321,7 +321,7 @@ useHead(() => {
 
     <Container>
       <div class="index__presentation">
-        <div class="index__presentation__img">
+        <div id="lbd" class="index__presentation__img">
           <h2 class="index__presentation__img__title titles">
             UNE PÉDAGOGIE TOURNÉE A 100% VERS NOS ÉTUDIANTS
           </h2>
@@ -743,5 +743,21 @@ useHead(() => {
       $secondary-color
     ),
     url("@/assets/images/sport.webp");
+}
+#lbd {
+  background-image: linear-gradient(
+      190deg,
+      rgba(255, 255, 255, 0) 20%,
+      $secondary-color
+    ),
+    url("@/assets/images/learning-by-doing.webp");
+}
+#savoie {
+  background-image: linear-gradient(
+      190deg,
+      rgba(255, 255, 255, 0) 20%,
+      $secondary-color
+    ),
+    url("@/assets/images/mountains.webp");
 }
 </style>
