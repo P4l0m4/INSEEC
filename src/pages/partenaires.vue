@@ -34,7 +34,11 @@ useHead(() => {
             class="partners__companies__list__company"
             v-for="company in story.content.companies"
             :key="company._uid"
-            :style="`background-image: url('${company.image.filename}')`"
+            :style="`background-image: linear-gradient(
+      190deg,
+      rgba(255, 255, 255, 0) 20%,
+      #202020
+    ), url('${company.image.filename}')`"
           >
             <div class="partners__companies__list__company__txt">
               <span class="partners__companies__list__company__txt__name">{{
@@ -57,7 +61,11 @@ useHead(() => {
             class="partners__clubs__list__club"
             v-for="association in story.content.associations"
             :key="association._uid"
-            :style="`background-image: url('${association.image.filename}')`"
+            :style="`background-image: linear-gradient(
+      190deg,
+      rgba(255, 255, 255, 0) 20%,
+      #202020
+    ), url('${association.image.filename}')`"
           >
             <div class="partners__clubs__list__club__txt">
               <span class="partners__clubs__list__club__txt__name">{{
@@ -144,7 +152,7 @@ useHead(() => {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        background-image: url("@/assets/images/placeholder-person.webp");
+        background-image: url("@/assets/images/placeholder.svg");
         background-color: $text-color;
         background-size: cover;
         background-position: center;

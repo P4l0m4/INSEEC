@@ -433,6 +433,19 @@ useHead(() => {
       height: calc(100svh - 80px);
     }
 
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(
+        190deg,
+        rgba(255, 255, 255, 0) 60%,
+        $secondary-color
+      );
+    }
+
     & source {
       display: none;
     }
@@ -447,6 +460,7 @@ useHead(() => {
     }
 
     &__txt {
+      z-index: 1;
       display: flex;
       flex-direction: column;
       // background-color: $secondary-color;

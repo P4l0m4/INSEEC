@@ -19,7 +19,7 @@ useHead(() => {
   <section class="employees">
     <div
       class="employees__banner"
-      :style="`background-image: url('${story.content.banner.filename}')`"
+      :style="`background-image:  url('${story.content.banner.filename}')`"
     >
       <h1 class="employees__banner__title subtitles">
         Mettre des visages sur vos programmes
@@ -36,6 +36,11 @@ useHead(() => {
             class="employees__pole__people__person"
             v-for="person in pole.persons"
             :key="person._uid"
+            :style="`background-image: linear-gradient(
+      190deg,
+      rgba(255, 255, 255, 0) 20%,
+      #202020
+    ), url('${person.image.filename}')`"
           >
             <div class="employees__pole__people__person__txt">
               <span class="employees__pole__people__person__txt__name">{{
@@ -63,6 +68,11 @@ useHead(() => {
             class="employees__intervenants__people__person"
             v-for="intervenant in story.content.intervenants"
             :key="intervenant._uid"
+            :style="`background-image: linear-gradient(
+      190deg,
+      rgba(255, 255, 255, 0) 20%,
+      #202020
+    ), url('${intervenant.image.filename}')`"
           >
             <div class="employees__intervenants__people__person__txt">
               <span
@@ -142,7 +152,12 @@ useHead(() => {
       }
 
       &__person {
-        background-image: url("@/assets/images/placeholder-person.webp");
+        background-image: linear-gradient(
+            190deg,
+            rgba(255, 255, 255, 0) 20%,
+            $text-color
+          ),
+          url("@/assets/images/placeholder-person.webp");
         background-size: cover;
         background-position: center;
         display: flex;
@@ -213,7 +228,12 @@ useHead(() => {
       }
 
       &__person {
-        background-image: url("@/assets/images/placeholder-person.webp");
+        background-image: linear-gradient(
+            190deg,
+            rgba(255, 255, 255, 0) 20%,
+            $text-color
+          ),
+          url("@/assets/images/placeholder-person.webp");
         background-size: cover;
         background-position: center;
         display: flex;
