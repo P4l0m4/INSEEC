@@ -168,13 +168,8 @@ input[type="number"] {
 .button-tertiary {
   font-size: $small-text;
   text-decoration: underline;
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
   color: $secondary-color;
-
-  &:hover {
-    opacity: 1;
-  }
+  text-underline-offset: 2px;
 }
 
 .scale-on-hover {

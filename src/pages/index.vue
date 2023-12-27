@@ -39,7 +39,7 @@ useHead(() => {
           étudiants.
         </p>
         <NuxtLink
-          class="index__banner__txt__link"
+          class="index__banner__txt__link button-tertiary"
           target="_blank"
           to="https://www.inseec.com/procedures-admissions/"
           >M'inscrire à l'INSEEC Chambéry</NuxtLink
@@ -125,6 +125,12 @@ useHead(() => {
               étudiants.</strong
             >
           </p>
+          <NuxtLink
+            class="index__presentation__txt__link button-tertiary"
+            target="_blank"
+            to="https://www.inseec.com/procedures-admissions/"
+            >M'inscrire à l'INSEEC Chambéry</NuxtLink
+          >
         </div>
       </div>
     </Container>
@@ -176,9 +182,13 @@ useHead(() => {
             <strong>rythme classique</strong> mais également en
             <strong>alternance</strong> (à partir de BAC+3).
           </p>
-          <p class="index__stats__txt__description">
-            En quelques chiffres l’INSEEC Campus Chambéry Savoie ça donne ça :
-          </p>
+
+          <NuxtLink
+            class="index__stats__txt__link button-tertiary"
+            target="_blank"
+            to="https://www.inseec.com/procedures-admissions/"
+            >M'inscrire à l'INSEEC Chambéry</NuxtLink
+          >
         </div>
         <img
           class="index__stats__img"
@@ -277,10 +287,7 @@ useHead(() => {
       }
 
       &__link {
-        font-size: $small-text;
         color: $primary-color;
-        text-decoration: underline;
-        text-underline-offset: 2px;
         text-shadow: $shadow-text;
       }
     }
@@ -318,7 +325,7 @@ useHead(() => {
       width: 100%;
       background-color: $primary-color;
       padding: 1rem;
-      // color: $primary-color;
+      align-items: flex-end;
 
       @media (min-width: $big-tablet-screen) {
         gap: 2rem;
@@ -328,6 +335,15 @@ useHead(() => {
       &__subtitle {
         font-size: $subtitles;
         font-weight: $skinny-thick;
+        width: 100%;
+      }
+
+      &__description {
+        width: 100%;
+      }
+
+      &__link {
+        margin-top: auto;
       }
     }
 
@@ -448,6 +464,7 @@ useHead(() => {
       width: 100%;
       background-color: $primary-color;
       padding: 1rem;
+      align-items: flex-end;
 
       @media (min-width: $big-tablet-screen) {
         gap: 2rem;
@@ -455,14 +472,17 @@ useHead(() => {
       }
 
       &__title {
-        text-wrap: balance;
+        width: 100%;
+      }
+
+      &__link {
+        margin-top: auto;
       }
     }
 
     &__img {
       width: 100%;
       object-fit: cover;
-      border-radius: $radius;
       box-shadow: $shadow;
     }
   }
