@@ -4,14 +4,50 @@ import { ref, onMounted } from "vue";
 const story = await useAsyncStoryblok("popup", { version: "published" });
 
 let showPopUp = ref(false);
+let popUpID = ref(story.value.content.image.id);
 
-onMounted(() => {
+//read value of all cookies
+const cookies = document.cookie
+  .split(";")
+  .map((cookie) => cookie.split("="))
+  .reduce(
+    (accumulator, [key, value]) => ({
+      ...accumulator,
+      [key.trim()]: decodeURIComponent(value),
+    }),
+    {}
+  );
+
+function displayPopUp() {
   setTimeout(() => {
     showPopUp.value = true;
   }, 4000);
   setTimeout(() => {
     showPopUp.value = false;
   }, 20000);
+}
+
+function closePopUp() {
+  showPopUp.value = false;
+  document.cookie = "popUpClosed=true;max-age=86400";
+}
+
+onMounted(() => {
+  if (cookies.popUpClosed === undefined) {
+    document.cookie = "popUpClosed=false;max-age=86400";
+  }
+  if (cookies.popUpID === undefined) {
+    document.cookie = `popUpID=${popUpID.value};max-age=604800`;
+  }
+
+  if (cookies.popUpClosed === "true" && cookies.popUpID != popUpID.value) {
+    displayPopUp();
+    document.cookie = `popUpID=${popUpID.value};max-age=604800`;
+  } else if (cookies.popUpID === popUpID.value) {
+    document.cookie = "popUpClosed=true;max-age=86400";
+  } else if (cookies.popUpClosed === "false") {
+    displayPopUp();
+  }
 });
 </script>
 <template>
@@ -21,7 +57,7 @@ onMounted(() => {
     @click="showPopUp = false"
   >
     <div class="pop-up__wrapper" @click.stop>
-      <div class="pop-up__wrapper__close" @click="showPopUp = false">
+      <div class="pop-up__wrapper__close" @click="closePopUp()">
         <img
           class="pop-up__wrapper__close__icon"
           src="@/assets/icons/close.svg"
@@ -79,8 +115,8 @@ onMounted(() => {
     padding: 1rem;
     background-color: $primary-color;
     border-radius: $radius;
-    width: 343px;
-    height: calc(343px * 1.48);
+    width: 320px;
+    height: calc(320px * 1.58);
     position: relative;
     box-shadow: $shadow;
     pointer-events: all;
@@ -93,6 +129,7 @@ onMounted(() => {
       right: 1rem;
       top: 1rem;
       position: absolute;
+
       &__icon {
         width: 26px;
         height: 26px;
