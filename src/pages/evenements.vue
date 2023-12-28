@@ -133,6 +133,7 @@ useHead(() => {
   flex-direction: column;
   gap: 4rem;
   align-items: center;
+  overflow: hidden;
 
   @media (min-width: $big-tablet-screen) {
     gap: 6rem;
@@ -330,13 +331,14 @@ useHead(() => {
         border-radius: $radius;
         box-shadow: $shadow;
         width: 100%;
+        height: 560px;
         max-width: 450px;
-        max-height: 560px;
         transform: rotate(6deg);
 
         &__img {
           width: 100%;
           height: 100%;
+          max-height: 528px;
           object-fit: cover;
           border-radius: $radius;
           box-shadow: $shadow;
