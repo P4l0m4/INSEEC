@@ -201,8 +201,6 @@ function sortPrograms(programs) {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
-          overflow: hidden;
-          height: 4rem;
           transition: margin-top 0.2s;
 
           &__filter {
@@ -227,26 +225,6 @@ function sortPrograms(programs) {
               box-shadow: $shadow-secondary;
             }
 
-            &:nth-of-type(2) {
-              transition: margin-top 0.2s;
-              margin-top: 10rem;
-            }
-
-            &--selected {
-              order: 0;
-
-              &:hover {
-                background-color: $primary-color;
-                color: $secondary-color;
-                box-shadow: none;
-                transform: none !important;
-              }
-
-              & img {
-                visibility: visible;
-              }
-            }
-
             &__img {
               visibility: hidden;
               transition: transform 0.2s;
@@ -255,12 +233,6 @@ function sortPrograms(programs) {
                 transform: rotate(180deg);
               }
             }
-          }
-          &--displayed {
-            height: fit-content;
-          }
-          &--displayed > :nth-child(2) {
-            margin-top: 0rem;
           }
         }
       }
