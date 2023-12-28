@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { ref, onMounted, computed } from "vue";
 import { groupBy } from "@/utils/groupBy.js";
 const story = await useAsyncStoryblok("programs", { version: "published" });
@@ -19,6 +19,14 @@ useHead(() => {
 
 let rotateArrow = ref(false);
 let selected = ref(story.value.content.programsList[0].pole);
+const displayedPrograms = ref([]);
+
+function selectDotAndScroll(poles, index) {
+  selected.value = index;
+  let selected = monthsRef.value[index];
+
+  displayedPrograms.value = poles;
+}
 
 let programsGroupedByPole = computed(() => {
   const program = story.value.content.programsList.map((program) => ({
@@ -61,7 +69,8 @@ function sortPrograms(programs) {
       ><div class="programs__list">
         <div class="programs__list__filters">
           <div class="programs__list__filters__poles">
-            <label class="programs__list__filters__poles__label">Pôle</label>
+            <label class="programs__list__filters__poles__label">Domaine</label>
+
             <div
               class="programs__list__filters__poles__choices"
               :class="{
@@ -69,31 +78,58 @@ function sortPrograms(programs) {
                   rotateArrow === true,
               }"
             >
+              <div
+                class="programs__list__filters__poles__choices__placeholder"
+                @click="rotateArrow = !rotateArrow"
+              >
+                {{ selected
+                }}<img
+                  class="programs__list__filters__poles__choices__placeholder__img"
+                  src="@/assets/icons/arrow.svg"
+                  alt="icone arrow"
+                  :class="{
+                    'programs__list__filters__poles__choices__placeholder__img--rotated':
+                      rotateArrow === true,
+                  }"
+                />
+              </div>
               <button
                 class="programs__list__filters__poles__choices__filter scale-on-hover"
-                v-for="(program, pole) in programsGroupedByPole"
+                v-for="(program, pole, index) in programsGroupedByPole"
+                v-show="pole !== selected"
+                ref="monthsRef"
                 :key="pole"
                 :class="{
                   'programs__list__filters__poles__choices__filter--selected':
                     selected === pole,
                 }"
-                @click="(selected = pole), (rotateArrow = !rotateArrow)"
+                @click="
+                  (rotateArrow = !rotateArrow), selectDotAndScroll(pole, index)
+                "
               >
-                {{ pole
-                }}<img
-                  class="programs__list__filters__poles__choices__filter__img"
-                  src="@/assets/icons/arrow.svg"
-                  alt="icone arrow"
-                  :class="{
-                    'programs__list__filters__poles__choices__filter__img--rotated':
-                      rotateArrow === true,
-                  }"
-                />
+                {{ pole }}
               </button>
             </div>
           </div>
-        </div></div
-    ></Container>
+        </div>
+
+        <div class="programs__cursus">
+          <div
+            v-for="program in displayedPrograms"
+            class="programs__cursus__event"
+          >
+            <div class="programs__cursus__event__txt">
+              <div class="programs__cursus__event__txt__title">
+                {{ program.name }}
+              </div>
+              <span class="programs__cursus__event__txt__subtitle">{{
+                program
+              }}</span>
+            </div>
+          </div>
+        </div>
+      </div></Container
+    >
   </section>
 </template>
 
@@ -185,12 +221,14 @@ function sortPrograms(programs) {
       &__poles {
         display: flex;
         align-items: flex-start;
+        width: 100%;
 
         &__label {
           background-color: $primary-color;
           font-size: $base-text;
           font-weight: $skinny;
           display: flex;
+          border-radius: $radius;
           gap: 1rem;
           justify-content: space-between;
           align-items: center;
@@ -201,14 +239,21 @@ function sortPrograms(programs) {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
-          transition: margin-top 0.2s;
+          padding-top: 3.4rem;
+          position: relative;
+          height: 2.2rem;
+          width: 100%;
+          overflow-y: hidden;
+
+          @media (min-width: $big-tablet-screen) {
+            width: 50%;
+          }
 
           &__filter {
             display: flex;
             align-items: center;
             justify-content: space-between;
             background-color: $primary-color;
-            color: $secondary-color;
             border-radius: $radius;
             white-space: nowrap;
             cursor: pointer;
@@ -224,15 +269,35 @@ function sortPrograms(programs) {
               color: $primary-color;
               box-shadow: $shadow-secondary;
             }
+          }
+
+          &__placeholder {
+            display: flex;
+            justify-content: space-between;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: $primary-color;
+            font-size: $base-text;
+            border-radius: $radius;
+            position: absolute;
+            inset: 0;
+            white-space: nowrap;
+            height: fit-content;
+            width: 100%;
+
+            cursor: pointer;
 
             &__img {
-              visibility: hidden;
               transition: transform 0.2s;
 
               &--rotated {
                 transform: rotate(180deg);
               }
             }
+          }
+
+          &--displayed {
+            height: fit-content;
           }
         }
       }
