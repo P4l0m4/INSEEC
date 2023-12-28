@@ -21,10 +21,8 @@ let rotateArrow = ref(false);
 let selected = ref(story.value.content.programsList[0].pole);
 const displayedPrograms = ref([]);
 
-function selectDotAndScroll(poles, index) {
-  selected.value = index;
-  let selected = monthsRef.value[index];
-
+function selectProgram(poles) {
+  // selected.value = poles;
   displayedPrograms.value = poles;
 }
 
@@ -95,17 +93,14 @@ function sortPrograms(programs) {
               </div>
               <button
                 class="programs__list__filters__poles__choices__filter scale-on-hover"
-                v-for="(program, pole, index) in programsGroupedByPole"
+                v-for="pole in programsGroupedByPole"
                 v-show="pole !== selected"
-                ref="monthsRef"
                 :key="pole"
                 :class="{
                   'programs__list__filters__poles__choices__filter--selected':
                     selected === pole,
                 }"
-                @click="
-                  (rotateArrow = !rotateArrow), selectDotAndScroll(pole, index)
-                "
+                @click="(rotateArrow = !rotateArrow), selectProgram(pole)"
               >
                 {{ pole }}
               </button>
@@ -123,7 +118,7 @@ function sortPrograms(programs) {
                 {{ program.name }}
               </div>
               <span class="programs__cursus__event__txt__subtitle">{{
-                program
+                program.link.url
               }}</span>
             </div>
           </div>
