@@ -39,7 +39,7 @@ useHead(() => {
           étudiants.
         </p>
         <NuxtLink
-          class="index__banner__txt__link button-tertiary"
+          class="index__banner__txt__link button-secondary"
           target="_blank"
           to="https://www.inseec.com/procedures-admissions/"
           >M'inscrire à l'INSEEC Chambéry</NuxtLink
@@ -502,6 +502,7 @@ useHead(() => {
       &__link {
         color: $primary-color;
         text-shadow: $shadow-text;
+        border-color: $primary-color;
       }
     }
     &__socials {
