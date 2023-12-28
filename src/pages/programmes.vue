@@ -17,7 +17,8 @@ useHead(() => {
   };
 });
 
-let selected = ref();
+let rotateArrow = ref(false);
+let selected = ref(story.value.content.programsList[0].pole);
 
 let programsGroupedByPole = computed(() => {
   const program = story.value.content.programsList.map((program) => ({
@@ -37,8 +38,6 @@ function sortPrograms(programs) {
       return sortedPrograms;
     }, {});
 }
-
-console.log(programsGroupedByPole);
 </script>
 <template>
   <section class="programs">
@@ -61,24 +60,44 @@ console.log(programsGroupedByPole);
     <Container
       ><div class="programs__list">
         <div class="programs__list__filters">
-          <button
-            class="programs__list__filters__filter scale-on-hover"
-            v-for="(program, pole) in programsGroupedByPole"
-            :key="pole"
-            :class="{
-              'programs__list__filters__filter--selected': selected === pole,
-            }"
-            @click="selected = pole"
-          >
-            {{ pole }}
-          </button>
-        </div>
-      </div></Container
-    >
+          <div class="programs__list__filters__poles">
+            <label class="programs__list__filters__poles__label">Pôle</label>
+            <div
+              class="programs__list__filters__poles__choices"
+              :class="{
+                'programs__list__filters__poles__choices--displayed':
+                  rotateArrow === true,
+              }"
+            >
+              <button
+                class="programs__list__filters__poles__choices__filter scale-on-hover"
+                v-for="(program, pole) in programsGroupedByPole"
+                :key="pole"
+                :class="{
+                  'programs__list__filters__poles__choices__filter--selected':
+                    selected === pole,
+                }"
+                @click="(selected = pole), (rotateArrow = !rotateArrow)"
+              >
+                {{ pole
+                }}<img
+                  class="programs__list__filters__poles__choices__filter__img"
+                  src="@/assets/icons/arrow.svg"
+                  alt="icone arrow"
+                  :class="{
+                    'programs__list__filters__poles__choices__filter__img--rotated':
+                      rotateArrow === true,
+                  }"
+                />
+              </button>
+            </div>
+          </div>
+        </div></div
+    ></Container>
   </section>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .programs {
   display: flex;
   flex-direction: column;
@@ -158,31 +177,91 @@ console.log(programsGroupedByPole);
       display: flex;
       gap: 1rem;
       width: 100%;
-      overflow-x: scroll;
 
       @media (min-width: $big-tablet-screen) {
-        gap: 4rem;
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 2rem;
       }
 
-      &__filter {
+      &__poles {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: $primary-color;
-        box-shadow: $shadow;
-        color: $secondary-color;
-        padding: 1rem 2rem;
-        border-radius: $radius;
-        white-space: nowrap;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
+        align-items: flex-start;
 
-        &--selected {
-          background-color: $secondary-color;
-          color: $primary-color;
-          box-shadow: $shadow-secondary;
+        &__label {
+          background-color: $primary-color;
+          font-size: $base-text;
+          font-weight: $skinny;
+          display: flex;
+          gap: 1rem;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0.75rem 1.5rem;
+        }
+
+        &__choices {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+          overflow: hidden;
+          height: 4rem;
+          transition: margin-top 0.2s;
+
+          &__filter {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: $primary-color;
+            color: $secondary-color;
+            border-radius: $radius;
+            white-space: nowrap;
+            cursor: pointer;
+            transition:
+              box-shadow 0.2s,
+              background-color 0.2s,
+              color 0.2s;
+            padding: 0.6rem 1.5rem;
+            animation: fade 0.4s ease;
+
+            &:hover {
+              background-color: $secondary-color;
+              color: $primary-color;
+              box-shadow: $shadow-secondary;
+            }
+
+            &:nth-of-type(2) {
+              transition: margin-top 0.2s;
+              margin-top: 10rem;
+            }
+
+            &--selected {
+              order: 0;
+
+              &:hover {
+                background-color: $primary-color;
+                color: $secondary-color;
+                box-shadow: none;
+                transform: none !important;
+              }
+
+              & img {
+                visibility: visible;
+              }
+            }
+
+            &__img {
+              visibility: hidden;
+              transition: transform 0.2s;
+
+              &--rotated {
+                transform: rotate(180deg);
+              }
+            }
+          }
+          &--displayed {
+            height: fit-content;
+          }
+          &--displayed > :nth-child(2) {
+            margin-top: 0rem;
+          }
         }
       }
     }
