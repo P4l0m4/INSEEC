@@ -269,6 +269,12 @@ useHead(() => {
             certification ISO 14001 et s'impose comme un modèle de développement
             durable.
           </p>
+          <NuxtLink
+            class="index__presentation__txt__link button-tertiary"
+            target="_blank"
+            to="https://www.inseec.com/procedures-admissions/"
+            >M'inscrire à l'INSEEC Chambéry</NuxtLink
+          >
         </div>
       </div></Container
     >
