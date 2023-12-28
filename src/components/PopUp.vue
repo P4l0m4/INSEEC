@@ -43,8 +43,6 @@ onMounted(() => {
   if (cookies.popUpClosed === "true" && cookies.popUpID != popUpID.value) {
     displayPopUp();
     document.cookie = `popUpID=${popUpID.value};max-age=604800`;
-  } else if (cookies.popUpID === popUpID.value) {
-    document.cookie = "popUpClosed=true;max-age=86400";
   } else if (cookies.popUpClosed === "false") {
     displayPopUp();
   }
