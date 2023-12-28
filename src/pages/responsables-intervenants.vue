@@ -58,7 +58,7 @@ useHead(() => {
       </div></Container
     >
 
-    <Container>
+    <Container id="intervenants">
       <div class="employees__intervenants">
         <h2 class="employees__intervenants__title subtitles">
           Intervenants de l'INSEEC Chambéry

@@ -1,5 +1,3 @@
-import { groupBy } from '~/utils/groupBy'; import { groupBy } from
-'~/utils/groupBy';
 <script setup lang="ts">
 import { ref, onMounted, computed } from "vue";
 import { groupBy } from "@/utils/groupBy.js";
@@ -7,8 +5,6 @@ const story = await useAsyncStoryblok("events", { version: "published" });
 
 const dayjs = useDayjs();
 const currentMonthWithYear = dayjs().format("YYYY-MM");
-const currentMonth = dayjs().format("MM");
-const currentYear = dayjs().format("YYYY");
 
 const monthsRef = ref();
 const displayedEvents = ref([]);

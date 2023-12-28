@@ -79,8 +79,6 @@ useHead(() => {
       </div>
     </picture>
 
-    <!-- <EventsCalendar /> -->
-
     <Container>
       <div class="index__presentation">
         <div class="index__presentation__img">
@@ -197,7 +195,7 @@ useHead(() => {
         /></div
     ></Container>
 
-    <Container>
+    <Container id="campus">
       <div class="index__presentation">
         <div id="savoie" class="index__presentation__img">
           <h2 class="index__presentation__img__title titles">

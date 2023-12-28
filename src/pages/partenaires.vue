@@ -53,7 +53,7 @@ useHead(() => {
         </div>
       </div></Container
     >
-    <Container>
+    <Container id="associations">
       <div class="partners__clubs">
         <h2 class="partners__clubs__title titles">Associations</h2>
         <div class="partners__clubs__list">

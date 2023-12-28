@@ -3,14 +3,25 @@ import { NuxtLink } from '#build/components';
   <footer class="footer">
     <div class="footer__links">
       <NuxtLink class="footer__links__link" to="/">Accueil</NuxtLink
-      ><NuxtLink class="footer__links__link" to="/campus">Le campus</NuxtLink
+      ><NuxtLink class="footer__links__link" to="/#campus">Campus</NuxtLink
+      ><NuxtLink class="footer__links__link" to="/programmes"
+        >Programmes</NuxtLink
       ><NuxtLink class="footer__links__link" to="/evenements"
         >Evénements</NuxtLink
-      ><NuxtLink class="footer__links__link" to="/responsables-intervenants"
-        >RP</NuxtLink
+      >
+      <NuxtLink class="footer__links__link" to="/responsables-intervenants"
+        >Responsables de pôles</NuxtLink
+      >
+      <NuxtLink
+        class="footer__links__link"
+        to="/responsables-intervenants#intervenants"
+        >Intervenants</NuxtLink
       >
       <NuxtLink class="footer__links__link" to="/partenaires"
         >Partenaires</NuxtLink
+      >
+      <NuxtLink class="footer__links__link" to="/partenaires#associations"
+        >Associations</NuxtLink
       >
       <NuxtLink class="footer__links__link" to="/contact">Contact</NuxtLink>
     </div>
