@@ -171,9 +171,9 @@ useHead(() => {
     &__people {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(343px, 1fr));
-      gap: 1rem;
+      gap: 2rem;
       @media (min-width: $big-tablet-screen) {
-        gap: 2rem;
+        gap: 4rem;
         grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       }
 
@@ -181,13 +181,14 @@ useHead(() => {
         display: flex;
         flex-direction: column;
         gap: 1rem;
-        padding: 1rem;
-        // background-color: $primary-color;
-        // border-radius: $radius;
-        // box-shadow: $shadow;
+
+        @media (min-width: $big-tablet-screen) {
+          gap: 2rem;
+        }
 
         &__title {
-          color: $secondary-color-faded;
+          color: $secondary-color;
+          opacity: 0.6;
         }
 
         &__name {
@@ -203,6 +204,7 @@ useHead(() => {
 
           @media (min-width: $big-tablet-screen) {
             flex-direction: row;
+            margin-top: -1.5rem;
           }
 
           &__name {
