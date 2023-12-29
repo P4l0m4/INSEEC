@@ -165,14 +165,17 @@ function selectPole(pole) {
         <div class="programs__list__cursus">
           <NuxtLink
             v-for="program in filteredPrograms"
-            class="programs__list__cursus__card scale-on-hover"
+            class="programs__list__cursus__card"
             :to="program.link.url"
             :target="program.link.target"
             :aria-label="program.name"
           >
             <h2 class="programs__list__cursus__card__title">
-              {{ program.name }}
+              {{ program.pole }}
             </h2>
+            <p class="programs__list__cursus__card__subtitle">
+              {{ program.name }}
+            </p>
           </NuxtLink>
         </div>
       </div></Container
@@ -284,12 +287,12 @@ function selectPole(pole) {
             border-radius: $radius;
             white-space: nowrap;
             cursor: pointer;
+            padding: 0.75rem 1.5rem;
+            animation: fade 0.4s ease;
             transition:
               box-shadow 0.3s,
               background-color 0.3s,
               color 0.3s;
-            padding: 0.75rem 1.5rem;
-            animation: fade 0.4s ease;
 
             @media (min-width: $big-tablet-screen) {
               &:hover {
@@ -355,22 +358,40 @@ function selectPole(pole) {
         width: 100%;
         max-width: 600px;
         animation: popUp 0.4s ease;
+        transition:
+          box-shadow 0.3s,
+          background-color 0.3s;
 
-        @media (min-width: $tablet-screen) {
-          flex-direction: row;
+        @media (min-width: $big-tablet-screen) {
           height: 100%;
-          align-items: space-between;
+
+          &:hover {
+            background-color: $secondary-color;
+            box-shadow: $shadow-secondary;
+          }
+
+          &:hover > &__title {
+            color: $primary-color;
+          }
+
+          &:hover > &__subtitle {
+            color: $primary-color;
+          }
         }
 
         &__title {
-          color: $secondary-color;
-          font-size: $subtitles;
-          font-weight: $skinny;
+          font-weight: $thick;
+          font-size: 1rem;
+          display: flex;
           width: 100%;
+          text-transform: uppercase;
+          transition: color 0.3s;
+        }
 
-          @media (min-width: $big-tablet-screen) {
-            white-space: nowrap;
-          }
+        &__subtitle {
+          font-size: calc($base-text + 0.25rem);
+          font-weight: $skinny-thick;
+          width: 100%;
         }
       }
     }

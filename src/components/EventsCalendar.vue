@@ -217,7 +217,7 @@ let eventsGroupedByMonth = computed(() => {
     width: 100%;
 
     @media (min-width: $big-tablet-screen) {
-      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     }
 
     &__event {
@@ -261,13 +261,15 @@ let eventsGroupedByMonth = computed(() => {
 
         &__title {
           font-weight: $thick;
+          font-size: 1rem;
           display: flex;
           justify-content: space-between;
+          color: $secondary-color;
+          opacity: 0.6;
 
           &__date {
             font-size: $base-text;
             font-weight: $overweight;
-            opacity: 0.6;
             color: $secondary-color;
 
             &--past {
