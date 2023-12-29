@@ -332,6 +332,7 @@ function selectPole(pole) {
             justify-content: space-between;
             background-color: $primary-color;
             border-radius: $radius;
+            color: $text-color;
             white-space: nowrap;
             cursor: pointer;
             padding: 0.75rem 1.5rem;
