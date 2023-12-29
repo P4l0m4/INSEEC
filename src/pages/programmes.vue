@@ -316,8 +316,12 @@ function selectPole(pole) {
             white-space: nowrap;
             height: fit-content;
             width: 100%;
-
             cursor: pointer;
+
+            & span {
+              font-weight: $skinny;
+              font-size: $base-text;
+            }
 
             &__img {
               transition: transform 0.2s;
@@ -385,6 +389,8 @@ function selectPole(pole) {
           display: flex;
           width: 100%;
           text-transform: uppercase;
+          color: $secondary-color;
+          opacity: 0.6;
           transition: color 0.3s;
         }
 
