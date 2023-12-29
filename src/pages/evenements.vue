@@ -36,7 +36,7 @@ useHead(() => {
         <NuxtLink
           class="events__banner__buttons__button button-primary"
           to="#events"
-          >Découvrir nos événement</NuxtLink
+          >Découvrir nos événements</NuxtLink
         >
         <NuxtLink
           class="events__banner__buttons__button button-secondary"
