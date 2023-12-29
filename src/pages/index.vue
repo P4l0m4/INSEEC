@@ -432,6 +432,7 @@ useHead(() => {
 
     @media (min-width: $big-tablet-screen) {
       flex-direction: row;
+      justify-content: space-between;
       padding: 2rem;
       gap: 2rem;
       height: calc(100svh - 80px);
