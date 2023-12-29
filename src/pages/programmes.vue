@@ -18,12 +18,19 @@ useHead(() => {
 });
 
 let placeholder = ref("Domaine");
+let placeholderLevel = ref("Niveau");
 let rotateArrow = ref(false);
+let rotateArrowLevel = ref(false);
 let displayedPrograms = ref([]);
 let programsRef = ref();
+let programsLevelRef = ref();
 
 function selectProgram(poleName, programs) {
   placeholder.value = poleName;
+  displayedPrograms.value = programs;
+}
+function selectLevel(level, programs) {
+  placeholderLevel.value = level;
   displayedPrograms.value = programs;
 }
 
@@ -34,6 +41,16 @@ let programsGroupedByPole = computed(() => {
   }));
 
   const groupedPrograms = groupBy(program, "pole");
+
+  return sortPrograms(groupedPrograms);
+});
+let programsGroupedByLevel = computed(() => {
+  const program = story.value.content.programsList.map((program) => ({
+    ...program,
+    level: program.level,
+  }));
+
+  const groupedPrograms = groupBy(program, "level");
 
   return sortPrograms(groupedPrograms);
 });
@@ -92,7 +109,7 @@ function sortPrograms(programs) {
                 />
               </div>
               <button
-                class="programs__list__filters__poles-and-levels__choices__filter scale-on-hover"
+                class="programs__list__filters__poles-and-levels__choices__filter"
                 v-for="(programs, poleName) in programsGroupedByPole"
                 ref="programsRef"
                 v-show="poleName !== placeholder"
@@ -106,41 +123,42 @@ function sortPrograms(programs) {
               </button>
             </div>
           </div>
+          <!-- NIVEAUX -->
           <div class="programs__list__filters__poles-and-levels">
             <div
               class="programs__list__filters__poles-and-levels__choices"
               :class="{
                 'programs__list__filters__poles-and-levels__choices--displayed':
-                  rotateArrow === true,
+                  rotateArrowLevel === true,
               }"
             >
               <div
                 class="programs__list__filters__poles-and-levels__choices__placeholder"
-                @click="rotateArrow = !rotateArrow"
+                @click="rotateArrowLevel = !rotateArrowLevel"
               >
-                {{ placeholder
+                {{ placeholderLevel
                 }}<img
                   class="programs__list__filters__poles-and-levels__choices__placeholder__img"
                   src="@/assets/icons/arrow.svg"
                   alt="icone arrow"
                   :class="{
                     'programs__list__filters__poles-and-levels__choices__placeholder__img--rotated':
-                      rotateArrow === true,
+                      rotateArrowLevel === true,
                   }"
                 />
               </div>
               <button
-                class="programs__list__filters__poles-and-levels__choices__filter scale-on-hover"
-                v-for="(programs, poleName) in programsGroupedByPole"
-                ref="programsRef"
-                v-show="poleName !== placeholder"
-                :key="poleName"
+                class="programs__list__filters__poles-and-levels__choices__filter"
+                v-for="(programs, level) in programsGroupedByLevel"
+                ref="programsLevelRef"
+                v-show="level !== placeholderLevel"
+                :key="level"
                 @click="
-                  (rotateArrow = !rotateArrow),
-                    selectProgram(poleName, programs)
+                  (rotateArrowLevel = !rotateArrowLevel),
+                    selectLevel(level, programs)
                 "
               >
-                {{ poleName }}
+                {{ level }}
               </button>
             </div>
           </div>
@@ -273,10 +291,10 @@ function sortPrograms(programs) {
             white-space: nowrap;
             cursor: pointer;
             transition:
-              box-shadow 0.2s,
-              background-color 0.2s,
-              color 0.2s;
-            padding: 0.6rem 1.5rem;
+              box-shadow 0.3s,
+              background-color 0.3s,
+              color 0.3s;
+            padding: 0.75rem 1.5rem;
             animation: fade 0.4s ease;
 
             @media (min-width: $big-tablet-screen) {
@@ -355,7 +373,11 @@ function sortPrograms(programs) {
           color: $secondary-color;
           font-size: $subtitles;
           font-weight: $skinny;
-          white-space: nowrap;
+          width: 100%;
+
+          @media (min-width: $big-tablet-screen) {
+            white-space: nowrap;
+          }
         }
       }
     }
