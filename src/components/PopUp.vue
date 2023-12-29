@@ -92,7 +92,7 @@ onMounted(() => {
   align-items: center;
   z-index: 2;
   width: 100vw;
-  height: 100vh;
+  height: 100svh;
   backdrop-filter: blur(4px);
   inset: 0;
   padding: 2rem;
