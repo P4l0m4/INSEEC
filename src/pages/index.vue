@@ -237,7 +237,7 @@ useHead(() => {
 
     <Container>
       <div class="index__presentation">
-        <div class="index__presentation__img">
+        <div id="work" class="index__presentation__img">
           <h2 class="index__presentation__img__title titles">
             UN EMPLACEMENT PROPICE A L’EMPLOI
           </h2>
@@ -770,6 +770,14 @@ useHead(() => {
       $secondary-color
     ),
     url("@/assets/images/learning-by-doing.webp");
+}
+#work {
+  background-image: linear-gradient(
+      190deg,
+      rgba(255, 255, 255, 0) 20%,
+      $secondary-color
+    ),
+    url("@/assets/images/work.webp");
 }
 #savoie {
   background-image: linear-gradient(
