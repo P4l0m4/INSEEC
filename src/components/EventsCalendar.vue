@@ -27,6 +27,7 @@ onMounted(() => {
 function selectDotAndScroll(events, index: number) {
   selected.value = index;
   let selectedDot = monthsRef.value[index];
+
   selectedDot?.scrollIntoView({
     behavior: "smooth",
     block: "nearest",

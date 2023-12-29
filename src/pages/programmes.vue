@@ -17,13 +17,14 @@ useHead(() => {
   };
 });
 
+let placeholder = ref("Domaine");
 let rotateArrow = ref(false);
-let selected = ref(story.value.content.programsList[0].pole);
-const displayedPrograms = ref([]);
+let displayedPrograms = ref([]);
+let programsRef = ref();
 
-function selectProgram(poles) {
-  // selected.value = poles;
-  displayedPrograms.value = poles;
+function selectProgram(poleName, programs) {
+  placeholder.value = poleName;
+  displayedPrograms.value = programs;
 }
 
 let programsGroupedByPole = computed(() => {
@@ -33,6 +34,7 @@ let programsGroupedByPole = computed(() => {
   }));
 
   const groupedPrograms = groupBy(program, "pole");
+
   return sortPrograms(groupedPrograms);
 });
 
@@ -66,62 +68,96 @@ function sortPrograms(programs) {
     <Container
       ><div class="programs__list">
         <div class="programs__list__filters">
-          <div class="programs__list__filters__poles">
-            <label class="programs__list__filters__poles__label">Domaine</label>
-
+          <div class="programs__list__filters__poles-and-levels">
             <div
-              class="programs__list__filters__poles__choices"
+              class="programs__list__filters__poles-and-levels__choices"
               :class="{
-                'programs__list__filters__poles__choices--displayed':
+                'programs__list__filters__poles-and-levels__choices--displayed':
                   rotateArrow === true,
               }"
             >
               <div
-                class="programs__list__filters__poles__choices__placeholder"
+                class="programs__list__filters__poles-and-levels__choices__placeholder"
                 @click="rotateArrow = !rotateArrow"
               >
-                {{ selected
+                {{ placeholder
                 }}<img
-                  class="programs__list__filters__poles__choices__placeholder__img"
+                  class="programs__list__filters__poles-and-levels__choices__placeholder__img"
                   src="@/assets/icons/arrow.svg"
                   alt="icone arrow"
                   :class="{
-                    'programs__list__filters__poles__choices__placeholder__img--rotated':
+                    'programs__list__filters__poles-and-levels__choices__placeholder__img--rotated':
                       rotateArrow === true,
                   }"
                 />
               </div>
               <button
-                class="programs__list__filters__poles__choices__filter scale-on-hover"
-                v-for="pole in programsGroupedByPole"
-                v-show="pole !== selected"
-                :key="pole"
-                :class="{
-                  'programs__list__filters__poles__choices__filter--selected':
-                    selected === pole,
-                }"
-                @click="(rotateArrow = !rotateArrow), selectProgram(pole)"
+                class="programs__list__filters__poles-and-levels__choices__filter scale-on-hover"
+                v-for="(programs, poleName) in programsGroupedByPole"
+                ref="programsRef"
+                v-show="poleName !== placeholder"
+                :key="poleName"
+                @click="
+                  (rotateArrow = !rotateArrow),
+                    selectProgram(poleName, programs)
+                "
               >
-                {{ pole }}
+                {{ poleName }}
+              </button>
+            </div>
+          </div>
+          <div class="programs__list__filters__poles-and-levels">
+            <div
+              class="programs__list__filters__poles-and-levels__choices"
+              :class="{
+                'programs__list__filters__poles-and-levels__choices--displayed':
+                  rotateArrow === true,
+              }"
+            >
+              <div
+                class="programs__list__filters__poles-and-levels__choices__placeholder"
+                @click="rotateArrow = !rotateArrow"
+              >
+                {{ placeholder
+                }}<img
+                  class="programs__list__filters__poles-and-levels__choices__placeholder__img"
+                  src="@/assets/icons/arrow.svg"
+                  alt="icone arrow"
+                  :class="{
+                    'programs__list__filters__poles-and-levels__choices__placeholder__img--rotated':
+                      rotateArrow === true,
+                  }"
+                />
+              </div>
+              <button
+                class="programs__list__filters__poles-and-levels__choices__filter scale-on-hover"
+                v-for="(programs, poleName) in programsGroupedByPole"
+                ref="programsRef"
+                v-show="poleName !== placeholder"
+                :key="poleName"
+                @click="
+                  (rotateArrow = !rotateArrow),
+                    selectProgram(poleName, programs)
+                "
+              >
+                {{ poleName }}
               </button>
             </div>
           </div>
         </div>
 
-        <div class="programs__cursus">
-          <div
+        <div class="programs__list__cursus">
+          <NuxtLink
             v-for="program in displayedPrograms"
-            class="programs__cursus__event"
+            class="programs__list__cursus__card scale-on-hover"
+            :to="program.link.url"
+            :target="program.link.target"
+            :aria-label="program.name"
           >
-            <div class="programs__cursus__event__txt">
-              <div class="programs__cursus__event__txt__title">
-                {{ program.name }}
-              </div>
-              <span class="programs__cursus__event__txt__subtitle">{{
-                program.link.url
-              }}</span>
-            </div>
-          </div>
+            <h2 class="programs__list__cursus__card__title">
+              {{ program.name }}
+            </h2>
+          </NuxtLink>
         </div>
       </div></Container
     >
@@ -213,22 +249,10 @@ function sortPrograms(programs) {
         gap: 2rem;
       }
 
-      &__poles {
+      &__poles-and-levels {
         display: flex;
         align-items: flex-start;
         width: 100%;
-
-        &__label {
-          background-color: $primary-color;
-          font-size: $base-text;
-          font-weight: $skinny;
-          display: flex;
-          border-radius: $radius;
-          gap: 1rem;
-          justify-content: space-between;
-          align-items: center;
-          padding: 0.75rem 1.5rem;
-        }
 
         &__choices {
           display: flex;
@@ -239,10 +263,6 @@ function sortPrograms(programs) {
           height: 2.2rem;
           width: 100%;
           overflow-y: hidden;
-
-          @media (min-width: $big-tablet-screen) {
-            width: 50%;
-          }
 
           &__filter {
             display: flex;
@@ -259,10 +279,12 @@ function sortPrograms(programs) {
             padding: 0.6rem 1.5rem;
             animation: fade 0.4s ease;
 
-            &:hover {
-              background-color: $secondary-color;
-              color: $primary-color;
-              box-shadow: $shadow-secondary;
+            @media (min-width: $big-tablet-screen) {
+              &:hover {
+                background-color: $secondary-color;
+                color: $primary-color;
+                box-shadow: $shadow-secondary;
+              }
             }
           }
 
@@ -294,6 +316,46 @@ function sortPrograms(programs) {
           &--displayed {
             height: fit-content;
           }
+        }
+      }
+    }
+
+    &__cursus {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(343px, 1fr));
+      width: 100%;
+      gap: 1rem;
+
+      @media (min-width: $big-tablet-screen) {
+        gap: 2rem;
+        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+      }
+
+      &__card {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        padding: 1rem;
+        background-color: $primary-color;
+        border-radius: $radius;
+        box-shadow: $shadow;
+        width: 100%;
+        max-width: 600px;
+        animation: popUp 0.4s ease;
+
+        @media (min-width: $tablet-screen) {
+          flex-direction: row;
+          height: 100%;
+          align-items: space-between;
+        }
+
+        &__title {
+          color: $secondary-color;
+          font-size: $subtitles;
+          font-weight: $skinny;
+          white-space: nowrap;
         }
       }
     }
