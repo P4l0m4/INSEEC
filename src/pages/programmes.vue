@@ -154,6 +154,10 @@ function selectPole(pole) {
                 class="programs__list__filters__poles-and-levels__choices__filter"
                 v-for="(_, pole) in poles"
                 :key="pole"
+                :class="{
+                  'programs__list__filters__poles-and-levels__choices__filter--selected':
+                    pole === selectedPole,
+                }"
                 @click="selectPole(pole)"
               >
                 {{ pole }}
@@ -299,6 +303,19 @@ function selectPole(pole) {
                 background-color: $secondary-color;
                 color: $primary-color;
                 box-shadow: $shadow-secondary;
+              }
+            }
+
+            &--selected {
+              opacity: 0.6;
+              color: $secondary-color;
+              border: 2px solid $secondary-color-faded;
+
+              &:hover {
+                background-color: $primary-color;
+                color: $secondary-color;
+                box-shadow: none;
+                cursor: default;
               }
             }
           }
