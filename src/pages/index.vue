@@ -424,7 +424,7 @@ useHead(() => {
     width: 100%;
     max-width: 2000px;
     padding: 1rem;
-    justify-content: space-between;
+    justify-content: flex-end;
     flex-direction: column;
     align-items: flex-end;
     gap: 1rem;

@@ -82,9 +82,12 @@ function selectPole(pole) {
       <h1 class="programs__banner__title titles">
         Tous les programmes de l'INSEEC Campus Chambéry Savoie
       </h1>
+      <NuxtLink class="programs__banner__button button-secondary" to="#programs"
+        >Voir les programmes</NuxtLink
+      >
     </picture>
 
-    <Container
+    <Container id="programs"
       ><div class="programs__list">
         <div class="programs__list__filters">
           <!-- NIVEAUX -->
@@ -215,8 +218,7 @@ function selectPole(pole) {
     position: relative;
 
     @media (min-width: $big-tablet-screen) {
-      flex-direction: row;
-      justify-content: flex-start;
+      align-items: flex-start;
       padding: 2rem;
       gap: 2rem;
       height: calc(100svh - 80px);
@@ -253,6 +255,19 @@ function selectPole(pole) {
       z-index: 1;
       max-width: 720px;
       text-wrap: balance;
+      text-shadow: $shadow;
+    }
+
+    &__button {
+      border-color: $primary-color;
+      color: $primary-color;
+      cursor: pointer;
+      z-index: 1;
+      width: 100%;
+
+      @media (min-width: $big-tablet-screen) {
+        width: fit-content;
+      }
     }
   }
 
