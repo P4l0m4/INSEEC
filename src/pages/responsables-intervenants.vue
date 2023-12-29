@@ -34,7 +34,7 @@ useHead(() => {
       <div class="employees__banner__buttons">
         <NuxtLink
           class="employees__banner__buttons__button button-primary"
-          to="https://www.inseec.com/procedures-admissions/"
+          to="#speakers"
           >Découvrir nos intervenants</NuxtLink
         >
         <NuxtLink
@@ -46,7 +46,11 @@ useHead(() => {
       </div>
     </picture>
 
-    <Container v-for="pole in story.content.list" :key="pole._uid">
+    <Container
+      v-for="pole in story.content.list"
+      :key="pole._uid"
+      id="speakers"
+    >
       <div class="employees__pole">
         <h2 class="employees__pole__title subtitles">
           {{ pole.title }}
