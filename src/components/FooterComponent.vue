@@ -84,6 +84,11 @@ import { NuxtLink } from '#build/components';
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
+    justify-content: center;
+
+    @media (min-width: $big-tablet-screen) {
+      justify-content: flex-start;
+    }
 
     &__link {
       color: $primary-color;

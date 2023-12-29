@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from "vue";
 import { groupBy } from "@/utils/groupBy.js";
+import { sortArray } from "@/utils/sortArray";
 const story = await useAsyncStoryblok("events", { version: "published" });
 
 const dayjs = useDayjs();
@@ -47,17 +48,8 @@ let eventsGroupedByMonth = computed(() => {
   //   );
   //   return sortEvents(groupedEvents);
   const groupedEvents = groupBy(events, "monthByYear");
-  return sortEvents(groupedEvents);
+  return sortArray(groupedEvents);
 });
-
-function sortEvents(events) {
-  return Object.keys(events)
-    .sort()
-    .reduce((sortedEvents, key) => {
-      sortedEvents[key] = events[key];
-      return sortedEvents;
-    }, {});
-}
 </script>
 <template>
   <Container>

@@ -1,6 +1,7 @@
 <script setup>
-import { ref, onMounted, computed } from "vue";
+import { ref, computed } from "vue";
 import { groupBy } from "@/utils/groupBy.js";
+import { sortArray } from "@/utils/sortArray";
 const story = await useAsyncStoryblok("programs", { version: "published" });
 
 useHead(() => {
@@ -17,51 +18,52 @@ useHead(() => {
   };
 });
 
-let placeholder = ref("Domaine");
-let placeholderLevel = ref("Niveau");
-let rotateArrow = ref(false);
-let rotateArrowLevel = ref(false);
-let displayedPrograms = ref([]);
-let programsRef = ref();
-let programsLevelRef = ref();
+const selectedLevel = ref("");
+const selectedPole = ref("");
+const isLevelFilterActive = ref(false);
+const isPoleFilterActive = ref(false);
 
-function selectProgram(poleName, programs) {
-  placeholder.value = poleName;
-  displayedPrograms.value = programs;
-}
-function selectLevel(level, programs) {
-  placeholderLevel.value = level;
-  displayedPrograms.value = programs;
-}
-
-let programsGroupedByPole = computed(() => {
-  const program = story.value.content.programsList.map((program) => ({
-    ...program,
-    pole: program.pole,
-  }));
-
-  const groupedPrograms = groupBy(program, "pole");
-
-  return sortPrograms(groupedPrograms);
-});
-let programsGroupedByLevel = computed(() => {
-  const program = story.value.content.programsList.map((program) => ({
-    ...program,
-    level: program.level,
-  }));
-
-  const groupedPrograms = groupBy(program, "level");
-
-  return sortPrograms(groupedPrograms);
+let levels = computed(() => {
+  let programs = story.value.content.programsList;
+  const groupedPrograms = groupBy(programs, "level");
+  return sortArray(groupedPrograms);
 });
 
-function sortPrograms(programs) {
-  return Object.keys(programs)
-    .sort()
-    .reduce((sortedPrograms, key) => {
-      sortedPrograms[key] = programs[key];
-      return sortedPrograms;
-    }, {});
+let poles = computed(() => {
+  let programs = story.value.content.programsList.filter(
+    (program) => program.level === selectedLevel.value
+  );
+  const groupedPrograms = groupBy(programs, "pole");
+  return sortArray(groupedPrograms);
+});
+
+const filteredPrograms = computed(() => {
+  let programs = story.value.content.programsList;
+  if (selectedLevel.value) {
+    programs = story.value.content.programsList.filter(
+      (program) => program.level === selectedLevel.value
+    );
+  }
+  if (selectedLevel.value && selectedPole.value) {
+    programs = story.value.content.programsList.filter(
+      (program) =>
+        program.level === selectedLevel.value &&
+        program.pole === selectedPole.value
+    );
+  }
+
+  return programs;
+});
+
+function selectLevel(level) {
+  selectedLevel.value = level;
+  selectedPole.value = "";
+  isLevelFilterActive.value = !isLevelFilterActive.value;
+}
+
+function selectPole(pole) {
+  selectedPole.value = pole;
+  isPoleFilterActive.value = !isPoleFilterActive.value;
 }
 </script>
 <template>
@@ -78,87 +80,83 @@ function sortPrograms(programs) {
         :alt="story.content.smallBanner.filename.alt"
       />
       <h1 class="programs__banner__title titles">
-        Tous les programmes de l’INSEEC Campus Chambéry Savoie
+        Tous les programmes de l'INSEEC Campus Chambéry Savoie
       </h1>
     </picture>
 
     <Container
       ><div class="programs__list">
         <div class="programs__list__filters">
-          <div class="programs__list__filters__poles-and-levels">
-            <div
-              class="programs__list__filters__poles-and-levels__choices"
-              :class="{
-                'programs__list__filters__poles-and-levels__choices--displayed':
-                  rotateArrow === true,
-              }"
-            >
-              <div
-                class="programs__list__filters__poles-and-levels__choices__placeholder"
-                @click="rotateArrow = !rotateArrow"
-              >
-                {{ placeholder
-                }}<img
-                  class="programs__list__filters__poles-and-levels__choices__placeholder__img"
-                  src="@/assets/icons/arrow.svg"
-                  alt="icone arrow"
-                  :class="{
-                    'programs__list__filters__poles-and-levels__choices__placeholder__img--rotated':
-                      rotateArrow === true,
-                  }"
-                />
-              </div>
-              <button
-                class="programs__list__filters__poles-and-levels__choices__filter"
-                v-for="(programs, poleName) in programsGroupedByPole"
-                ref="programsRef"
-                v-show="poleName !== placeholder"
-                :key="poleName"
-                @click="
-                  (rotateArrow = !rotateArrow),
-                    selectProgram(poleName, programs)
-                "
-              >
-                {{ poleName }}
-              </button>
-            </div>
-          </div>
           <!-- NIVEAUX -->
           <div class="programs__list__filters__poles-and-levels">
             <div
               class="programs__list__filters__poles-and-levels__choices"
               :class="{
                 'programs__list__filters__poles-and-levels__choices--displayed':
-                  rotateArrowLevel === true,
+                  isLevelFilterActive,
               }"
             >
               <div
                 class="programs__list__filters__poles-and-levels__choices__placeholder"
-                @click="rotateArrowLevel = !rotateArrowLevel"
+                @click="isLevelFilterActive = !isLevelFilterActive"
               >
-                {{ placeholderLevel
-                }}<img
+                <span v-if="selectedLevel">{{ selectedLevel }}</span>
+                <span v-else>Niveau</span>
+                <img
                   class="programs__list__filters__poles-and-levels__choices__placeholder__img"
                   src="@/assets/icons/arrow.svg"
                   alt="icone arrow"
                   :class="{
                     'programs__list__filters__poles-and-levels__choices__placeholder__img--rotated':
-                      rotateArrowLevel === true,
+                      isLevelFilterActive,
                   }"
                 />
               </div>
               <button
                 class="programs__list__filters__poles-and-levels__choices__filter"
-                v-for="(programs, level) in programsGroupedByLevel"
-                ref="programsLevelRef"
-                v-show="level !== placeholderLevel"
+                v-for="(_, level) in levels"
                 :key="level"
-                @click="
-                  (rotateArrowLevel = !rotateArrowLevel),
-                    selectLevel(level, programs)
-                "
+                @click="selectLevel(level)"
               >
                 {{ level }}
+              </button>
+            </div>
+          </div>
+          <!-- POLES -->
+          <div
+            v-if="selectedLevel"
+            class="programs__list__filters__poles-and-levels"
+          >
+            <div
+              class="programs__list__filters__poles-and-levels__choices"
+              :class="{
+                'programs__list__filters__poles-and-levels__choices--displayed':
+                  isPoleFilterActive,
+              }"
+            >
+              <div
+                class="programs__list__filters__poles-and-levels__choices__placeholder"
+                @click="isPoleFilterActive = !isPoleFilterActive"
+              >
+                <span v-if="selectedPole">{{ selectedPole }}</span>
+                <span v-else>Domaine</span>
+                <img
+                  class="programs__list__filters__poles-and-levels__choices__placeholder__img"
+                  src="@/assets/icons/arrow.svg"
+                  alt="icone arrow"
+                  :class="{
+                    'programs__list__filters__poles-and-levels__choices__placeholder__img--rotated':
+                      isPoleFilterActive,
+                  }"
+                />
+              </div>
+              <button
+                class="programs__list__filters__poles-and-levels__choices__filter"
+                v-for="(_, pole) in poles"
+                :key="pole"
+                @click="selectPole(pole)"
+              >
+                {{ pole }}
               </button>
             </div>
           </div>
@@ -166,7 +164,7 @@ function sortPrograms(programs) {
 
         <div class="programs__list__cursus">
           <NuxtLink
-            v-for="program in displayedPrograms"
+            v-for="program in filteredPrograms"
             class="programs__list__cursus__card scale-on-hover"
             :to="program.link.url"
             :target="program.link.target"
@@ -263,10 +261,6 @@ function sortPrograms(programs) {
       gap: 1rem;
       width: 100%;
 
-      @media (min-width: $big-tablet-screen) {
-        gap: 2rem;
-      }
-
       &__poles-and-levels {
         display: flex;
         align-items: flex-start;
@@ -345,7 +339,6 @@ function sortPrograms(programs) {
       gap: 1rem;
 
       @media (min-width: $big-tablet-screen) {
-        gap: 2rem;
         grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       }
 
