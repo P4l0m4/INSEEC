@@ -82,9 +82,20 @@ function selectPole(pole) {
       <h1 class="programs__banner__title titles">
         Tous les programmes de l'INSEEC Campus Chambéry Savoie
       </h1>
-      <NuxtLink class="programs__banner__button button-secondary" to="#programs"
-        >Voir les programmes</NuxtLink
-      >
+
+      <div class="programs__banner__buttons">
+        <NuxtLink
+          class="programs__banner__buttons__button button-primary"
+          to="#programs"
+          >Découvrir nos programmes</NuxtLink
+        >
+        <NuxtLink
+          class="programs__banner__buttons__button button-secondary"
+          target="_blank"
+          to="https://www.inseec.com/procedures-admissions/"
+          >M'inscrire à l'INSEEC Chambéry</NuxtLink
+        >
+      </div>
     </picture>
 
     <Container id="programs"
@@ -255,18 +266,35 @@ function selectPole(pole) {
       z-index: 1;
       max-width: 720px;
       text-wrap: balance;
-      text-shadow: $shadow;
+      text-shadow: $shadow-text;
     }
 
-    &__button {
-      border-color: $primary-color;
-      color: $primary-color;
-      cursor: pointer;
-      z-index: 1;
-      width: 100%;
+    &__buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
 
-      @media (min-width: $big-tablet-screen) {
-        width: fit-content;
+      & .button-primary {
+        background-color: $primary-color;
+        color: $secondary-color;
+        cursor: pointer;
+        z-index: 1;
+        width: 100%;
+
+        @media (min-width: $big-tablet-screen) {
+          width: fit-content;
+        }
+      }
+      & .button-secondary {
+        border-color: $primary-color;
+        color: $primary-color;
+        cursor: pointer;
+        z-index: 1;
+        width: 100%;
+
+        @media (min-width: $big-tablet-screen) {
+          width: fit-content;
+        }
       }
     }
   }
