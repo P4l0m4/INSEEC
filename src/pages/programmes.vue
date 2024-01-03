@@ -233,7 +233,6 @@ function selectPole(pole) {
     height: calc(100svh - 88px);
     max-height: 1200px;
     width: 100%;
-    max-width: 2000px;
     padding: 1rem;
     justify-content: flex-end;
     flex-direction: column;
