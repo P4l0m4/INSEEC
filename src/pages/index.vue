@@ -19,8 +19,12 @@ useHead(() => {
   <section class="index">
     <picture class="index__banner">
       <source
-        media="(min-width: 1000px)"
+        media="(min-width: 1100px)"
         :srcset="story.content.banner.filename"
+      />
+      <source
+        media="(min-width: 600px)"
+        :srcset="story.content.mediumBanner.filename"
       />
 
       <img
@@ -636,38 +640,57 @@ useHead(() => {
 
       &__link {
         display: flex;
-        justify-content: center;
-        align-items: center;
+        // justify-content: center;
+        align-items: flex-end;
+        padding: 1rem;
         width: 100%;
         height: 200px;
         color: $primary-color;
-        text-align: center;
-        background-image: url("@/assets/images/placeholder.svg");
+        // text-align: center;
+        background-image: linear-gradient(
+            190deg,
+            rgba(255, 255, 255, 0) 20%,
+            $secondary-color
+          ),
+          url("@/assets/images/placeholder.svg");
         background-size: cover;
         background-position: center;
         font-size: $subtitles;
-        font-weight: $skinny-thick;
+        font-weight: $thick;
         box-shadow: $shadow;
         border-radius: $radius;
         text-shadow: $shadow-text;
         filter: grayscale(20%);
-        transition:
-          background-position 0.4s ease,
-          filter 0.4s ease;
+        transition: filter 0.4s ease;
 
         &:hover {
-          background-position: center right;
+          // background-position: center top;
           filter: grayscale(0%);
         }
 
         &:nth-of-type(1) {
-          background-image: url("@/assets/images/raclette-cup.webp");
+          background-image: linear-gradient(
+              190deg,
+              rgba(255, 255, 255, 0) 20%,
+              $secondary-color
+            ),
+            url("@/assets/images/raclette-cup.webp");
         }
         &:nth-of-type(2) {
-          background-image: url("@/assets/images/intervenants.webp");
+          background-image: linear-gradient(
+              190deg,
+              rgba(255, 255, 255, 0) 20%,
+              $secondary-color
+            ),
+            url("@/assets/images/intervenants.webp");
         }
         &:nth-of-type(3) {
-          background-image: url("@/assets/images/hands.webp");
+          background-image: linear-gradient(
+              190deg,
+              rgba(255, 255, 255, 0) 20%,
+              $secondary-color
+            ),
+            url("@/assets/images/hands.webp");
         }
 
         @media (min-width: $big-tablet-screen) {
