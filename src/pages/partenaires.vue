@@ -8,7 +8,8 @@ useHead(() => {
       {
         hid: "description",
         name: "description",
-        content: "Déouvrez les partenaires de l'INSEEC Campus Chambéry Savoie.",
+        content:
+          "Découvrez les partenaires de l'INSEEC Campus Chambéry Savoie.",
       },
     ],
   };
