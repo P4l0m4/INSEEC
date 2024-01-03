@@ -167,7 +167,7 @@ let isMenuOpen = ref(false);
       height: 24px;
       position: relative;
 
-      @media (min-width: $big-tablet-screen) {
+      @media (min-width: $laptop-screen) {
         display: none;
       }
     }
@@ -192,7 +192,7 @@ let isMenuOpen = ref(false);
       box-shadow: $shadow;
       animation: slide-from-right 0.4s ease;
 
-      @media (min-width: $big-tablet-screen) {
+      @media (min-width: $laptop-screen) {
         display: none;
       }
 
@@ -210,7 +210,7 @@ let isMenuOpen = ref(false);
               background-color 0.3s ease-in-out;
           }
 
-          @media (min-width: $big-tablet-screen) {
+          @media (min-width: $laptop-screen) {
             &:hover::after {
               width: 100%;
               background-color: $secondary-color;
@@ -223,7 +223,7 @@ let isMenuOpen = ref(false);
     &__ul--desktop {
       display: none;
 
-      @media (min-width: $big-tablet-screen) {
+      @media (min-width: $laptop-screen) {
         gap: 1rem;
         display: flex;
         list-style: none;
