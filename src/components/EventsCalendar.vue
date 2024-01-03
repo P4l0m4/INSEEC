@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 import { ref, onMounted, computed } from "vue";
 import { groupBy } from "@/utils/groupBy.js";
 import { sortArray } from "@/utils/sortArray";
@@ -25,7 +25,7 @@ onMounted(() => {
   }, 500);
 });
 
-function selectDotAndScroll(events, index: number) {
+function selectDotAndScroll(events) {
   selected.value = index;
   let selectedDot = monthsRef.value[index];
 
@@ -42,13 +42,26 @@ let eventsGroupedByMonth = computed(() => {
     ...event,
     monthByYear: dayjs(event.date).format("YYYY-MM"),
   }));
-  //   const groupedEvents = Object.groupBy(
-  //     events,
-  //     ({ monthByYear }) => monthByYear
-  //   );
-  //   return sortEvents(groupedEvents);
+
   const groupedEvents = groupBy(events, "monthByYear");
   return sortArray(groupedEvents);
+});
+
+//jsonld
+story.value.content.calendar.forEach((event) => {
+  useJsonld(() => ({
+    "@context": "https://schema.org",
+    "@type": "Event",
+    name: event.title,
+    description: event.description,
+    image: event.image.filename,
+    startDate: dayjs(event.date).format("YYYY[-]MM[-]DD[T]HH[:]mm"),
+    eventStatus: "https://schema.org/EventScheduled",
+    performer: {
+      "@type": "PerformingGroup",
+      name: "INSEEC Chambéry",
+    },
+  }));
 });
 </script>
 <template>
