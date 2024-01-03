@@ -83,7 +83,11 @@ useHead(() => {
             :key="event._uid"
             :to="`#${stringToSlug(event.previewTitle)}`"
             class="events__showcase__list__link"
-            :style="`background-image: url('${event.image.filename}')`"
+            :style="`background-image: linear-gradient(
+              190deg,
+              rgba(255, 255, 255, 0) 60%,
+              #2a3b6b
+            ), url('${event.image.filename}')`"
             >{{ event.previewTitle }}</NuxtLink
           >
         </div>
@@ -279,10 +283,10 @@ useHead(() => {
         width: 100%;
         border-radius: $radius;
         color: $primary-color;
-        justify-content: center;
-        align-items: center;
+        // justify-content: center;
+        align-items: flex-end;
         font-size: $subtitles;
-        font-weight: $skinny-thick;
+        font-weight: $thick;
         text-align: center;
         background-image: url("@/assets/images/placeholder.svg");
         background-size: cover;

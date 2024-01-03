@@ -671,7 +671,7 @@ useHead(() => {
         &:nth-of-type(1) {
           background-image: linear-gradient(
               190deg,
-              rgba(255, 255, 255, 0) 20%,
+              rgba(255, 255, 255, 0) 40%,
               $secondary-color
             ),
             url("@/assets/images/raclette-cup.webp");
@@ -679,7 +679,7 @@ useHead(() => {
         &:nth-of-type(2) {
           background-image: linear-gradient(
               190deg,
-              rgba(255, 255, 255, 0) 20%,
+              rgba(255, 255, 255, 0) 40%,
               $secondary-color
             ),
             url("@/assets/images/intervenants.webp");
@@ -687,7 +687,7 @@ useHead(() => {
         &:nth-of-type(3) {
           background-image: linear-gradient(
               190deg,
-              rgba(255, 255, 255, 0) 20%,
+              rgba(255, 255, 255, 0) 40%,
               $secondary-color
             ),
             url("@/assets/images/hands.webp");
