@@ -7,7 +7,7 @@ useHead(() => {
         hid: "description",
         name: "description",
         content:
-          "Contacter l’INSEEC Campus Chambéry Savoie. Vos interlocuteurs sur le campus.",
+          "Contacter l'INSEEC Campus Chambéry Savoie. Vos interlocuteurs sur le campus.",
       },
     ],
   };

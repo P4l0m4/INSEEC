@@ -12,7 +12,7 @@ useHead(() => {
         hid: "description",
         name: "description",
         content:
-          "Découvrez les événements exclusifs de l’INSEEC Campus Chambéry Savoie.",
+          "Découvrez les événements exclusifs de l'INSEEC Campus Chambéry Savoie.",
       },
     ],
   };
@@ -69,7 +69,7 @@ const breadcrumbs = [
       <p class="events__description">
         Le campus de l'INSEEC Chambéry
         <strong
-          >s’investit pleinement dans l'épanouissement de tous ses
+          >s'investit pleinement dans l'épanouissement de tous ses
           étudiants</strong
         >
         en organisant chaque année de

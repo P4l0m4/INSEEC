@@ -9,7 +9,7 @@ useHead(() => {
         hid: "description",
         name: "description",
         content:
-          "Découvrez les responsables de pôles et les intervanants de l’INSEEC Campus Chambéry Savoie.",
+          "Découvrez les responsables de pôles et les intervanants de l'INSEEC Campus Chambéry Savoie.",
       },
     ],
   };

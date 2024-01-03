@@ -13,7 +13,7 @@ useJsonld(
       name: "INSEEC campus Chambéry",
       alternateName: "INSEEC Chambéry",
       url: "https://chamberycampus.com/",
-      logo: "	https://chamberycampus.com/_nuxt/logo-inseec.a0368931.svg",
+      logo: "https://chamberycampus.com/_nuxt/logo-inseec.a0368931.svg",
       sameAs: [
         "https://www.linkedin.com/company/tekila-web-factory/about/",
         "https://www.facebook.com/INSEEC.Chambery/",

@@ -12,7 +12,7 @@ useHead(() => {
         hid: "description",
         name: "description",
         content:
-          "Découvrez les programmes de l’INSEEC Chambéry Savoie. Un environnement d'exception au coeur de la Savoie.",
+          "Découvrez les programmes de l'INSEEC Chambéry Savoie. Un environnement d'exception au coeur de la Savoie.",
       },
     ],
   };

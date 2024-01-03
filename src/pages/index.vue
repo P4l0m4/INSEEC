@@ -9,7 +9,7 @@ useHead(() => {
         hid: "description",
         name: "description",
         content:
-          "L’INSEEC Campus Chambéry Savoie regroupe de nombreux étudiants Bachelor (BAC+1 à BAC+3) et MSc (BAC+4 à BAC+5). De multiples formations peuvent également être suivies en rythme classique mais également en alternance",
+          "L'INSEEC Campus Chambéry Savoie regroupe de nombreux étudiants Bachelor (BAC+1 à BAC+3) et MSc (BAC+4 à BAC+5). De multiples formations peuvent également être suivies en rythme classique mais également en alternance",
       },
     ],
   };
@@ -42,7 +42,7 @@ const breadcrumbs = [
       />
       <div class="index__banner__txt">
         <h1 class="index__banner__txt__title subtitles">
-          L’INSEEC Campus Chambéry Savoie
+          L'INSEEC Campus Chambéry Savoie
         </h1>
         <p class="index__banner__txt__description">
           Niché au cœur d'Aix Riviera, le campus de Chambéry bénéficie d'un
@@ -95,17 +95,17 @@ const breadcrumbs = [
       <div class="index__presentation">
         <div class="index__presentation__img">
           <h2 class="index__presentation__img__title titles">
-            L’INSEEC Campus Chambéry Savoie
+            L'INSEEC Campus Chambéry Savoie
           </h2>
         </div>
         <div class="index__presentation__txt">
           <h3 class="index__presentation__txt__subtitle">
-            L’INSEEC Campus Chambéry Savoie adopte une ambiance à l'américaine
+            L'INSEEC Campus Chambéry Savoie adopte une ambiance à l'américaine
           </h3>
           <p class="index__presentation__txt__description">
             Offrant
             <strong
-              >de nombreuses installations destinées à l’ensemble des
+              >de nombreuses installations destinées à l'ensemble des
               étudiants,</strong
             >
             il abonde en espaces de travail favorisant le co-working convivial.
@@ -122,7 +122,7 @@ const breadcrumbs = [
             Un
             <strong
               >grand amphithéâtre permet également de réunir un grand nombre
-              d’étudiants pour divers événements. </strong
+              d'étudiants pour divers événements. </strong
             >Les étudiants bénéficient d'une cafétéria-restaurant et d'une
             variété d'espaces de restauration. À l'extérieur, un éventail
             d'espaces verts, un parking privé et un terrain de volley sont à
@@ -147,7 +147,7 @@ const breadcrumbs = [
     <Container>
       <div class="index__categories">
         <h2 class="index__categories__title titles">
-          L’INSEEC Campus Chambéry Savoie, c’est aussi des...
+          L'INSEEC Campus Chambéry Savoie, c'est aussi des...
         </h2>
         <div class="index__categories__boxes">
           <NuxtLink class="index__categories__boxes__link" to="/evenements"
@@ -179,10 +179,10 @@ const breadcrumbs = [
       <div class="index__stats">
         <div class="index__stats__txt">
           <h2 class="index__stats__txt__title subtitles">
-            L’INSEEC Campus Chambéry Savoie, en chiffres...
+            L'INSEEC Campus Chambéry Savoie, en chiffres...
           </h2>
           <p class="index__stats__txt__description">
-            L’INSEEC Campus Chambéry Savoie regroupe de nombreux étudiants
+            L'INSEEC Campus Chambéry Savoie regroupe de nombreux étudiants
             <strong>Bachelor</strong> (BAC+1 à BAC+3) et
             <strong>MSc</strong> (BAC+4 à BAC+5) au sein du campus.
           </p>
@@ -211,7 +211,7 @@ const breadcrumbs = [
       <div class="index__presentation">
         <div id="savoie" class="index__presentation__img">
           <h2 class="index__presentation__img__title titles">
-            L'EXCEPTIONNEL CAMPUS DE L’INSEEC CHAMBÉRY
+            L'EXCEPTIONNEL CAMPUS DE L'INSEEC CHAMBÉRY
           </h2>
         </div>
 
@@ -251,7 +251,7 @@ const breadcrumbs = [
       <div class="index__presentation">
         <div id="work" class="index__presentation__img">
           <h2 class="index__presentation__img__title titles">
-            UN EMPLACEMENT PROPICE A L’EMPLOI
+            UN EMPLACEMENT PROPICE A L'EMPLOI
           </h2>
         </div>
         <div class="index__presentation__txt">
@@ -261,9 +261,9 @@ const breadcrumbs = [
           <p class="index__presentation__txt__description">
             La région Rhône-Alpes, en tant que
             <strong>deuxième région économique de France</strong> et sixième
-            d’Europe, représente un
+            d'Europe, représente un
             <strong>vivier considérable en termes d'emplois</strong>... Que ce
-            soit dans la recherche de stage ou d’alternance mais également en
+            soit dans la recherche de stage ou d'alternance mais également en
             débouché après un BAC+3 ou BAC+5.
           </p>
           <p class="index__presentation__txt__description">
@@ -344,7 +344,7 @@ const breadcrumbs = [
         </div>
         <div class="index__presentation__txt">
           <p class="index__presentation__txt__description subtitles">
-            L’approche pédagogique sur notre campus de Chambéry se distingue par
+            L'approche pédagogique sur notre campus de Chambéry se distingue par
             sa dynamique, axée sur le
             <strong>"Learning by doing"</strong>.
           </p>
@@ -365,23 +365,23 @@ const breadcrumbs = [
           <ul class="index__presentation__txt__ul">
             Nos étudiants bénéficient :
             <li class="index__presentation__txt__ul__li">
-              D’un réseau exclusif de plus de
+              D'un réseau exclusif de plus de
               <strong>1 000 partenaires</strong>
             </li>
             <li class="index__presentation__txt__ul__li">
-              D’un
+              D'un
               <strong>dispositif adapté aux sportifs de haut niveau :</strong>
               un campus en ligne spécialement conçu pour répondre à leurs
               exigences
             </li>
             <li class="index__presentation__txt__description__ul__li">
-              D’un<strong> suivi personnalisé</strong> pour chacun
+              D'un<strong> suivi personnalisé</strong> pour chacun
             </li>
             <li class="index__presentation__wrapper__txt__ul__li">
-              D’<strong>associations étudiantes</strong> dynamiques
+              D'<strong>associations étudiantes</strong> dynamiques
             </li>
             <li class="index__presentation__wrapper__txt__ul__li">
-              D’un
+              D'un
               <strong
                 >enseignement dispensé par de nombreux professionnels</strong
               >
