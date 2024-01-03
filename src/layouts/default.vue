@@ -1,7 +1,7 @@
 <script setup>
 useJsonld(() => ({
   "@context": "https://schema.org",
-  "@type": "Organization",
+  "@type": "CollegeOrUniversity",
   name: "INSEEC campus Chambéry",
   alternateName: "INSEEC Chambéry",
   url: "https://chamberycampus.com/",
