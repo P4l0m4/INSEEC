@@ -1,8 +1,6 @@
-<script setup>
+<script setup lang="ts">
 import { stringToSlug } from "~/utils/slugify";
-
 const story = await useAsyncStoryblok("events", { version: "published" });
-const dayjs = useDayjs();
 
 useHead(() => {
   return {
@@ -17,18 +15,6 @@ useHead(() => {
     ],
   };
 });
-
-//JSONLD
-const breadcrumbs = [
-  {
-    name: "Accueil",
-    url: window.location.origin,
-  },
-  {
-    name: "Evenements",
-    url: window.location.href,
-  },
-];
 </script>
 <template>
   <section class="events">
@@ -168,7 +154,6 @@ const breadcrumbs = [
         ></iframe></div
     ></Container>
   </section>
-  <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
 <style lang="scss" scoped>
 .events {

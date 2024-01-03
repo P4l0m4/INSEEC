@@ -18,18 +18,6 @@ useHead(() => {
   };
 });
 
-//JSONLD
-const breadcrumbs = [
-  {
-    name: "Accueil",
-    url: window.location.origin,
-  },
-  {
-    name: "Programmes",
-    url: window.location.href,
-  },
-];
-
 const selectedLevel = ref("");
 const selectedPole = ref("");
 const isLevelFilterActive = ref(false);
@@ -211,7 +199,6 @@ function selectPole(pole) {
       </div></Container
     >
   </section>
-  <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
 
 <style lang="scss">
