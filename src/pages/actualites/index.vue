@@ -1,6 +1,18 @@
 <script setup>
 const story = await useAsyncStoryblok("news", { version: "published" });
 import { stringToSlug } from "@/utils/slugify.js";
+
+//JSONLD
+const breadcrumbs = [
+  {
+    name: "Accueil",
+    url: window.location.origin,
+  },
+  {
+    name: "Actualités",
+    url: window.location.href,
+  },
+];
 </script>
 <template>
   <Container>
@@ -21,6 +33,7 @@ import { stringToSlug } from "@/utils/slugify.js";
       </div>
     </div></Container
   >
+  <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
 <style lang="scss" scoped>
 .news {

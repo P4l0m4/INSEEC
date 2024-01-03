@@ -13,6 +13,18 @@ useHead(() => {
     ],
   };
 });
+
+//JSONLD
+const breadcrumbs = [
+  {
+    name: "Accueil",
+    url: window.location.origin,
+  },
+  {
+    name: "Partenaires et Associations",
+    url: window.location.href,
+  },
+];
 </script>
 <template>
   <section class="partners">
@@ -81,6 +93,7 @@ useHead(() => {
       </div></Container
     >
   </section>
+  <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
 <style lang="scss" scoped>
 .partners {
