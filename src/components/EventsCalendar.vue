@@ -25,7 +25,7 @@ onMounted(() => {
   }, 500);
 });
 
-function selectDotAndScroll(events) {
+function selectDotAndScroll(events, index) {
   selected.value = index;
   let selectedDot = monthsRef.value[index];
 
