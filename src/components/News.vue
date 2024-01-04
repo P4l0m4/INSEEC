@@ -97,7 +97,8 @@ const story = await useAsyncStoryblok("news", { version: "published" });
       &__title {
         color: $primary-color;
         text-shadow: $shadow-text;
-        font-weight: $skinny-thick;
+        font-weight: $thick;
+        font-size: $subtitles;
         width: 100%;
         text-align: left;
         padding: 0 1rem;
