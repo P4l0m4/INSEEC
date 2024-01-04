@@ -1,7 +1,19 @@
 <script setup>
 const story = await useAsyncStoryblok("news", { version: "published" });
 import { stringToSlug } from "@/utils/slugify.js";
-
+useHead(() => {
+  return {
+    title: "Actualités | INSEEC Campus Chambéry Savoie",
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content:
+          "Retrouvez toutes les actualités de l'INSEEC Chambéry Savoie : événements, conférences, partenariats, vie étudiante, etc.",
+      },
+    ],
+  };
+});
 //JSONLD
 const breadcrumbs = [
   {

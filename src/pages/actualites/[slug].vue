@@ -1,11 +1,66 @@
 <script setup>
 import { stringToSlug } from "@/utils/slugify.js";
 const story = await useAsyncStoryblok("news", { version: "published" });
+const dayjs = useDayjs();
 const route = useRoute();
 const articleSlug = route.params.slug;
 const article = story.value.content.newsList.find(
   (a) => stringToSlug(a.title) === articleSlug
 );
+useHead(() => {
+  return {
+    title: article.title,
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: article.TLDR,
+      },
+    ],
+  };
+});
+
+//JSONLD
+const breadcrumbs = [
+  {
+    name: "Accueil",
+    url: window.location.origin,
+  },
+  {
+    name: "Actualités",
+    url: window.location.origin + "/actualites",
+  },
+  {
+    name: article.title,
+    url: window.location.href,
+  },
+];
+
+useJsonld(() => ({
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": window.location.href,
+  },
+  headline: article.title,
+  description: article.TLDR,
+  image: article.images[0].filename,
+  author: {
+    "@type": "Organization",
+    name: "INSEEC Chambéry",
+    url: window.location.origin,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "INSEEC Chambéry",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://chamberycampus.com/_nuxt/logo-inseec.a0368931.svg",
+    },
+  },
+  datePublished: dayjs(article.date).format("YYYY[-]MM[-]DD[T]HH[:]mm"),
+}));
 </script>
 <template>
   <Container>
@@ -38,6 +93,7 @@ const article = story.value.content.newsList.find(
       </div>
     </div>
   </Container>
+  <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
 <style lang="scss" scoped>
 .article {
