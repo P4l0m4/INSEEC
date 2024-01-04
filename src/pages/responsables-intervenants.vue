@@ -11,6 +11,32 @@ useHead(() => {
         content:
           "Découvrez les responsables de pôles et les intervanants de l'INSEEC Campus Chambéry Savoie.",
       },
+      {
+        hid: "og:type",
+        property: "og:type",
+        content: "website",
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: "Responsables & Intervenants | INSEEC Campus Chambéry Savoie",
+      },
+      {
+        hid: "og:url",
+        property: "og:url",
+        content: window.location.href,
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: story.value.content.smallBanner.filename,
+      },
+      {
+        hid: "og:description",
+        property: "og:description",
+        content:
+          "Découvrez les responsables de pôles et les intervanants de l'INSEEC Campus Chambéry Savoie.",
+      },
     ],
   };
 });
