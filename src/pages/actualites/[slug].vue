@@ -16,6 +16,26 @@ useHead(() => {
         name: "description",
         content: article.TLDR,
       },
+      {
+        hid: "og:type",
+        property: "og:type",
+        content: "article",
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: article.title,
+      },
+      {
+        hid: "og:url",
+        property: "og:url",
+        content: window.location.href,
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: article.images[0].filename,
+      },
     ],
   };
 });
