@@ -30,8 +30,12 @@ const breadcrumbs = [
   <section class="employees">
     <picture class="employees__banner">
       <source
-        media="(min-width: 1000px)"
+        media="(min-width: 1100px)"
         :srcset="story.content.banner.filename"
+      />
+      <source
+        media="(min-width: 600px)"
+        :srcset="story.content.mediumBanner.filename"
       />
 
       <img

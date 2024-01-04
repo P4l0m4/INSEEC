@@ -82,8 +82,12 @@ function selectPole(pole) {
   <section class="programs">
     <picture class="programs__banner">
       <source
-        media="(min-width: 1000px)"
+        media="(min-width: 1100px)"
         :srcset="story.content.banner.filename"
+      />
+      <source
+        media="(min-width: 600px)"
+        :srcset="story.content.mediumBanner.filename"
       />
 
       <img
