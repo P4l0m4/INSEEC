@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 const story = await useAsyncStoryblok("poles", { version: "published" });
 
 useHead(() => {
@@ -25,6 +25,23 @@ const breadcrumbs = [
     url: window.location.href,
   },
 ];
+
+story.value.content.list.forEach((poles) => {
+  poles.persons.forEach((person) => {
+    useJsonld(() => ({
+      "@context": "https://schema.org",
+      "@type": "Person",
+      name: person.name,
+      jobTitle: person.role,
+      image: person.image.filename,
+      worksFor: {
+        "@type": "Organization",
+        name: "INSEEC Chambéry",
+        url: window.location.origin,
+      },
+    }));
+  });
+});
 </script>
 <template>
   <section class="employees">
