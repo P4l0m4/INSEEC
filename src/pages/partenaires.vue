@@ -51,7 +51,7 @@ const breadcrumbs = [
         <NuxtLink
           class="partners__banner__buttons__button button-primary"
           to="#partners"
-          >Découvrir nos partenares</NuxtLink
+          >Découvrir nos partenaires</NuxtLink
         >
         <NuxtLink
           class="events__banner__buttons__button button-secondary"
