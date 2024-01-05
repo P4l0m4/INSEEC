@@ -29,15 +29,39 @@ const breadcrumbs = [
 </script>
 <template>
   <section class="partners">
-    <div
-      class="partners__banner"
-      :style="`background-image: url('${story.content.banner.filename}')`"
-    >
-      <h1 class="partners__banner__title subtitles">
+    <picture class="partners__banner">
+      <source
+        media="(min-width: 1100px)"
+        :srcset="story.content.banner.filename"
+      />
+      <source
+        media="(min-width: 600px)"
+        :srcset="story.content.mediumBanner.filename"
+      />
+
+      <img
+        class="partners__banner__img"
+        :src="story.content.smallBanner.filename"
+        :alt="story.content.smallBanner.filename.alt"
+      />
+      <h1 class="partners__banner__title titles">
         A nos côtés depuis plusieurs années
       </h1>
-    </div>
-    <Container>
+      <div class="partners__banner__buttons">
+        <NuxtLink
+          class="partners__banner__buttons__button button-primary"
+          to="#partners"
+          >Découvrir nos partenares</NuxtLink
+        >
+        <NuxtLink
+          class="events__banner__buttons__button button-secondary"
+          target="_blank"
+          to="https://www.inseec.com/procedures-admissions/"
+          >M'inscrire à l'INSEEC Chambéry</NuxtLink
+        >
+      </div>
+    </picture>
+    <Container id="partners">
       <div class="partners__companies">
         <h2 class="partners__companies__title titles">
           Entreprises partenaires
@@ -108,32 +132,87 @@ const breadcrumbs = [
   }
 
   &__banner {
-    height: 60svh;
-    width: 100%;
+    display: flex;
     background-image: url("@/assets/images/placeholder.svg");
     background-size: cover;
     background-position: center;
+    height: calc(100svh - 88px);
+    max-height: 1200px;
+    width: 100%;
+    padding: 1rem;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
     position: relative;
-    margin-bottom: 6rem;
 
     @media (min-width: $big-tablet-screen) {
-      margin-bottom: 2rem;
+      align-items: flex-start;
+      padding: 2rem;
+      gap: 2rem;
+      height: calc(100svh - 80px);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(
+        190deg,
+        rgba(255, 255, 255, 0) 60%,
+        $secondary-color
+      );
+    }
+
+    & source {
+      display: none;
+    }
+
+    &__img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     &__title {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      transform: translateY(50%);
-      margin: auto;
       color: $primary-color;
-      background-color: $secondary-color;
-      padding: 2rem;
-      width: fit-content;
+      z-index: 1;
+      max-width: 720px;
+      text-wrap: balance;
+      text-shadow: $shadow-text;
+    }
 
-      @media (min-width: $big-tablet-screen) {
-        padding: 2rem 4rem;
+    &__buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+
+      & .button-primary {
+        background-color: $primary-color;
+        color: $secondary-color;
+        cursor: pointer;
+        z-index: 1;
+        width: 100%;
+
+        @media (min-width: $big-tablet-screen) {
+          width: fit-content;
+        }
+      }
+      & .button-secondary {
+        border-color: $primary-color;
+        color: $primary-color;
+        cursor: pointer;
+        z-index: 1;
+        width: 100%;
+
+        @media (min-width: $big-tablet-screen) {
+          width: fit-content;
+        }
       }
     }
   }
