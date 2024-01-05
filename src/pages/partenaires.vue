@@ -42,7 +42,7 @@ const breadcrumbs = [
       <img
         class="partners__banner__img"
         :src="story.content.smallBanner.filename"
-        :alt="story.content.smallBanner.filename.alt"
+        :alt="story.content.smallBanner.alt"
       />
       <h1 class="partners__banner__title titles">
         A nos côtés depuis plusieurs années

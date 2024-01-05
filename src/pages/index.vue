@@ -64,7 +64,7 @@ const breadcrumbs = [
       <img
         class="index__banner__img"
         :src="story.content.smallBanner.filename"
-        :alt="story.content.smallBanner.filename.alt"
+        :alt="story.content.smallBanner.alt"
       />
       <div class="index__banner__txt">
         <h1 class="index__banner__txt__title subtitles">

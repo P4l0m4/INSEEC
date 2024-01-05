@@ -71,7 +71,7 @@ const breadcrumbs = [
       <img
         class="events__banner__img"
         :src="story.content.smallBanner.filename"
-        :alt="story.content.smallBanner.filename.alt"
+        :alt="story.content.smallBanner.alt"
       />
       <h1 class="events__banner__title titles">
         Un campus vivant avec nos événements

@@ -84,7 +84,7 @@ story.value.content.list.forEach((poles) => {
       <img
         class="employees__banner__img"
         :src="story.content.smallBanner.filename"
-        :alt="story.content.smallBanner.filename.alt"
+        :alt="story.content.smallBanner.alt"
       />
       <h1 class="employees__banner__title titles">
         Mettre des visages sur vos programmes

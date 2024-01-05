@@ -93,7 +93,7 @@ function selectPole(pole) {
       <img
         class="programs__banner__img"
         :src="story.content.smallBanner.filename"
-        :alt="story.content.smallBanner.filename.alt"
+        :alt="story.content.smallBanner.alt"
       />
       <h1 class="programs__banner__title titles">
         Tous les programmes de l'INSEEC Campus Chambéry Savoie
