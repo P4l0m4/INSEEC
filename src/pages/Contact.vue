@@ -154,6 +154,15 @@ const breadcrumbs = [
         </div>
       </div>
     </Container>
+    <Container>
+      <iframe
+        class="contact__iframe"
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2789.349012108592!2d5.868268476283805!3d45.64381247107748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x478b09ca39fa5545%3A0x7eeb651ba68a5980!2sINSEEC%20Campus%20Chamb%C3%A9ry%20Savoie!5e0!3m2!1sfr!2sfr!4v1704463938443!5m2!1sfr!2sfr"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe
+    ></Container>
   </section>
   <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
@@ -234,6 +243,16 @@ const breadcrumbs = [
           }
         }
       }
+    }
+  }
+
+  &__iframe {
+    width: 100%;
+    height: 450px;
+    border: 0;
+
+    @media (min-width: $big-tablet-screen) {
+      height: 600px;
     }
   }
 }
