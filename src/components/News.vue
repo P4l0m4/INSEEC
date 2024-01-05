@@ -1,12 +1,38 @@
 <script setup lang="ts">
 import { stringToSlug } from "@/utils/slugify.js";
 const story = await useAsyncStoryblok("news", { version: "published" });
+
+let isScrolling = false;
+let startX = 0;
+let startScrollLeft = 0;
+
+function startScrolling(event: MouseEvent) {
+  isScrolling = true;
+  startX = event.pageX - event.currentTarget.offsetLeft;
+  startScrollLeft = event.currentTarget.scrollLeft;
+}
+function scrollOnGrab(event: MouseEvent) {
+  if (!isScrolling) return;
+  event.preventDefault();
+  const currentX = event.pageX - event.currentTarget.offsetLeft;
+  const walk = currentX - startX;
+  event.currentTarget.scrollLeft = startScrollLeft - walk;
+}
+function stopScrolling() {
+  isScrolling = false;
+}
 </script>
 <template>
   <Container>
     <div class="news">
       <h2 class="news__title titles">Plus de news</h2>
-      <div class="news__articles">
+      <div
+        class="news__articles"
+        @mousedown="startScrolling"
+        @mousemove="scrollOnGrab"
+        @mouseup="stopScrolling"
+        @mouseleave="stopScrolling"
+      >
         <NuxtLink
           class="news__articles__article"
           :to="'/actualites/' + stringToSlug(article.title)"
