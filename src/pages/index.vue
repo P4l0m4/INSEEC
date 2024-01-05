@@ -777,6 +777,8 @@ const breadcrumbs = [
 
     &__img {
       width: 100%;
+      height: auto;
+      max-height: 600px;
       object-fit: cover;
       box-shadow: $shadow;
     }
