@@ -100,7 +100,7 @@ const breadcrumbs = [
         >
         en organisant chaque année de
         <strong
-          >nombreux d'événements visant à dynamiser la vie du campus.</strong
+          >nombreux événements visant à dynamiser la vie du campus.</strong
         >
         Ce qui rend ces événements exceptionnels, c'est l'engagement massif des
         étudiants dans ces projets.
