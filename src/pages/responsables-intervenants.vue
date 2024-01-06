@@ -120,8 +120,8 @@ story.value.content.list.forEach((poles) => {
             :key="person._uid"
             :style="`background-image: linear-gradient(
       190deg,
-      rgba(255, 255, 255, 0) 20%,
-      #202020
+      rgba(255, 255, 255, 0) 40%,
+      #2a3b6b
     ), url('${person.image.filename}')`"
           >
             <div class="employees__pole__people__person__txt">
@@ -152,8 +152,8 @@ story.value.content.list.forEach((poles) => {
             :key="intervenant._uid"
             :style="`background-image: linear-gradient(
       190deg,
-      rgba(255, 255, 255, 0) 20%,
-      #202020
+      rgba(255, 255, 255, 0) 40%,
+      #2a3b6b
     ), url('${intervenant.image.filename}')`"
           >
             <div class="employees__intervenants__people__person__txt">

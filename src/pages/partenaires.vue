@@ -73,8 +73,8 @@ const breadcrumbs = [
             :key="company._uid"
             :style="`background-image: linear-gradient(
       190deg,
-      rgba(255, 255, 255, 0) 20%,
-      #202020
+      rgba(255, 255, 255, 0) 40%,
+      #2a3b6b
     ), url('${company.image.filename}')`"
           >
             <div class="partners__companies__list__company__txt">
@@ -100,8 +100,8 @@ const breadcrumbs = [
             :key="association._uid"
             :style="`background-image: linear-gradient(
       190deg,
-      rgba(255, 255, 255, 0) 20%,
-      #202020
+      rgba(255, 255, 255, 0) 40%,
+      #2a3b6b
     ), url('${association.image.filename}')`"
           >
             <div class="partners__clubs__list__club__txt">
