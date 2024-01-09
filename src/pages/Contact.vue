@@ -65,12 +65,12 @@ console.log(story.value.content.faq[1].link);
         <div class="contact__list__people">
           <div class="contact__list__people__card">
             <span class="contact__list__people__card__title subtitles"
-              >Accueil INSEEC Chambéry</span
+              >Accueil</span
             >
 
-            <!-- <span class="contact__list__people__card__name"
-              >Alexandre VALENTINO</span
-            > -->
+            <span class="contact__list__people__card__name"
+              >Accueil de l'INSEEC Chambéry</span
+            >
             <div class="contact__list__people__card__info">
               <span class="contact__list__people__card__info__coordinates"
                 ><img src="@/assets/icons/phone.svg" alt="icone telephone" />04
