@@ -118,7 +118,7 @@ const breadcrumbs = [
             >
 
             <span class="contact__list__people__card__name"
-              >Théo BONNET-LIGEON</span
+              >Alumni, vous avez une question ou une proposition :</span
             >
             <div class="contact__list__people__card__info">
               <span class="contact__list__people__card__info__coordinates"
