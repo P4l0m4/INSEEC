@@ -126,42 +126,7 @@ console.log(story.value.content.faq[1].link);
               >
             </div>
           </div>
-          <div class="contact__list__people__card">
-            <span class="contact__list__people__card__title subtitles"
-              >Référents Handicap</span
-            >
 
-            <span class="contact__list__people__card__name"
-              >Clément BERTACCO (MSc)</span
-            >
-            <div class="contact__list__people__card__info">
-              <span class="contact__list__people__card__info__coordinates"
-                ><img src="@/assets/icons/phone.svg" alt="icone telephone" />06
-                04 79 25 38 05</span
-              >
-              <span class="contact__list__people__card__info__coordinates"
-                ><img
-                  src="@/assets/icons/email.svg"
-                  alt="icone email"
-                />adressemail[@]gmail.com</span
-              >
-            </div>
-            <span class="contact__list__people__card__name"
-              >Sophie CHOUKROUN (Bachelor)</span
-            >
-            <div class="contact__list__people__card__info">
-              <span class="contact__list__people__card__info__coordinates"
-                ><img src="@/assets/icons/phone.svg" alt="icone telephone" />04
-                79 25 38 37</span
-              >
-              <span class="contact__list__people__card__info__coordinates"
-                ><img
-                  src="@/assets/icons/email.svg"
-                  alt="icone email"
-                />adressemail[@]gmail.com</span
-              >
-            </div>
-          </div>
           <div class="contact__list__people__card">
             <span class="contact__list__people__card__title subtitles"
               >Relations Entreprises & Alumni</span
@@ -198,6 +163,42 @@ console.log(story.value.content.faq[1].link);
                   src="@/assets/icons/email.svg"
                   alt="icone email"
                 />internationaladmissions[@]omneseducation.fr</span
+              >
+            </div>
+          </div>
+          <div class="contact__list__people__card">
+            <span class="contact__list__people__card__title subtitles"
+              >Référents Handicap</span
+            >
+
+            <span class="contact__list__people__card__name"
+              >Clément BERTACCO (MSc)</span
+            >
+            <div class="contact__list__people__card__info">
+              <span class="contact__list__people__card__info__coordinates"
+                ><img src="@/assets/icons/phone.svg" alt="icone telephone" />06
+                04 79 25 38 05</span
+              >
+              <span class="contact__list__people__card__info__coordinates"
+                ><img
+                  src="@/assets/icons/email.svg"
+                  alt="icone email"
+                />adressemail[@]gmail.com</span
+              >
+            </div>
+            <span class="contact__list__people__card__name"
+              >Sophie CHOUKROUN (Bachelor)</span
+            >
+            <div class="contact__list__people__card__info">
+              <span class="contact__list__people__card__info__coordinates"
+                ><img src="@/assets/icons/phone.svg" alt="icone telephone" />04
+                79 25 38 37</span
+              >
+              <span class="contact__list__people__card__info__coordinates"
+                ><img
+                  src="@/assets/icons/email.svg"
+                  alt="icone email"
+                />adressemail[@]gmail.com</span
               >
             </div>
           </div>
