@@ -8,7 +8,10 @@ export default defineNuxtConfig({
   css: ["@/styles/global.scss"],
   modules: [
     "nuxt-simple-sitemap",
-    ["@storyblok/nuxt", { accessToken: process.env.STORYBLOK_KEY }],
+    [
+      "@storyblok/nuxt",
+      { accessToken: process.env.STORYBLOK_KEY, cacheProvider: "memory" },
+    ],
     "nuxt-jsonld",
     "dayjs-nuxt",
   ],
