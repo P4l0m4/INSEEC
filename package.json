@@ -10,7 +10,6 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "ress": "^5.0.2",
     "nuxt-simple-sitemap": "^2.4.11",
     "nuxt-jsonld": "^2.0.8"
   },
