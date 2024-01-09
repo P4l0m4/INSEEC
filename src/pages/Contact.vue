@@ -50,6 +50,8 @@ function toggleQuestion(index) {
     questionOpened.value = index;
   }
 }
+
+console.log(story.value.content.faq[1].link);
 </script>
 
 <template>
@@ -212,18 +214,14 @@ function toggleQuestion(index) {
               }"
             />
           </h2>
-          <p
-            class="contact__faq__card__answer"
-            v-show="questionOpened === index"
-          >
+          <p class="contact__faq__card__answer" v-if="questionOpened === index">
             {{ question.answer }}
           </p>
           <NuxtLink
             class="contact__faq__card__link button-tertiary"
-            :to="question.link.url"
-            :target="question.link.target"
-            v-if="question.link"
-            v-show="questionOpened === index"
+            :to="question.link?.url"
+            :target="question.link?.target"
+            v-if="question.link?.url && questionOpened === index"
           >
             {{ question.link.url }}</NuxtLink
           >
@@ -358,6 +356,8 @@ function toggleQuestion(index) {
         align-items: center;
         width: 100%;
         font-size: $subtitles;
+        font-weight: $thick;
+        align-self: stretch;
 
         &__img {
           width: 16px;
@@ -373,12 +373,12 @@ function toggleQuestion(index) {
       &__answer {
         font-size: $base-text;
         font-weight: $skinny;
-        animation: fading 0.3s;
+        animation: fading 0.4s;
         width: 100%;
       }
 
       &__link {
-        animation: fading 0.3s;
+        animation: fading 0.4s;
         width: fit-content;
       }
     }
