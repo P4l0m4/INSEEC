@@ -1,4 +1,6 @@
 <script setup>
+const story = await useAsyncStoryblok("contact", { version: "published" });
+
 useHead(() => {
   return {
     title: "Contact | INSEEC Campus Chambéry Savoie",
@@ -23,6 +25,31 @@ const breadcrumbs = [
     url: window.location.href,
   },
 ];
+
+const questions = story.value.content.faq.map((question) => {
+  return {
+    "@type": "Question",
+    name: question.title,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: question.answer,
+    },
+  };
+});
+useJsonld(() => ({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: [questions],
+}));
+
+const questionOpened = ref("");
+function toggleQuestion(index) {
+  if (questionOpened.value === index) {
+    questionOpened.value = "";
+  } else {
+    questionOpened.value = index;
+  }
+}
 </script>
 
 <template>
@@ -163,6 +190,46 @@ const breadcrumbs = [
         referrerpolicy="no-referrer-when-downgrade"
       ></iframe
     ></Container>
+    <Container>
+      <div class="contact__faq">
+        <div
+          class="contact__faq__card"
+          v-for="(question, index) in story.content.faq"
+          :key="index"
+          @click="toggleQuestion(index)"
+          @mouseover="questionOpened = index"
+          @mouseleave="questionOpened = ''"
+        >
+          <h2 class="contact__faq__card__question">
+            {{ question.title
+            }}<img
+              class="contact__faq__card__question__img"
+              src="@/assets/icons/arrow.svg"
+              alt="icon arrow inseec"
+              :class="{
+                'contact__faq__card__question__img--rotated':
+                  questionOpened === index,
+              }"
+            />
+          </h2>
+          <p
+            class="contact__faq__card__answer"
+            v-show="questionOpened === index"
+          >
+            {{ question.answer }}
+          </p>
+          <NuxtLink
+            class="contact__faq__card__link button-tertiary"
+            :to="question.link.url"
+            :target="question.link.target"
+            v-if="question.link"
+            v-show="questionOpened === index"
+          >
+            {{ question.link.url }}</NuxtLink
+          >
+        </div>
+      </div>
+    </Container>
   </section>
   <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
@@ -176,6 +243,7 @@ const breadcrumbs = [
   @media (min-width: $big-tablet-screen) {
     gap: 6rem;
   }
+
   &__list {
     display: flex;
     flex-direction: column;
@@ -253,6 +321,66 @@ const breadcrumbs = [
 
     @media (min-width: $big-tablet-screen) {
       height: 600px;
+    }
+  }
+
+  &__faq {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(343px, 1fr));
+    align-items: flex-start;
+    justify-content: center;
+    gap: 2rem;
+    width: 100%;
+
+    @media (min-width: $big-tablet-screen) {
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    }
+
+    @media (min-width: $super-big-screen) {
+      grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+    }
+
+    &__card {
+      background-color: $primary-color;
+      border-radius: $radius;
+      box-shadow: $shadow;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      width: 100%;
+      padding: 1rem;
+      gap: 1rem;
+      cursor: pointer;
+
+      &__question {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        font-size: $subtitles;
+
+        &__img {
+          width: 16px;
+          height: 16px;
+          transition: transform 0.2s;
+
+          &--rotated {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      &__answer {
+        font-size: $base-text;
+        font-weight: $skinny;
+        animation: fading 0.3s;
+        width: 100%;
+      }
+
+      &__link {
+        animation: fading 0.3s;
+        width: fit-content;
+      }
     }
   }
 }

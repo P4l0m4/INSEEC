@@ -2,7 +2,6 @@
 import { stringToSlug } from "~/utils/slugify";
 
 const story = await useAsyncStoryblok("events", { version: "published" });
-const dayjs = useDayjs();
 
 useHead(() => {
   return {
