@@ -65,6 +65,27 @@ console.log(story.value.content.faq[1].link);
         <div class="contact__list__people">
           <div class="contact__list__people__card">
             <span class="contact__list__people__card__title subtitles"
+              >Accueil INSEEC Chambéry</span
+            >
+
+            <!-- <span class="contact__list__people__card__name"
+              >Alexandre VALENTINO</span
+            > -->
+            <div class="contact__list__people__card__info">
+              <span class="contact__list__people__card__info__coordinates"
+                ><img src="@/assets/icons/phone.svg" alt="icone telephone" />04
+                79 25 32 54</span
+              >
+              <span class="contact__list__people__card__info__coordinates"
+                ><img
+                  src="@/assets/icons/email.svg"
+                  alt="icone email"
+                />adressemail[@]gmail.com</span
+              >
+            </div>
+          </div>
+          <div class="contact__list__people__card">
+            <span class="contact__list__people__card__title subtitles"
               >Associations</span
             >
 
