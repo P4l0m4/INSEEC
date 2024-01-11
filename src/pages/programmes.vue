@@ -77,6 +77,8 @@ function selectPole(pole) {
   selectedPole.value = pole;
   isPoleFilterActive.value = !isPoleFilterActive.value;
 }
+
+const programOpened = ref("");
 </script>
 <template>
   <section class="programs">
@@ -197,15 +199,17 @@ function selectPole(pole) {
         </div>
 
         <div class="programs__list__cursus">
-          <NuxtLink
+          <div
             v-for="program in filteredPrograms"
             class="programs__list__cursus__card"
-            :to="program.link.url"
-            :target="program.link.target"
-            :aria-label="program.name"
           >
             <h2 class="programs__list__cursus__card__title">
-              {{ program.pole }}
+              {{ program.pole
+              }}<img
+                class="programs__list__cursus__card__title__img"
+                src="@/assets/icons/add-blue.svg"
+                alt="icone inseec plus"
+              />
             </h2>
             <p class="programs__list__cursus__card__subtitle">
               {{ program.name }}
@@ -213,16 +217,19 @@ function selectPole(pole) {
             <p class="programs__list__cursus__card__details">
               {{ program.details }}
             </p>
-            <button
+            <NuxtLink
               class="programs__list__cursus__card__button button-tertiary"
+              :to="program.link.url"
+              :target="program.link.target"
+              :aria-label="program.name"
             >
               <img
                 class="programs__list__cursus__card__button__img"
                 src="@/assets/icons/contract.svg"
                 alt="icone inscription inseec"
               />Inscription
-            </button>
-          </NuxtLink>
+            </NuxtLink>
+          </div>
         </div>
       </div></Container
     >
@@ -401,6 +408,7 @@ function selectPole(pole) {
             background-color: $primary-color;
             font-size: $base-text;
             border-radius: $radius;
+            box-shadow: $shadow;
             position: absolute;
             inset: 0;
             white-space: nowrap;
@@ -442,7 +450,6 @@ function selectPole(pole) {
       &__card {
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
         align-items: center;
         gap: 1rem;
         padding: 1rem;
@@ -463,6 +470,10 @@ function selectPole(pole) {
           &:hover {
             background-color: $secondary-color;
             box-shadow: $shadow-secondary;
+          }
+
+          &:not(:hover) {
+            height: 92px;
           }
 
           &:hover > &__title {
@@ -491,6 +502,13 @@ function selectPole(pole) {
           color: $secondary-color;
           opacity: 0.6;
           transition: color 0.3s;
+          display: flex;
+          justify-content: space-between;
+
+          &__img {
+            width: 20px;
+            height: 20px;
+          }
         }
 
         &__subtitle {
