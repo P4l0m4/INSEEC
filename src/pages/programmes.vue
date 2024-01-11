@@ -487,7 +487,8 @@ function openProgram(programName) {
         box-shadow: $shadow;
         width: 100%;
         max-width: 600px;
-        height: 92px !important;
+        height: 100%;
+        max-height: 114px;
         animation: popUp 0.4s ease;
         transition:
           box-shadow 0.3s,
@@ -496,6 +497,7 @@ function openProgram(programName) {
 
         @media (min-width: $big-tablet-screen) {
           height: 100%;
+          max-height: 92px;
 
           &:hover {
             background-color: $secondary-color;
@@ -563,6 +565,7 @@ function openProgram(programName) {
 
         &--opened {
           height: fit-content !important;
+          max-height: inherit;
           cursor: auto !important;
           background-color: $secondary-color;
           color: $primary-color;
