@@ -25,7 +25,7 @@ function stopScrolling() {
 <template>
   <Container>
     <div class="news">
-      <h2 class="news__title titles">Plus de news</h2>
+      <h2 class="news__title titles">Actualités du campus</h2>
       <div
         class="news__articles"
         @mousedown="startScrolling"

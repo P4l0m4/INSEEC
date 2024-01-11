@@ -113,6 +113,7 @@ useJsonld(() => ({
       </div>
     </div>
   </Container>
+  <News />
   <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
 <style lang="scss" scoped>

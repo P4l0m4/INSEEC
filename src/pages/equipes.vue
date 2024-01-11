@@ -175,6 +175,7 @@ story.value.content.list.forEach((poles) => {
       </div>
     </Container>
   </section>
+  <News />
   <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
 <style lang="scss" scoped>

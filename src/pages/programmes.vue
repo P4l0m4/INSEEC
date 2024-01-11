@@ -215,6 +215,7 @@ function selectPole(pole) {
       </div></Container
     >
   </section>
+  <News />
   <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
 
