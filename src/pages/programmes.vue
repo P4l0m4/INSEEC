@@ -531,6 +531,7 @@ function openProgram(programName) {
           &__img {
             width: 20px;
             height: 20px;
+            animation: fading 0.4s;
           }
         }
 
