@@ -202,6 +202,7 @@ const programOpened = ref("");
           <div
             v-for="program in filteredPrograms"
             class="programs__list__cursus__card"
+            @mouseenter="programOpened = program.name"
           >
             <h2 class="programs__list__cursus__card__title">
               {{ program.pole
@@ -214,7 +215,13 @@ const programOpened = ref("");
             <p class="programs__list__cursus__card__subtitle">
               {{ program.name }}
             </p>
-            <p class="programs__list__cursus__card__details">
+            <p
+              class="programs__list__cursus__card__details"
+              :class="{
+                'programs__list__cursus__card__details--displayed':
+                  programOpened === program.name,
+              }"
+            >
               {{ program.details }}
             </p>
             <NuxtLink
@@ -484,10 +491,6 @@ const programOpened = ref("");
             color: $primary-color;
           }
 
-          &:hover > &__details {
-            display: flex;
-          }
-
           &:hover > &__button {
             display: flex;
           }
@@ -521,6 +524,10 @@ const programOpened = ref("");
           width: 100%;
           display: none;
           color: $text-color-alt;
+
+          &--displayed {
+            display: flex;
+          }
         }
 
         &__button {
