@@ -79,6 +79,14 @@ function selectPole(pole) {
 }
 
 const programOpened = ref("");
+
+function openProgram(programName) {
+  if (programOpened.value === programName) {
+    programOpened.value = "";
+  } else if (programOpened.value !== programName) {
+    programOpened.value = programName;
+  }
+}
 </script>
 <template>
   <section class="programs">
@@ -202,14 +210,30 @@ const programOpened = ref("");
           <div
             v-for="program in filteredPrograms"
             class="programs__list__cursus__card"
-            @mouseenter="programOpened = program.name"
+            :class="{
+              'programs__list__cursus__card--opened':
+                programOpened === program.name,
+            }"
+            @click="openProgram(program.name)"
           >
-            <h2 class="programs__list__cursus__card__title">
+            <h2
+              class="programs__list__cursus__card__title"
+              :class="{
+                'programs__list__cursus__card__title--blue':
+                  programOpened === program.name,
+              }"
+            >
               {{ program.pole
               }}<img
                 class="programs__list__cursus__card__title__img"
                 src="@/assets/icons/add-blue.svg"
                 alt="icone inseec plus"
+                v-if="programOpened !== program.name"
+              /><img
+                class="programs__list__cursus__card__title__img"
+                src="@/assets/icons/minus-blue.svg"
+                alt="icone inseec moins"
+                v-if="programOpened === program.name"
               />
             </h2>
             <p class="programs__list__cursus__card__subtitle">
@@ -217,10 +241,7 @@ const programOpened = ref("");
             </p>
             <p
               class="programs__list__cursus__card__details"
-              :class="{
-                'programs__list__cursus__card__details--displayed':
-                  programOpened === program.name,
-              }"
+              v-if="programOpened === program.name"
             >
               {{ program.details }}
             </p>
@@ -229,6 +250,7 @@ const programOpened = ref("");
               :to="program.link.url"
               :target="program.link.target"
               :aria-label="program.name"
+              v-if="programOpened === program.name"
             >
               <img
                 class="programs__list__cursus__card__button__img"
@@ -465,6 +487,7 @@ const programOpened = ref("");
         box-shadow: $shadow;
         width: 100%;
         max-width: 600px;
+        height: 92px !important;
         animation: popUp 0.4s ease;
         transition:
           box-shadow 0.3s,
@@ -477,10 +500,7 @@ const programOpened = ref("");
           &:hover {
             background-color: $secondary-color;
             box-shadow: $shadow-secondary;
-          }
-
-          &:not(:hover) {
-            height: 92px;
+            cursor: pointer;
           }
 
           &:hover > &__title {
@@ -489,10 +509,6 @@ const programOpened = ref("");
 
           &:hover > &__subtitle {
             color: $primary-color;
-          }
-
-          &:hover > &__button {
-            display: flex;
           }
         }
 
@@ -508,6 +524,10 @@ const programOpened = ref("");
           display: flex;
           justify-content: space-between;
 
+          &--blue {
+            color: $primary-color;
+          }
+
           &__img {
             width: 20px;
             height: 20px;
@@ -522,26 +542,29 @@ const programOpened = ref("");
 
         &__details {
           width: 100%;
-          display: none;
+          display: flex;
           color: $text-color-alt;
-
-          &--displayed {
-            display: flex;
-          }
         }
 
         &__button {
+          display: flex;
           width: fit-content;
-          display: none;
-          color: $text-color-alt;
           gap: 0.5rem;
           align-items: center;
           cursor: pointer;
+          color: $text-color-alt;
 
           &__img {
             width: 16px;
             height: 16px;
           }
+        }
+
+        &--opened {
+          height: fit-content !important;
+          cursor: auto !important;
+          background-color: $secondary-color;
+          color: $primary-color;
         }
       }
     }
