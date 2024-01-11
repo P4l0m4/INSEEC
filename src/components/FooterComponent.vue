@@ -9,12 +9,10 @@ import { NuxtLink } from '#build/components';
       ><NuxtLink class="footer__links__link" to="/evenements"
         >Evénements</NuxtLink
       >
-      <NuxtLink class="footer__links__link" to="/responsables-intervenants"
+      <NuxtLink class="footer__links__link" to="/equipes"
         >Responsables de pôles</NuxtLink
       >
-      <NuxtLink
-        class="footer__links__link"
-        to="/responsables-intervenants#intervenants"
+      <NuxtLink class="footer__links__link" to="/equipes#intervenants"
         >Intervenants</NuxtLink
       >
       <NuxtLink class="footer__links__link" to="/partenaires"
@@ -23,7 +21,8 @@ import { NuxtLink } from '#build/components';
       <NuxtLink class="footer__links__link" to="/partenaires#associations"
         >Associations</NuxtLink
       >
-      <NuxtLink class="footer__links__link" to="/contact">Contact</NuxtLink>
+      <NuxtLink class="footer__links__link" to="/contact">Contact</NuxtLink
+      ><button class="footer__links__link">Signaler un bug</button>
     </div>
 
     <div class="footer__legal">

@@ -179,10 +179,8 @@ const breadcrumbs = [
           <NuxtLink class="index__categories__boxes__link" to="/evenements"
             >ÉVÉNEMENTS</NuxtLink
           >
-          <NuxtLink
-            class="index__categories__boxes__link"
-            to="/responsables-intervenants"
-            >INTERVENANTS</NuxtLink
+          <NuxtLink class="index__categories__boxes__link" to="/equipes"
+            >ÉQUIPES</NuxtLink
           >
           <NuxtLink class="index__categories__boxes__link" to="/partenaires"
             >PARTENAIRES</NuxtLink
