@@ -210,6 +210,14 @@ function selectPole(pole) {
             <p class="programs__list__cursus__card__subtitle">
               {{ program.name }}
             </p>
+            <p class="programs__list__cursus__card__details">
+              {{ program.details }}
+            </p>
+            <button
+              class="programs__list__cursus__card__button button-tertiary"
+            >
+              Inscription
+            </button>
           </NuxtLink>
         </div>
       </div></Container
@@ -459,6 +467,14 @@ function selectPole(pole) {
           &:hover > &__subtitle {
             color: $primary-color;
           }
+
+          &:hover > &__details {
+            display: flex;
+          }
+
+          &:hover > &__button {
+            display: flex;
+          }
         }
 
         &__title {
@@ -476,6 +492,18 @@ function selectPole(pole) {
           font-size: calc($base-text + 0.25rem);
           font-weight: $skinny-thick;
           width: 100%;
+        }
+
+        &__details {
+          width: 100%;
+          display: none;
+          color: $text-color-alt;
+        }
+
+        &__button {
+          width: fit-content;
+          display: none;
+          color: $text-color-alt;
         }
       }
     }

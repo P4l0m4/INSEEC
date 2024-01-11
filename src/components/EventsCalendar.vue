@@ -246,17 +246,19 @@ story.value.content.calendar.forEach((event) => {
       @media (min-width: $tablet-screen) {
         flex-direction: row;
         height: 100%;
+        max-height: 192px;
         align-items: space-between;
       }
 
       &__img {
         width: 100%;
-        height: 140px;
+        height: 160px;
         object-fit: cover;
         border-radius: $radius $radius 0 0;
 
         @media (min-width: $tablet-screen) {
           width: 100px;
+          height: 140px;
           height: inherit;
           align-self: stretch;
           border-radius: $radius 0 0 $radius;
