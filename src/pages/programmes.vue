@@ -216,7 +216,11 @@ function selectPole(pole) {
             <button
               class="programs__list__cursus__card__button button-tertiary"
             >
-              Inscription
+              <img
+                class="programs__list__cursus__card__button__img"
+                src="@/assets/icons/contract.svg"
+                alt="icone inscription inseec"
+              />Inscription
             </button>
           </NuxtLink>
         </div>
@@ -451,6 +455,7 @@ function selectPole(pole) {
         transition:
           box-shadow 0.3s,
           background-color 0.3s;
+        align-items: flex-end;
 
         @media (min-width: $big-tablet-screen) {
           height: 100%;
@@ -504,6 +509,14 @@ function selectPole(pole) {
           width: fit-content;
           display: none;
           color: $text-color-alt;
+          gap: 0.5rem;
+          align-items: center;
+          cursor: pointer;
+
+          &__img {
+            width: 16px;
+            height: 16px;
+          }
         }
       }
     }
