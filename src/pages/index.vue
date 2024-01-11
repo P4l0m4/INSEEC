@@ -86,13 +86,13 @@ const breadcrumbs = [
       <div class="index__banner__socials">
         <a
           class="index__banner__socials__link"
-          href="https://www.facebook.com/INSEEC.Chambery/"
-          aria-label="facebook inseec chambéry"
+          href="https://www.tiktok.com/@inseec.msc?is_from_webapp=1&sender_device=pc"
+          aria-label="tiktok inseec chambéry"
           target="_blank"
           ><img
             class="index__banner__socials__link__icon scale-on-hover"
-            src="@/assets/icons/facebook.svg"
-            alt="icone facebook inseec chambéry"
+            src="@/assets/icons/tiktok.svg"
+            alt="icone tiktok inseec chambéry"
         /></a>
         <a
           class="index__banner__socials__link"
@@ -104,6 +104,17 @@ const breadcrumbs = [
             src="@/assets/icons/instagram.svg"
             alt="icone instagram inseec chambéry"
         /></a>
+        <a
+          class="index__banner__socials__link"
+          href="https://www.facebook.com/INSEEC.Chambery/"
+          aria-label="facebook inseec chambéry"
+          target="_blank"
+          ><img
+            class="index__banner__socials__link__icon scale-on-hover"
+            src="@/assets/icons/facebook.svg"
+            alt="icone facebook inseec chambéry"
+        /></a>
+
         <a
           class="index__banner__socials__link"
           href="https://www.linkedin.com/school/inseeccampuschamberysavoie/?originalSubdomain=fr"
