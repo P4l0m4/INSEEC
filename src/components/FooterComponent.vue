@@ -1,4 +1,8 @@
-import { NuxtLink } from '#build/components';
+<script setup>
+import { ref } from "vue";
+
+const isBugOpen = ref(false);
+</script>
 <template>
   <footer class="footer">
     <div class="footer__links">
@@ -22,7 +26,9 @@ import { NuxtLink } from '#build/components';
         >Associations</NuxtLink
       >
       <NuxtLink class="footer__links__link" to="/contact">Contact</NuxtLink
-      ><button class="footer__links__link">Signaler un bug</button>
+      ><button class="footer__links__link" @click="isBugOpen = true">
+        Signaler un bug
+      </button>
     </div>
 
     <div class="footer__legal">
@@ -66,6 +72,7 @@ import { NuxtLink } from '#build/components';
           alt="icone linkedin inseec chambéry"
       /></a>
     </div>
+    <BugSignaling :isBugOpen="isBugOpen" @close="isBugOpen = false" />
   </footer>
 </template>
 
@@ -92,6 +99,7 @@ import { NuxtLink } from '#build/components';
     &__link {
       color: $primary-color;
       font-size: $small-text;
+      cursor: pointer;
     }
   }
 
