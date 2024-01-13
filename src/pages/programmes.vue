@@ -228,12 +228,10 @@ function openProgram(programName) {
                 class="programs__list__cursus__card__title__img"
                 src="@/assets/icons/add-blue.svg"
                 alt="icone inseec plus"
-                v-if="programOpened !== program.name"
-              /><img
-                class="programs__list__cursus__card__title__img"
-                src="@/assets/icons/minus-blue.svg"
-                alt="icone inseec moins"
-                v-if="programOpened === program.name"
+                :class="{
+                  'programs__list__cursus__card__title__img--rotated':
+                    programOpened === program.name,
+                }"
               />
             </h2>
             <p class="programs__list__cursus__card__subtitle">
@@ -534,6 +532,11 @@ function openProgram(programName) {
             width: 20px;
             height: 20px;
             animation: fading 0.4s;
+            transition: transform 0.2s;
+
+            &--rotated {
+              transform: rotate(45deg);
+            }
           }
         }
 
