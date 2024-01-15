@@ -124,7 +124,32 @@ function openProgram(programName) {
       </div>
     </picture>
 
-    <Container id="programs"
+    <Container id="programs">
+      <div class="programs__exclusives">
+        <h2 class="programs__exclusives__title subtitles">
+          Les programmes exclusifs de l'INSEEC Chambéry
+        </h2>
+        <div class="programs__exclusives__pictures">
+          <img
+            class="programs__exclusives__pictures__img"
+            src="@/assets/images/INSEEC-CAISSE-EPARGNE.webp"
+            alt="image programme caisse d'épargne inseec chambéry"
+          />
+          <img
+            class="programs__exclusives__pictures__img"
+            src="@/assets/images/INSEEC-CIMALPES.webp"
+            alt="image programme cimalpes inseec chambéry"
+          />
+          <img
+            class="programs__exclusives__pictures__img"
+            src="@/assets/images/INSEEC-DECATHLON.webp"
+            alt="image programme décathlon inseec chambéry"
+          />
+        </div>
+      </div>
+    </Container>
+
+    <Container
       ><div class="programs__list">
         <div class="programs__list__filters">
           <!-- NIVEAUX -->
@@ -358,6 +383,33 @@ function openProgram(programName) {
         @media (min-width: $big-tablet-screen) {
           width: fit-content;
         }
+      }
+    }
+  }
+
+  &__exclusives {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+
+    &__title {
+      width: 100%;
+    }
+
+    &__pictures {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(343px, 1fr));
+      gap: 1rem;
+      @media (min-width: $big-tablet-screen) {
+        gap: 2rem;
+      }
+
+      &__img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: $radius;
       }
     }
   }
