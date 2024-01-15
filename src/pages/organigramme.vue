@@ -49,7 +49,7 @@ useHead(() => {
 </script>
 <template>
   <section class="organigramme">
-    <Container
+    <Container v-if="!isUserAuthenticated"
       ><form class="organigramme__form" @submit.prevent="signIn">
         <div class="organigramme__form__group">
           <label class="organigramme__form__group__label" for="password"
@@ -62,10 +62,6 @@ useHead(() => {
             placeholder="*******************"
             v-model="password"
           />
-          <span class="organigramme__form__group__error">{{
-            errorMessage
-          }}</span>
-
           <img
             class="organigramme__form__group__icon"
             src="@/assets/icons/eye.svg"
@@ -80,6 +76,9 @@ useHead(() => {
             @click="(passwordVisible = false), (inputType = 'password')"
             v-if="passwordVisible"
           />
+          <span class="organigramme__form__group__error">{{
+            errorMessage
+          }}</span>
         </div>
 
         <button class="button-primary" type="submit">Connexion</button>
@@ -111,6 +110,7 @@ useHead(() => {
     flex-direction: column;
     gap: 1rem;
     max-width: 450px;
+    margin: 0 auto;
 
     &__group {
       display: flex;
@@ -119,16 +119,16 @@ useHead(() => {
 
       &__label {
         color: $secondary-color;
-        position: absolute;
         background-color: $base-color;
         padding: 0 6px;
-        top: -12px;
-        left: 8px;
+        margin-bottom: -16px;
+        margin-left: 8px;
+        z-index: 1;
+        width: fit-content;
         animation: slide-from-top 0.4s ease-in-out;
       }
 
       &__input {
-        position: relative !important;
         border: 2px solid $secondary-color;
         height: 44px;
         width: 100%;
@@ -151,11 +151,8 @@ useHead(() => {
       }
 
       &__icon {
-        position: absolute;
-        right: 1rem;
-        top: 0;
-        bottom: 0;
-        margin: auto;
+        margin-top: -2.5rem;
+        margin-left: 90%;
         width: 20px;
         height: 20px;
         cursor: pointer;
