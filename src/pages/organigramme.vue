@@ -11,6 +11,7 @@ const supabase = createClient(supabaseUrl, supabaseAnonKey);
 const password = ref("");
 const passwordVisible = ref(false);
 const errorMessage = ref("");
+const inputType = ref("password");
 
 function isUserAuthenticated() {
   const user = supabase.auth.user;
@@ -48,13 +49,15 @@ useHead(() => {
 </script>
 <template>
   <section class="organigramme">
-    <Container v-if="!isUserAuthenticated"
+    <Container
       ><form class="organigramme__form" @submit.prevent="signIn">
         <div class="organigramme__form__group">
-          <label for="password">Mot de passe</label>
+          <label class="organigramme__form__group__label" for="password"
+            >Mot de passe</label
+          >
           <input
             class="organigramme__form__group__input"
-            type="password"
+            :type="inputType"
             id="password"
             placeholder="*******************"
             v-model="password"
@@ -67,14 +70,14 @@ useHead(() => {
             class="organigramme__form__group__icon"
             src="@/assets/icons/eye.svg"
             alt="eye icon"
-            @click="passwordVisible = true"
+            @click="(passwordVisible = true), (inputType = 'text')"
             v-if="!passwordVisible"
           />
           <img
             class="organigramme__form__group__icon"
             src="@/assets/icons/eye-off.svg"
             alt="eye-off icon"
-            @click="passwordVisible = false"
+            @click="(passwordVisible = false), (inputType = 'password')"
             v-if="passwordVisible"
           />
         </div>
@@ -114,9 +117,32 @@ useHead(() => {
       flex-direction: column;
       gap: 0.5rem;
 
+      &__label {
+        color: $secondary-color;
+        position: absolute;
+        background-color: $base-color;
+        padding: 0 6px;
+        top: -12px;
+        left: 8px;
+        animation: slide-from-top 0.4s ease-in-out;
+      }
+
       &__input {
-        padding: 0.5rem;
         position: relative !important;
+        border: 2px solid $secondary-color;
+        height: 44px;
+        width: 100%;
+        caret-color: $text-color;
+        padding: 12px;
+        color: $text-color;
+        background-color: $base-color;
+        box-shadow: $shadow;
+        animation: slide-from-top 0.4s ease-in-out;
+
+        &::placeholder {
+          color: $text-color;
+          opacity: 0.4;
+        }
       }
 
       &__error {
