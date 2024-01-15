@@ -51,6 +51,7 @@ main {
   flex-direction: column;
   gap: 2rem;
   padding-top: 88px;
+  min-height: 100svh;
 
   @media (min-width: $big-tablet-screen) {
     gap: 4rem;
