@@ -43,6 +43,16 @@ const isBugOpen = ref(false);
     <div class="footer__socials">
       <a
         class="footer__socials__link"
+        href="https://www.tiktok.com/@inseec.msc?is_from_webapp=1&sender_device=pc"
+        aria-label="facebook inseec chambéry"
+        target="_blank"
+        ><img
+          class="footer__socials__link__icon scale-on-hover"
+          src="@/assets/icons/tiktok.svg"
+          alt="icone tiktok inseec chambéry"
+      /></a>
+      <a
+        class="footer__socials__link"
         href="https://www.facebook.com/INSEEC.Chambery/"
         aria-label="facebook inseec chambéry"
         target="_blank"
