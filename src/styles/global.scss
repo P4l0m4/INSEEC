@@ -234,9 +234,9 @@ details > summary::-webkit-details-marker /* Safari */ {
   }
 }
 .subtitles {
-  font-size: calc($subtitles - 0.5rem);
+  font-size: calc($subtitles - 0.25rem);
   font-weight: $skinny-thick;
-  line-height: calc($line-height-subtitles - 0.5rem);
+  line-height: calc($line-height-subtitles - 0.25rem);
 
   @media (min-width: $big-tablet-screen) {
     font-size: $subtitles;
