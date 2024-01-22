@@ -32,10 +32,6 @@ async function signIn() {
     password.value = "";
     errorMessage.value = "";
     isUserAuthenticated.value = true;
-
-    setTimeout(() => {
-      signOut();
-    }, 86400);
   }
 }
 
@@ -123,11 +119,11 @@ useHead(() => {
       </div>
     </Container>
 
-    <Container v-if="isUserAuthenticated === true">
+    <!-- <Container v-if="isUserAuthenticated === true">
       <button class="button-primary organigramme__button" @click="signOut">
         Déconnexion
       </button></Container
-    >
+    > -->
   </section>
 </template>
 <style lang="scss" scoped>
