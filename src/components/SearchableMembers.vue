@@ -11,9 +11,15 @@ const props = defineProps({
 
 function search() {
   matchingMembers.value = props.story.content.members.filter((member) => {
-    return member.tags.some((tag) => {
-      return tag.text.toLowerCase().includes(query.value.toLowerCase());
-    });
+    return (
+      member.tags.some((tag) => {
+        return tag.text.toLowerCase().includes(query.value.toLowerCase());
+      }) ||
+      member.name.toLowerCase().includes(query.value.toLowerCase()) ||
+      member.role.toLowerCase().includes(query.value.toLowerCase()) ||
+      member.description.toLowerCase().includes(query.value.toLowerCase()) ||
+      member.desk.toLowerCase().includes(query.value.toLowerCase())
+    );
   });
 }
 </script>
