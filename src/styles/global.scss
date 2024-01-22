@@ -80,6 +80,8 @@ input,
 textarea {
   caret-color: $text-color;
   background-color: transparent;
+  font-family: "Custom", sans-serif;
+  font-size: $base-text;
   &:focus {
     border: 2px solid $text-color;
     outline: $text-color;
@@ -92,7 +94,8 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-box-shadow: 0 0 0 30px $primary-color inset !important;
 }
-input[type="search"] {
+input[type="search"],
+input[type="text"] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;

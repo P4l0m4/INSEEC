@@ -9,6 +9,7 @@
   padding: 1rem;
   scroll-margin-top: 5rem;
   margin: auto;
+  animation: fading 0.4s;
 
   @media (min-width: $big-tablet-screen) {
     width: 80%;

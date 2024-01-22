@@ -1,6 +1,7 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import { createClient } from "@supabase/supabase-js";
+const story = await useAsyncStoryblok("organigramme", { version: "published" });
 
 const supabaseUrl = "https://enqiiovmugkbnlqjvidw.supabase.co";
 const supabaseAnonKey =
@@ -12,10 +13,11 @@ const password = ref("");
 const passwordVisible = ref(false);
 const errorMessage = ref("");
 const inputType = ref("password");
+let isUserAuthenticated = ref(false);
 
-function isUserAuthenticated() {
-  const user = supabase.auth.user;
-  return user !== null;
+async function signOut() {
+  const { error } = await supabase.auth.signOut();
+  isUserAuthenticated.value = false;
 }
 
 async function signIn() {
@@ -26,6 +28,14 @@ async function signIn() {
 
   if (error) {
     errorMessage.value = error.message;
+  } else {
+    password.value = "";
+    errorMessage.value = "";
+    isUserAuthenticated.value = true;
+
+    setTimeout(() => {
+      signOut();
+    }, 86400);
   }
 }
 
@@ -49,18 +59,23 @@ useHead(() => {
 </script>
 <template>
   <section class="organigramme">
-    <Container v-if="!isUserAuthenticated"
-      ><form class="organigramme__form" @submit.prevent="signIn">
+    <Container v-if="!isUserAuthenticated">
+      <form class="organigramme__form" @submit.prevent="signIn">
+        <h1 class="organigramme__form__title subtitles">
+          Connectez-vous pour accéder à l'organigramme de l'INSEEC Chambéry
+        </h1>
         <div class="organigramme__form__group">
           <label class="organigramme__form__group__label" for="password"
             >Mot de passe</label
           >
+
           <input
             class="organigramme__form__group__input"
             :type="inputType"
             id="password"
             placeholder="*******************"
             v-model="password"
+            autocomplete="on"
           />
           <img
             class="organigramme__form__group__icon"
@@ -81,22 +96,38 @@ useHead(() => {
           }}</span>
         </div>
 
-        <button class="button-primary" type="submit">Connexion</button>
+        <button
+          class="organigramme__form__button button-primary"
+          type="submit"
+          @click="signIn"
+        >
+          Connexion
+        </button>
       </form></Container
     >
-    <Container v-if="isUserAuthenticated">
-      <div class="organigramme__protected-content">
-        <h1 class="organigramme__protected-content__title titles">
-          Organigramme
+    <Container>
+      <SearchableMembers v-if="isUserAuthenticated === true" :story="story" />
+    </Container>
+
+    <Container v-if="isUserAuthenticated === true">
+      <div class="organigramme__first-section">
+        <h1 class="organigramme__first-section__title subtitles">
+          Organigramme de l'INSEEC Chambéry
         </h1>
 
         <img
-          class="organigramme__protected-content__img"
-          src="@/assets/images/placeholder.svg"
-          alt="organigramme"
+          class="organigramme__first-section__img"
+          :src="story.content.image.filename"
+          :alt="story.content.image.alt"
         />
       </div>
     </Container>
+
+    <Container v-if="isUserAuthenticated === true">
+      <button class="button-primary" @click="signOut">
+        Déconnexion
+      </button></Container
+    >
   </section>
 </template>
 <style lang="scss" scoped>
@@ -108,9 +139,10 @@ useHead(() => {
   &__form {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     max-width: 450px;
     margin: 0 auto;
+    text-align: center;
 
     &__group {
       display: flex;
@@ -148,6 +180,9 @@ useHead(() => {
       &__error {
         color: $secondary-color;
         font-size: 0.8rem;
+        margin-top: 0.5rem;
+        width: 100%;
+        text-align: left;
       }
 
       &__icon {
@@ -158,9 +193,13 @@ useHead(() => {
         cursor: pointer;
       }
     }
+
+    &__button {
+      margin-top: -1rem;
+    }
   }
 
-  &__protected-content {
+  &__first-section {
     display: flex;
     flex-direction: column;
     gap: 2rem;
@@ -172,6 +211,91 @@ useHead(() => {
 
     &__img {
       width: 100%;
+    }
+  }
+
+  &__members {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    justify-content: center;
+
+    @media (min-width: $big-tablet-screen) {
+      gap: 2rem;
+    }
+
+    &__member {
+      background-image: linear-gradient(
+          190deg,
+          rgba(255, 255, 255, 0) 20%,
+          $text-color
+        ),
+        url("@/assets/images/placeholder-person.webp");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      border-radius: $radius;
+      height: 420px;
+      overflow: hidden;
+      cursor: pointer;
+      filter: grayscale(20%);
+      transition:
+        background-position 0.4s ease,
+        filter 0.4s ease;
+
+      &:hover {
+        background-position: center right;
+        filter: grayscale(0%);
+      }
+
+      &:hover > &__txt {
+        margin-bottom: 0;
+      }
+
+      &__txt {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        color: $primary-color;
+        backdrop-filter: blur(4px);
+        margin-bottom: -6.2rem;
+        transition: margin-bottom 0.4s ease;
+
+        &__name {
+          text-shadow: $shadow-text;
+        }
+
+        &__role {
+          font-size: $base-text;
+          font-weight: $thick;
+          margin-top: -0.5rem;
+          text-shadow: $shadow-text;
+        }
+
+        &__description {
+          font-size: $small-text;
+          height: 48px;
+          overflow: hidden;
+          text-shadow: $shadow-text;
+        }
+
+        &__desk {
+          display: flex;
+          align-items: center;
+          gap: 0.25rem;
+          font-size: $small-text;
+          text-shadow: $shadow-text;
+          color: $text-color-alt;
+
+          & img {
+            width: 20px;
+            height: 20px;
+          }
+        }
+      }
     }
   }
 }
