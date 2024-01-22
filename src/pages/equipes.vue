@@ -450,10 +450,8 @@ story.value.content.list.forEach((poles) => {
     justify-content: center;
     border-radius: $radius;
     align-items: center;
-    flex-direction: column;
 
     @media (min-width: $big-tablet-screen) {
-      flex-direction: row;
       gap: 2rem;
       padding: 2rem;
       justify-content: space-between;
@@ -461,6 +459,7 @@ story.value.content.list.forEach((poles) => {
 
     &:hover > &__icon {
       opacity: 1;
+      transform: translate(-2rem) rotate(-90deg);
     }
     &__title {
       width: 100%;
@@ -470,7 +469,9 @@ story.value.content.list.forEach((poles) => {
       height: 30px;
       transform: rotate(-90deg);
       opacity: 0.6;
-      transition: opacity 0.4s;
+      transition:
+        opacity 0.4s,
+        transform 0.4s;
     }
   }
 }

@@ -440,14 +440,20 @@ const breadcrumbs = [
 
     <News />
 
-    <div class="index__mini-banner">
-      <span class="index__mini-banner__txt">Pour en savoir plus, RDV sur</span
-      ><a
-        class="index__mini-banner__link button-primary"
+    <Container>
+      <a
+        class="index__mini-banner"
         href="https://www.inseec.com/"
-        >INSEEC.COM</a
+        target="_blank"
       >
-    </div>
+        <h3 class="index__mini-banner__title subtitles">
+          En savoir plus sur les inscriptions à l'INSEEC
+        </h3>
+        <img
+          class="index__mini-banner__icon"
+          src="@/assets/icons/arrow-blue.svg"
+        /> </a
+    ></Container>
   </section>
   <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
@@ -805,21 +811,34 @@ const breadcrumbs = [
 
   &__mini-banner {
     display: flex;
-    background-color: $secondary-color;
+    background-color: $primary-color;
     padding: 1rem;
-    align-items: center;
-    justify-content: center;
     gap: 1rem;
-    margin-bottom: 1rem;
-    width: 100%;
+    justify-content: center;
+    border-radius: $radius;
+    align-items: center;
 
-    &__txt {
-      color: $primary-color;
+    @media (min-width: $big-tablet-screen) {
+      gap: 2rem;
+      padding: 2rem;
+      justify-content: space-between;
     }
 
-    &__link {
-      background-color: $primary-color;
-      color: $secondary-color;
+    &:hover > &__icon {
+      opacity: 1;
+      transform: translate(-2rem) rotate(-90deg);
+    }
+    &__title {
+      width: 100%;
+    }
+    &__icon {
+      width: 30px;
+      height: 30px;
+      transform: rotate(-90deg);
+      opacity: 0.6;
+      transition:
+        opacity 0.4s,
+        transform 0.4s;
     }
   }
 }
