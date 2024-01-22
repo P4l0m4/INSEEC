@@ -183,9 +183,10 @@ story.value.content.list.forEach((poles) => {
         <h3 class="employees__connection__title subtitles">
           Découvrir l'organigramme de l'INSEEC Chambéry
         </h3>
-        <button class="employees__connection__button button-primary">
-          Connexion
-        </button>
+        <img
+          class="employees__connection__icon"
+          src="@/assets/icons/arrow-blue.svg"
+        />
       </NuxtLink>
     </Container>
   </section>
@@ -457,15 +458,19 @@ story.value.content.list.forEach((poles) => {
       padding: 2rem;
       justify-content: space-between;
     }
+
+    &:hover > &__icon {
+      opacity: 1;
+    }
     &__title {
       width: 100%;
     }
-    &__button {
-      width: 100%;
-
-      @media (min-width: $big-tablet-screen) {
-        width: fit-content;
-      }
+    &__icon {
+      width: 30px;
+      height: 30px;
+      transform: rotate(-90deg);
+      opacity: 0.6;
+      transition: opacity 0.4s;
     }
   }
 }
