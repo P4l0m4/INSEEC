@@ -124,7 +124,7 @@ useHead(() => {
     </Container>
 
     <Container v-if="isUserAuthenticated === true">
-      <button class="button-primary" @click="signOut">
+      <button class="button-primary organigramme__button" @click="signOut">
         Déconnexion
       </button></Container
     >
@@ -296,6 +296,14 @@ useHead(() => {
           }
         }
       }
+    }
+  }
+
+  &__button {
+    width: 100%;
+
+    @media (min-width: $big-tablet-screen) {
+      width: fit-content;
     }
   }
 }
