@@ -48,7 +48,11 @@ function search() {
     <div class="search-section__members">
       <div
         class="search-section__members__member"
-        :style="`background-image: url('${member.portrait.filename}')`"
+        :style="`background-image: linear-gradient(
+      190deg,
+      rgba(255, 255, 255, 0) 40%,
+      #2a3b6b
+    ), url('${member.portrait.filename}')`"
         v-for="member in matchingMembers"
       >
         <div class="search-section__members__member__txt">
