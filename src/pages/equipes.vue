@@ -174,6 +174,20 @@ story.value.content.list.forEach((poles) => {
         </div>
       </div>
     </Container>
+    <Container>
+      <NuxtLink
+        class="employees__connection"
+        to="/organigramme"
+        target="_blank"
+      >
+        <h3 class="employees__connection__title subtitles">
+          Découvrir l'organigramme de l'INSEEC Chambéry
+        </h3>
+        <button class="employees__connection__button button-primary">
+          Connexion
+        </button>
+      </NuxtLink>
+    </Container>
   </section>
   <News />
   <JsonldBreadcrumb :links="breadcrumbs" />
@@ -423,6 +437,34 @@ story.value.content.list.forEach((poles) => {
             text-shadow: $shadow-text;
           }
         }
+      }
+    }
+  }
+
+  &__connection {
+    display: flex;
+    background-color: $primary-color;
+    padding: 1rem;
+    gap: 1rem;
+    justify-content: center;
+    border-radius: $radius;
+    align-items: center;
+    flex-direction: column;
+
+    @media (min-width: $big-tablet-screen) {
+      flex-direction: row;
+      gap: 2rem;
+      padding: 2rem;
+      justify-content: space-between;
+    }
+    &__title {
+      width: 100%;
+    }
+    &__button {
+      width: 100%;
+
+      @media (min-width: $big-tablet-screen) {
+        width: fit-content;
       }
     }
   }
