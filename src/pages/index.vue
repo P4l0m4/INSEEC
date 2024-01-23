@@ -438,8 +438,6 @@ const breadcrumbs = [
       </div></Container
     >
 
-    <News />
-
     <Container>
       <a
         class="index__mini-banner"
@@ -454,6 +452,8 @@ const breadcrumbs = [
           src="@/assets/icons/arrow-blue.svg"
         /> </a
     ></Container>
+
+    <News />
   </section>
   <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
