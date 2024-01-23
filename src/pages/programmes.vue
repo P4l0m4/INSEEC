@@ -163,7 +163,10 @@ function openProgram(programName) {
             >
               <div
                 class="programs__list__filters__poles-and-levels__choices__placeholder"
-                @click="isLevelFilterActive = !isLevelFilterActive"
+                @click="
+                  (isLevelFilterActive = !isLevelFilterActive),
+                    (isPoleFilterActive = false)
+                "
               >
                 <span v-if="selectedLevel">{{ selectedLevel }}</span>
                 <span v-else>Niveau</span>
@@ -201,7 +204,10 @@ function openProgram(programName) {
             >
               <div
                 class="programs__list__filters__poles-and-levels__choices__placeholder"
-                @click="isPoleFilterActive = !isPoleFilterActive"
+                @click="
+                  (isPoleFilterActive = !isPoleFilterActive),
+                    (isLevelFilterActive = false)
+                "
               >
                 <span v-if="selectedPole">{{ selectedPole }}</span>
                 <span v-else>Domaine</span>
