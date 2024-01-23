@@ -55,6 +55,37 @@ useHead(() => {
 </script>
 <template>
   <section class="organigramme">
+    <picture class="organigramme__banner" v-if="isUserAuthenticated === true">
+      <source
+        media="(min-width: 1100px)"
+        srcset="@/assets/images/org-banner.webp"
+      />
+      <source
+        media="(min-width: 600px)"
+        srcset="@/assets/images/org-banner-tablet.webp"
+      />
+
+      <img
+        class="organigramme__banner__img"
+        src="@/assets/images/org-banner-mobile.webp"
+        alt="banner inseec chambéry"
+      />
+      <h1 class="organigramme__banner__title titles">
+        Découvrez les membres de l'INSEEC Chambéry
+      </h1>
+      <div class="organigramme__banner__buttons">
+        <NuxtLink
+          class="organigramme__banner__buttons__button button-primary"
+          to="#search"
+          >Consulter l'annuaire</NuxtLink
+        >
+        <NuxtLink
+          class="organigramme__banner__buttons__button button-secondary"
+          to="#organigramme"
+          >Voir l'organigramme</NuxtLink
+        >
+      </div>
+    </picture>
     <Container v-if="!isUserAuthenticated">
       <form class="organigramme__form" @submit.prevent="signIn">
         <h1 class="organigramme__form__title subtitles">
@@ -101,11 +132,11 @@ useHead(() => {
         </button>
       </form></Container
     >
-    <Container>
+    <Container id="search">
       <SearchableMembers v-if="isUserAuthenticated === true" :story="story" />
     </Container>
 
-    <Container v-if="isUserAuthenticated === true">
+    <Container id="organigramme" v-if="isUserAuthenticated === true">
       <div class="organigramme__first-section">
         <h1 class="organigramme__first-section__title subtitles">
           Organigramme de l'INSEEC Chambéry
@@ -131,6 +162,92 @@ useHead(() => {
   display: flex;
   flex-direction: column;
   gap: 4rem;
+
+  &__banner {
+    display: flex;
+    background-image: url("@/assets/images/placeholder.svg");
+    background-size: cover;
+    background-position: center;
+    height: calc(100svh - 88px);
+    max-height: 1200px;
+    width: 100%;
+    padding: 1rem;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+    position: relative;
+
+    @media (min-width: $big-tablet-screen) {
+      align-items: flex-start;
+      padding: 2rem;
+      gap: 2rem;
+      height: calc(100svh - 80px);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      background-image: linear-gradient(
+        190deg,
+        rgba(255, 255, 255, 0) 60%,
+        $secondary-color
+      );
+    }
+
+    & source {
+      display: none;
+    }
+
+    &__img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &__title {
+      color: $primary-color;
+      z-index: 1;
+      max-width: 720px;
+      text-wrap: balance;
+      text-shadow: $shadow-text;
+    }
+
+    &__buttons {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+
+      & .button-primary {
+        background-color: $primary-color;
+        color: $secondary-color;
+        cursor: pointer;
+        z-index: 1;
+        width: 100%;
+
+        @media (min-width: $big-tablet-screen) {
+          width: fit-content;
+        }
+      }
+      & .button-secondary {
+        border-color: $primary-color;
+        color: $primary-color;
+        cursor: pointer;
+        z-index: 1;
+        width: 100%;
+
+        @media (min-width: $big-tablet-screen) {
+          width: fit-content;
+        }
+      }
+    }
+  }
 
   &__form {
     display: flex;
@@ -183,7 +300,7 @@ useHead(() => {
 
       &__icon {
         margin-top: -2.5rem;
-        margin-left: 90%;
+        margin-left: 92%;
         width: 20px;
         height: 20px;
         cursor: pointer;
