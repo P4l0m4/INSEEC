@@ -279,6 +279,7 @@ story.value.content.calendar.forEach((event) => {
           font-size: 1rem;
           display: flex;
           justify-content: space-between;
+          align-items: center;
           color: $secondary-color;
           opacity: 0.6;
 
