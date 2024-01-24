@@ -265,7 +265,13 @@ function openProgram(programName) {
                 }"
               />
             </h2>
-            <p class="programs__list__cursus__card__subtitle">
+            <p
+              class="programs__list__cursus__card__subtitle"
+              :class="{
+                'programs__list__cursus__card__subtitle--opened':
+                  programOpened === program.name,
+              }"
+            >
               {{ program.name }}
             </p>
             <p
@@ -602,6 +608,13 @@ function openProgram(programName) {
           font-size: calc($base-text + 0.25rem);
           font-weight: $skinny-thick;
           width: 100%;
+          overflow-x: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+
+          &--opened {
+            white-space: normal;
+          }
         }
 
         &__details {
