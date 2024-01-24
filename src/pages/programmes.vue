@@ -411,7 +411,7 @@ function openProgram(programName) {
 
     &__pictures {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(343px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(343px, 1fr));
       gap: 1rem;
       @media (min-width: $big-tablet-screen) {
         gap: 2rem;
