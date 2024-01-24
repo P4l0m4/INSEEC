@@ -140,6 +140,7 @@ story.value.content.calendar.forEach((event) => {
   align-items: center;
   width: 100%;
   position: relative;
+  height: fit-content;
 
   &::before {
     content: "";
@@ -237,6 +238,7 @@ story.value.content.calendar.forEach((event) => {
     place-items: center;
     gap: 2rem;
     width: 100%;
+    height: fit-content;
 
     @media (min-width: $big-tablet-screen) {
       grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
