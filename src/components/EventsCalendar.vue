@@ -288,7 +288,6 @@ story.value.content.calendar.forEach((event) => {
         gap: 0.5rem;
         padding: 1rem;
         width: 100%;
-        height: 100%;
         justify-content: space-between;
 
         &__first-line {
@@ -329,14 +328,15 @@ story.value.content.calendar.forEach((event) => {
           display: flex;
           gap: 1rem;
           justify-content: space-between;
-          margin-top: 1rem;
+          align-items: flex-end;
+          height: 100%;
+          width: 100%;
 
           &__time {
             font-size: $base-text;
             font-weight: $overweight;
             opacity: 0.6;
             color: $secondary-color;
-            height: 100%;
             display: flex;
             align-items: center;
 
