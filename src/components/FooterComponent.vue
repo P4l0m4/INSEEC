@@ -43,7 +43,8 @@ const isBugOpen = ref(false);
     <div class="footer__socials">
       <a
         class="footer__socials__link"
-        href="https://www.tiktok.com/@inseec.msc?is_from_webapp=1&sender_device=pc"
+        href="https://www.tiktok.com/@inseec_campus_chambery?is_from_webapp=1&amp;sender_device=
+pc"
         aria-label="facebook inseec chambéry"
         target="_blank"
         ><img

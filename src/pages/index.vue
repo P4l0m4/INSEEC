@@ -86,7 +86,8 @@ const breadcrumbs = [
       <div class="index__banner__socials">
         <a
           class="index__banner__socials__link"
-          href="https://www.tiktok.com/@inseec.msc?is_from_webapp=1&sender_device=pc"
+          href="https://www.tiktok.com/@inseec_campus_chambery?is_from_webapp=1&amp;sender_device=
+pc"
           aria-label="tiktok inseec chambéry"
           target="_blank"
           ><img

@@ -202,7 +202,6 @@ const breadcrumbs = [
   flex-direction: column;
   gap: 4rem;
   align-items: center;
-  overflow: hidden;
 
   @media (min-width: $big-tablet-screen) {
     gap: 6rem;
