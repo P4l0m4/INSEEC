@@ -260,7 +260,7 @@ story.value.content.calendar.forEach((event) => {
 
       @media (min-width: $tablet-screen) {
         flex-direction: row;
-        height: 100%;
+        height: fit-content;
         max-height: 192px;
         align-items: space-between;
       }
@@ -276,10 +276,8 @@ story.value.content.calendar.forEach((event) => {
         border-radius: $radius $radius 0 0;
 
         @media (min-width: $tablet-screen) {
+          height: 192px;
           width: 100px;
-          height: 140px;
-          height: inherit;
-          align-self: stretch;
           border-radius: $radius 0 0 $radius;
         }
       }
