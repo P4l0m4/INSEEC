@@ -240,7 +240,7 @@ let isMenuOpen = ref(false);
           &::after {
             content: "";
             display: block;
-            margin-top: 4px;
+            margin-top: 2px;
             width: 1%;
             height: 2px;
             transition:
