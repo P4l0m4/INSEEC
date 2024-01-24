@@ -239,7 +239,11 @@ story.value.content.calendar.forEach((event) => {
     width: 100%;
 
     @media (min-width: $big-tablet-screen) {
-      grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    }
+
+    @media (min-width: $desktop-screen) {
+      grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
     }
 
     &__event {
@@ -259,8 +263,7 @@ story.value.content.calendar.forEach((event) => {
         align-items: space-between;
       }
 
-      @media (min-width: $desktop-screen) {
-        min-width: 600px;
+      @media (min-width: $big-tablet-screen) {
         max-width: inherit;
       }
 
