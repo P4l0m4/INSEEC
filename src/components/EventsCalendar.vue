@@ -31,13 +31,17 @@ onMounted(() => {
 function selectDotAndScroll(events, index) {
   selected.value = index;
   let selectedDot = monthsRef.value[index];
+  displayedEvents.value = events;
+
+  if (index === Object.keys(eventsGroupedByMonth.value).length - 1) {
+    return;
+  }
 
   selectedDot?.scrollIntoView({
     behavior: "smooth",
     block: "nearest",
     inline: "center",
   });
-  displayedEvents.value = events;
 }
 
 let eventsGroupedByMonth = computed(() => {
