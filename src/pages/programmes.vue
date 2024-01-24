@@ -559,8 +559,8 @@ function openProgram(programName) {
         align-items: flex-end;
 
         @media (min-width: $big-tablet-screen) {
-          height: 100%;
-          max-height: 92px;
+          height: fit-content;
+          // max-height: 92px;
 
           &:hover {
             background-color: $secondary-color;
