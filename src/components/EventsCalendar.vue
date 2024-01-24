@@ -232,7 +232,7 @@ story.value.content.calendar.forEach((event) => {
   &__events {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(343px, 1fr));
-    place-items: center;
+    align-items: center;
     gap: 2rem;
     width: 100%;
 
