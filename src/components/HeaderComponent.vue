@@ -121,7 +121,7 @@ let isMenuOpen = ref(false);
 .router-link-exact-active {
   text-decoration: underline;
   text-decoration-color: $secondary-color;
-  text-decoration-thickness: 4px;
+  text-decoration-thickness: 2px;
   text-underline-offset: 8px;
 
   &:hover::after {
@@ -242,7 +242,7 @@ let isMenuOpen = ref(false);
             display: block;
             margin-top: 4px;
             width: 1%;
-            height: 4px;
+            height: 2px;
             transition:
               width 0.3s ease-in-out,
               background-color 0.3s ease-in-out;
