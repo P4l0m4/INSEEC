@@ -539,6 +539,7 @@ function openProgram(programName) {
       }
 
       &__card {
+        border: green solid 5px;
         display: flex;
         flex-direction: column;
         align-items: center;
