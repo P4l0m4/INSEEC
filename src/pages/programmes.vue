@@ -533,13 +533,13 @@ function openProgram(programName) {
       grid-template-columns: repeat(auto-fill, minmax(343px, 1fr));
       width: 100%;
       gap: 1rem;
+      height: fit-content;
 
       @media (min-width: $big-tablet-screen) {
         grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
       }
 
       &__card {
-        border: green solid 5px;
         display: flex;
         flex-direction: column;
         align-items: center;
