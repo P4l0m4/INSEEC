@@ -17,17 +17,9 @@ onMounted(() => {
   const startIndex = Object.keys(eventsGroupedByMonth.value).indexOf(
     currentMonthWithYear
   );
-  // setTimeout(() => {
-  //   selectDotAndScroll(
-  //     eventsGroupedByMonth.value[currentMonthWithYear],
-  //     startIndex
-  //   );
-  // }, 500);
 
   window.addEventListener("scroll", () => {
-    console.log(window.scrollY);
     if (window.scrollY >= 300 && window.scrollY <= 400) {
-      console.log("scrolled " + window.scrollY);
       selectDotAndScroll(
         eventsGroupedByMonth.value[currentMonthWithYear],
         startIndex
