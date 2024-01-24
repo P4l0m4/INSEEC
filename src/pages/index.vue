@@ -238,7 +238,7 @@ pc"
         </div>
         <img
           class="index__stats__img"
-          src="@/assets/images/placeholder.svg"
+          src="@/assets/images/stats.webp"
           alt="campus inseec chambéry"
         /></div
     ></Container>
@@ -605,6 +605,10 @@ pc"
         padding: 2rem;
       }
 
+      &__title {
+        width: 100%;
+      }
+
       &__subtitle {
         font-size: $subtitles;
         font-weight: $skinny-thick;
@@ -780,6 +784,7 @@ pc"
       @media (min-width: $big-tablet-screen) {
         gap: 2rem;
         padding: 2rem;
+        width: 50%;
       }
 
       &__title {
@@ -793,10 +798,14 @@ pc"
 
     &__img {
       width: 100%;
-      height: auto;
-      max-height: 600px;
+      min-height: 400px;
       object-fit: cover;
-      box-shadow: $shadow;
+      object-position: center;
+      display: flex;
+      align-items: flex-end;
+      @media (min-width: $big-tablet-screen) {
+        width: 50%;
+      }
     }
   }
 
