@@ -280,6 +280,9 @@ story.value.content.calendar.forEach((event) => {
           width: 100px;
           border-radius: $radius 0 0 $radius;
         }
+        @media (min-width: $desktop-screen) {
+          width: 150px;
+        }
       }
 
       &__txt {
