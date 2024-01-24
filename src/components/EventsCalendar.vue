@@ -234,12 +234,12 @@ story.value.content.calendar.forEach((event) => {
   &__events {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(343px, 1fr));
-    align-items: center;
+    place-items: center;
     gap: 2rem;
     width: 100%;
 
     @media (min-width: $big-tablet-screen) {
-      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
     }
 
     &__event {
@@ -257,6 +257,11 @@ story.value.content.calendar.forEach((event) => {
         height: 100%;
         max-height: 192px;
         align-items: space-between;
+      }
+
+      @media (min-width: $desktop-screen) {
+        min-width: 600px;
+        max-width: inherit;
       }
 
       &__img {
