@@ -100,9 +100,11 @@ story.value.content.calendar.forEach((event) => {
             alt="evenement calendrier inseec"
           />
           <div class="calendar__events__event__txt">
-            <div class="calendar__events__event__txt__title">
-              {{ event.title }}
-              <span class="calendar__events__event__txt__title__date">{{
+            <div class="calendar__events__event__txt__first-line">
+              <span class="calendar__events__event__txt__first-line__title">{{
+                event.title
+              }}</span>
+              <span class="calendar__events__event__txt__first-line__date">{{
                 dayjs(event.date).format("DD MMMM")
               }}</span>
             </div>
@@ -281,19 +283,27 @@ story.value.content.calendar.forEach((event) => {
         height: 100%;
         justify-content: space-between;
 
-        &__title {
-          font-weight: $thick;
-          font-size: 1rem;
+        &__first-line {
           display: flex;
           justify-content: space-between;
           align-items: center;
-          color: $secondary-color;
+          gap: 0.25rem;
           opacity: 0.6;
 
+          &__title {
+            font-weight: $thick;
+            font-size: 1rem;
+            color: $secondary-color;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
           &__date {
             font-size: $base-text;
             font-weight: $overweight;
             color: $secondary-color;
+            width: fit-content;
+            white-space: nowrap;
 
             &--past {
               text-decoration: line-through;
