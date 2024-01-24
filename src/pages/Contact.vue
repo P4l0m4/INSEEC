@@ -76,21 +76,66 @@ console.log(story.value.content.faq[1].link);
                 ><img src="@/assets/icons/phone.svg" alt="icone telephone" />04
                 79 25 32 54</span
               >
-              <span class="contact__list__people__card__info__coordinates"
+              <!-- <span class="contact__list__people__card__info__coordinates"
                 ><img
                   src="@/assets/icons/email.svg"
                   alt="icone email"
                 />adressemail[@]gmail.com</span
-              >
+              > -->
             </div>
           </div>
+
           <div class="contact__list__people__card">
             <span class="contact__list__people__card__title subtitles"
-              >Associations</span
+              >Directrice des Etudes Bachelor</span
             >
 
             <span class="contact__list__people__card__name"
-              >Alexandre VALENTINO</span
+              >Céline Guillouet</span
+            >
+            <div class="contact__list__people__card__info">
+              <span class="contact__list__people__card__info__coordinates"
+                ><img src="@/assets/icons/phone.svg" alt="icone telephone" />06
+                42 57 66 40</span
+              >
+              <span class="contact__list__people__card__info__coordinates"
+                ><img
+                  src="@/assets/icons/email.svg"
+                  alt="icone email"
+                />cguillouet[@]inseec.com</span
+              >
+            </div>
+          </div>
+
+          <div class="contact__list__people__card">
+            <span class="contact__list__people__card__title subtitles"
+              >Directrice des Etudes MSc</span
+            >
+
+            <span class="contact__list__people__card__name"
+              >Véronique Rodari</span
+            >
+            <div class="contact__list__people__card__info">
+              <span class="contact__list__people__card__info__coordinates"
+                ><img src="@/assets/icons/phone.svg" alt="icone telephone" />04
+                79 25 33 55</span
+              >
+              <span class="contact__list__people__card__info__coordinates"
+                ><img
+                  src="@/assets/icons/email.svg"
+                  alt="icone email"
+                />vrodari[@]inseec.com</span
+              >
+            </div>
+          </div>
+
+          <div class="contact__list__people__card">
+            <span class="contact__list__people__card__title subtitles"
+              >Responsable Evénementiel</span
+            >
+
+            <span class="contact__list__people__card__name"
+              >Alexandre Valentino</span
             >
             <div class="contact__list__people__card__info">
               <span class="contact__list__people__card__info__coordinates"
@@ -101,17 +146,20 @@ console.log(story.value.content.faq[1].link);
                 ><img
                   src="@/assets/icons/email.svg"
                   alt="icone email"
-                />adressemail[@]gmail.com</span
+                />avalentino[@]inseec.com</span
               >
             </div>
           </div>
+
+          <!-- THEO -->
+
           <div class="contact__list__people__card">
             <span class="contact__list__people__card__title subtitles"
               >Communication</span
             >
 
             <span class="contact__list__people__card__name"
-              >Théo BONNET-LIGEON</span
+              >Théo Bonnet-Ligeon</span
             >
             <div class="contact__list__people__card__info">
               <span class="contact__list__people__card__info__coordinates"
@@ -122,7 +170,7 @@ console.log(story.value.content.faq[1].link);
                 ><img
                   src="@/assets/icons/email.svg"
                   alt="icone email"
-                />adressemail[@]gmail.com</span
+                />tbonnetligeon[@]inseec.com</span
               >
             </div>
           </div>
@@ -132,23 +180,21 @@ console.log(story.value.content.faq[1].link);
               >Relations Entreprises & Alumni</span
             >
 
-            <span class="contact__list__people__card__name"
-              >Alumni, vous avez une question ou une proposition :</span
-            >
+            <span class="contact__list__people__card__name">Franck Gorry</span>
             <div class="contact__list__people__card__info">
               <span class="contact__list__people__card__info__coordinates"
                 ><img src="@/assets/icons/phone.svg" alt="icone telephone" />04
-                79 25 35 79
+                79 25 38 02
               </span>
               <span class="contact__list__people__card__info__coordinates"
                 ><img
                   src="@/assets/icons/email.svg"
                   alt="icone email"
-                />srea.chambery[@]omneseducation.com</span
+                />fgorry[@]omneseducation.com</span
               >
             </div>
           </div>
-          <div class="contact__list__people__card">
+          <!-- <div class="contact__list__people__card">
             <span class="contact__list__people__card__title subtitles"
               >Admission Etudiants Internationaux</span
             >
@@ -165,29 +211,35 @@ console.log(story.value.content.faq[1].link);
                 />internationaladmissions[@]omneseducation.fr</span
               >
             </div>
-          </div>
+          </div> -->
           <div class="contact__list__people__card">
             <span class="contact__list__people__card__title subtitles"
-              >Référents Handicap</span
+              >Référent Handicap MSc</span
             >
 
             <span class="contact__list__people__card__name"
-              >Clément BERTACCO (MSc)</span
+              >Clément Bertacco</span
             >
             <div class="contact__list__people__card__info">
               <span class="contact__list__people__card__info__coordinates"
-                ><img src="@/assets/icons/phone.svg" alt="icone telephone" />06
-                04 79 25 38 05</span
+                ><img src="@/assets/icons/phone.svg" alt="icone telephone" />04
+                79 25 38 05</span
               >
               <span class="contact__list__people__card__info__coordinates"
                 ><img
                   src="@/assets/icons/email.svg"
                   alt="icone email"
-                />adressemail[@]gmail.com</span
+                />cbertacco[@]inseec.com</span
               >
             </div>
+          </div>
+          <div class="contact__list__people__card">
+            <span class="contact__list__people__card__title subtitles"
+              >Référent Handicap Bachelor</span
+            >
+
             <span class="contact__list__people__card__name"
-              >Sophie CHOUKROUN (Bachelor)</span
+              >Sophie Choukroun</span
             >
             <div class="contact__list__people__card__info">
               <span class="contact__list__people__card__info__coordinates"
@@ -198,9 +250,123 @@ console.log(story.value.content.faq[1].link);
                 ><img
                   src="@/assets/icons/email.svg"
                   alt="icone email"
-                />adressemail[@]gmail.com</span
+                />schoukroun[@]inseec.com</span
               >
             </div>
+          </div>
+
+          <div class="contact__list__people__card">
+            <span class="contact__list__people__card__title subtitles"
+              >Responsable Admissions Bachelor</span
+            >
+
+            <span class="contact__list__people__card__name">Maud Piggio</span>
+            <div class="contact__list__people__card__info">
+              <span class="contact__list__people__card__info__coordinates"
+                ><img src="@/assets/icons/phone.svg" alt="icone telephone" />04
+                79 25 38 42
+              </span>
+              <span class="contact__list__people__card__info__coordinates"
+                ><img
+                  src="@/assets/icons/email.svg"
+                  alt="icone email"
+                />mpiggio[@]inseec.com</span
+              >
+            </div>
+          </div>
+
+          <div class="contact__list__people__card">
+            <span class="contact__list__people__card__title subtitles"
+              >Responsable Admission MSc</span
+            >
+
+            <span class="contact__list__people__card__name">Océane Clerc</span>
+            <div class="contact__list__people__card__info">
+              <span class="contact__list__people__card__info__coordinates"
+                ><img src="@/assets/icons/phone.svg" alt="icone telephone" />04
+                79 25 34 44
+              </span>
+              <span class="contact__list__people__card__info__coordinates"
+                ><img
+                  src="@/assets/icons/email.svg"
+                  alt="icone email"
+                />oclerc[@]inseec.com</span
+              >
+            </div>
+          </div>
+
+          <div class="contact__list__people__card">
+            <span class="contact__list__people__card__title subtitles"
+              >Secrétaire Général Campus Chambéry</span
+            >
+
+            <span class="contact__list__people__card__name"
+              >Géraldine Rival</span
+            >
+            <div class="contact__list__people__card__info">
+              <span class="contact__list__people__card__info__coordinates"
+                ><img src="@/assets/icons/phone.svg" alt="icone telephone" />04
+                79 25 38 40
+              </span>
+              <span class="contact__list__people__card__info__coordinates"
+                ><img
+                  src="@/assets/icons/email.svg"
+                  alt="icone email"
+                />grival[@]omneseducation.com</span
+              >
+            </div>
+          </div>
+
+          <div class="contact__list__people__card">
+            <span class="contact__list__people__card__title subtitles"
+              >Responsable CES</span
+            >
+
+            <span class="contact__list__people__card__name"
+              >Marilyn Pouyet</span
+            >
+            <div class="contact__list__people__card__info">
+              <span class="contact__list__people__card__info__coordinates"
+                ><img src="@/assets/icons/phone.svg" alt="icone telephone" />04
+                78 29 75 48
+              </span>
+              <span class="contact__list__people__card__info__coordinates"
+                ><img
+                  src="@/assets/icons/email.svg"
+                  alt="icone email"
+                />mpouyet[@]omneseducation.com</span
+              >
+            </div>
+          </div>
+
+          <div class="contact__list__people__card">
+            <span class="contact__list__people__card__title subtitles"
+              >Responsable Financier</span
+            >
+
+            <span class="contact__list__people__card__name">Sébastien Bau</span>
+            <div class="contact__list__people__card__info">
+              <span class="contact__list__people__card__info__coordinates"
+                ><img src="@/assets/icons/phone.svg" alt="icone telephone" />04
+                79 25 38 47
+              </span>
+              <span class="contact__list__people__card__info__coordinates"
+                ><img
+                  src="@/assets/icons/email.svg"
+                  alt="icone email"
+                />sbau[@]omneseducation.com</span
+              >
+            </div>
+          </div>
+
+          <div class="contact__list__people__card">
+            <span class="contact__list__people__card__title subtitles"
+              >Directeur INSEEC Campus Chambéry</span
+            >
+
+            <span class="contact__list__people__card__name"
+              >Damien Bezançon</span
+            >
           </div>
         </div>
       </div>
@@ -291,10 +457,6 @@ console.log(story.value.content.faq[1].link);
         flex-direction: column;
         gap: 1rem;
 
-        @media (min-width: $big-tablet-screen) {
-          gap: 2rem;
-        }
-
         &__title {
           color: $secondary-color;
           opacity: 0.6;
@@ -306,14 +468,12 @@ console.log(story.value.content.faq[1].link);
         }
 
         &__info {
-          margin-top: -0.5rem;
           display: flex;
           flex-direction: column;
           gap: 1rem;
 
           @media (min-width: $big-tablet-screen) {
             flex-direction: row;
-            margin-top: -1.5rem;
           }
 
           &__name {
