@@ -280,7 +280,10 @@ function openProgram(programName) {
             >
               {{ program.details }}
             </p>
-            <div class="programs__list__cursus__card__buttons">
+            <div
+              class="programs__list__cursus__card__buttons"
+              v-if="programOpened === program.name"
+            >
               <NuxtLink
                 class="programs__list__cursus__card__buttons__button button-primary"
                 :to="program.link.url"
