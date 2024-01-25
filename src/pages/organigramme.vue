@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import { createClient } from "@supabase/supabase-js";
 const story = await useAsyncStoryblok("organigramme", { version: "published" });
 
@@ -35,6 +35,18 @@ async function signIn() {
   }
 }
 
+async function checkAuth() {
+  const user = supabase.auth.user();
+  isUserAuthenticated.value = !!user;
+}
+
+onMounted(() => {
+  checkAuth();
+  supabase.auth.onAuthStateChange((event, session) => {
+    isUserAuthenticated.value = !!session;
+  });
+});
+
 useHead(() => {
   return {
     title: "Organigramme | INSEEC Campus Chambéry Savoie",
@@ -55,7 +67,7 @@ useHead(() => {
 </script>
 <template>
   <section class="organigramme">
-    <picture class="organigramme__banner" v-if="isUserAuthenticated === true">
+    <picture class="organigramme__banner" v-if="isUserAuthenticated">
       <source
         media="(min-width: 1100px)"
         srcset="@/assets/images/org-banner.webp"
@@ -133,10 +145,10 @@ useHead(() => {
       </form></Container
     >
     <Container id="search">
-      <SearchableMembers v-if="isUserAuthenticated === true" :story="story" />
+      <SearchableMembers v-if="isUserAuthenticated" :story="story" />
     </Container>
 
-    <Container id="organigramme" v-if="isUserAuthenticated === true">
+    <Container id="organigramme" v-if="isUserAuthenticated">
       <div class="organigramme__first-section">
         <h1 class="organigramme__first-section__title subtitles">
           Organigramme de l'INSEEC Chambéry
@@ -150,11 +162,16 @@ useHead(() => {
       </div>
     </Container>
 
-    <!-- <Container v-if="isUserAuthenticated === true">
-      <button class="button-primary organigramme__button" @click="signOut">
-        Déconnexion
-      </button></Container
-    > -->
+    <Container v-if="isUserAuthenticated">
+      <div class="organigramme__buttons">
+        <button
+          class="button-primary organigramme__buttons__button"
+          @click="signOut"
+        >
+          Déconnexion
+        </button>
+      </div></Container
+    >
   </section>
 </template>
 <style lang="scss" scoped>
@@ -412,11 +429,15 @@ useHead(() => {
     }
   }
 
-  &__button {
-    width: 100%;
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    &__button {
+      width: 100%;
 
-    @media (min-width: $big-tablet-screen) {
-      width: fit-content;
+      @media (min-width: $big-tablet-screen) {
+        width: fit-content;
+      }
     }
   }
 }
