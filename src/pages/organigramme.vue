@@ -317,11 +317,15 @@ useHead(() => {
 
       &__icon {
         margin-top: -2.5rem;
-        margin-left: 92%;
+        margin-left: 90%;
         width: 20px;
         height: 20px;
         opacity: 0.6;
         cursor: pointer;
+
+        @media (min-width: $big-tablet-screen) {
+          margin-left: 92%;
+        }
       }
     }
 
