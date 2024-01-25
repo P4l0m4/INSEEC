@@ -1,11 +1,14 @@
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref } from "vue";
 import { createClient } from "@supabase/supabase-js";
-const story = await useAsyncStoryblok("organigramme", { version: "published" });
+// const story = await useAsyncStoryblok("organigramme", { version: "published" });
 
-const supabaseUrl = "https://enqiiovmugkbnlqjvidw.supabase.co";
+const story = useState();
+const storyblokApi = useStoryblokApi();
+
+const supabaseUrl = "https://enqiiovmugkbnlqjvidw.supabase.co"; // TODO: Set this in .env file and Netfliy environment variables
 const supabaseAnonKey =
-  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVucWlpb3ZtdWdrYm5scWp2aWR3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDUzMzU2ODYsImV4cCI6MjAyMDkxMTY4Nn0.7hRQZfa5Iz5qU1TNYn0PIVCwqGuql41opNf5jiY8Fco";
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVucWlpb3ZtdWdrYm5scWp2aWR3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDUzMzU2ODYsImV4cCI6MjAyMDkxMTY4Nn0.7hRQZfa5Iz5qU1TNYn0PIVCwqGuql41opNf5jiY8Fco"; // TODO: Set this in .env file and Netfliy environment variables
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
@@ -15,13 +18,15 @@ const errorMessage = ref("");
 const inputType = ref("password");
 let isUserAuthenticated = ref(false);
 
+await checkAuth();
+
 async function signOut() {
-  const { error } = await supabase.auth.signOut();
+  await supabase.auth.signOut();
   isUserAuthenticated.value = false;
 }
 
 async function signIn() {
-  const { data, error } = await supabase.auth.signInWithPassword({
+  const { error } = await supabase.auth.signInWithPassword({
     email: "chamberycampus@gmail.com",
     password: password.value,
   });
@@ -31,21 +36,22 @@ async function signIn() {
   } else {
     password.value = "";
     errorMessage.value = "";
-    isUserAuthenticated.value = true;
+    checkAuth();
   }
 }
 
 async function checkAuth() {
-  const user = supabase.auth.user();
+  const {
+    data: { user },
+  } = await supabase.auth.getUser();
+  if (user) {
+    const { data } = await storyblokApi.get(`cdn/stories/organigramme`, {
+      version: "published",
+    });
+    story.value = data.story;
+  }
   isUserAuthenticated.value = !!user;
 }
-
-onMounted(() => {
-  checkAuth();
-  supabase.auth.onAuthStateChange((event, session) => {
-    isUserAuthenticated.value = !!session;
-  });
-});
 
 useHead(() => {
   return {
@@ -67,37 +73,6 @@ useHead(() => {
 </script>
 <template>
   <section class="organigramme">
-    <picture class="organigramme__banner" v-if="isUserAuthenticated">
-      <source
-        media="(min-width: 1100px)"
-        srcset="@/assets/images/org-banner.webp"
-      />
-      <source
-        media="(min-width: 600px)"
-        srcset="@/assets/images/org-banner-tablet.webp"
-      />
-
-      <img
-        class="organigramme__banner__img"
-        src="@/assets/images/org-banner-mobile.webp"
-        alt="banner inseec chambéry"
-      />
-      <h1 class="organigramme__banner__title titles">
-        Découvrez les membres de l'INSEEC Chambéry
-      </h1>
-      <div class="organigramme__banner__buttons">
-        <NuxtLink
-          class="organigramme__banner__buttons__button button-primary"
-          to="#search"
-          >Consulter l'annuaire</NuxtLink
-        >
-        <NuxtLink
-          class="organigramme__banner__buttons__button button-secondary"
-          to="#organigramme"
-          >Voir l'organigramme</NuxtLink
-        >
-      </div>
-    </picture>
     <Container v-if="!isUserAuthenticated">
       <form class="organigramme__form" @submit.prevent="signIn">
         <h1 class="organigramme__form__title subtitles">
@@ -144,34 +119,67 @@ useHead(() => {
         </button>
       </form></Container
     >
-    <Container id="search">
-      <SearchableMembers v-if="isUserAuthenticated" :story="story" />
-    </Container>
-
-    <Container id="organigramme" v-if="isUserAuthenticated">
-      <div class="organigramme__first-section">
-        <h1 class="organigramme__first-section__title subtitles">
-          Organigramme de l'INSEEC Chambéry
-        </h1>
+    <template v-else-if="isUserAuthenticated && story">
+      <picture class="organigramme__banner">
+        <source
+          media="(min-width: 1100px)"
+          srcset="@/assets/images/org-banner.webp"
+        />
+        <source
+          media="(min-width: 600px)"
+          srcset="@/assets/images/org-banner-tablet.webp"
+        />
 
         <img
-          class="organigramme__first-section__img"
-          :src="story.content.image.filename"
-          :alt="story.content.image.alt"
+          class="organigramme__banner__img"
+          src="@/assets/images/org-banner-mobile.webp"
+          alt="banner inseec chambéry"
         />
-      </div>
-    </Container>
+        <h1 class="organigramme__banner__title titles">
+          Découvrez les membres de l'INSEEC Chambéry
+        </h1>
+        <div class="organigramme__banner__buttons">
+          <NuxtLink
+            class="organigramme__banner__buttons__button button-primary"
+            to="#search"
+            >Consulter l'annuaire</NuxtLink
+          >
+          <NuxtLink
+            class="organigramme__banner__buttons__button button-secondary"
+            to="#organigramme"
+            >Voir l'organigramme</NuxtLink
+          >
+        </div>
+      </picture>
+      <Container id="search">
+        <SearchableMembers :story="story" />
+      </Container>
 
-    <Container v-if="isUserAuthenticated">
-      <div class="organigramme__buttons">
-        <button
-          class="button-primary organigramme__buttons__button"
-          @click="signOut"
-        >
-          Déconnexion
-        </button>
-      </div></Container
-    >
+      <Container id="organigramme">
+        <div class="organigramme__first-section">
+          <h1 class="organigramme__first-section__title subtitles">
+            Organigramme de l'INSEEC Chambéry
+          </h1>
+
+          <img
+            class="organigramme__first-section__img"
+            :src="story.content.image.filename"
+            :alt="story.content.image.alt"
+          />
+        </div>
+      </Container>
+
+      <Container>
+        <div class="organigramme__buttons">
+          <button
+            class="button-primary organigramme__buttons__button"
+            @click="signOut"
+          >
+            Déconnexion
+          </button>
+        </div>
+      </Container>
+    </template>
   </section>
 </template>
 <style lang="scss" scoped>
