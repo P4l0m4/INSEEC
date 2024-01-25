@@ -2,6 +2,7 @@
 import { ref, computed } from "vue";
 import { groupBy } from "@/utils/groupBy.js";
 import { sortArray } from "@/utils/sortArray";
+import { stringToSlug } from "@/utils/slugify.js";
 const story = await useAsyncStoryblok("programs", { version: "published" });
 
 useHead(() => {
@@ -299,7 +300,10 @@ function openProgram(programName) {
               </NuxtLink>
               <NuxtLink
                 class="programs__list__cursus__card__buttons__button button-secondary"
-                :to="program.link.url"
+                :to="
+                  '/programmes/' +
+                  stringToSlug(`${program.level} ${program.name}`)
+                "
                 :target="program.link.target"
                 :aria-label="program.name"
                 v-if="programOpened === program.name"

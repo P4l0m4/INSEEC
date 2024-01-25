@@ -5,11 +5,14 @@
 </template>
 <style lang="scss" scoped>
 .container {
+  display: flex;
+  flex-direction: column;
   width: 100%;
   padding: 1rem;
   scroll-margin-top: 5rem;
   margin: auto;
   animation: fading 0.4s;
+  gap: 4rem;
 
   @media (min-width: $big-tablet-screen) {
     width: 80%;
