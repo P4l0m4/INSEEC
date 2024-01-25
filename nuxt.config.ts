@@ -1,4 +1,5 @@
 import { getNews } from "./src/utils/sitemap.js";
+import { getPrograms } from "./src/utils/sitemap.js";
 
 export default defineNuxtConfig({
   ssr: false,
@@ -33,8 +34,8 @@ export default defineNuxtConfig({
     siteUrl: "https://chamberycampus.com/",
     urls: async () => {
       const newsPages = await getNews();
-
-      return [...newsPages];
+      const programPages = await getPrograms();
+      return [...newsPages, ...programPages];
     },
   },
   vue: {

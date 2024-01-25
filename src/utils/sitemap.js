@@ -21,15 +21,15 @@ export async function getNews() {
     priority: 0.9,
   }));
 }
+export async function getPrograms() {
+  const { data } = await Storyblok.get("cdn/stories/programs", {});
 
-// export async function getPeople() {
-//   const { data } = await Storyblok.get("cdn/stories/portfolio", {});
+  const programs = data.story.content.programsList;
 
-//   const projects = data.story.content.elements;
-
-//   return projects.map((project) => ({
-//     loc: `/ressources/portfolio/${stringToSlug(project.title)}`,
-//     changefreq: "daily",
-//     priority: 0.9,
-//   }));
-// }
+  return programs.map((program) => ({
+    loc: `/programmes/${stringToSlug(`${program.level} ${program.name}`)}`,
+    lastmod: program.date,
+    changefreq: "daily",
+    priority: 0.9,
+  }));
+}
