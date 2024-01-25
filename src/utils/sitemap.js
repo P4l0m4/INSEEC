@@ -1,4 +1,5 @@
 import { stringToSlug } from "./slugify.js";
+import dayjs from "dayjs";
 
 const StoryblokClient = require("storyblok-js-client");
 
@@ -28,7 +29,7 @@ export async function getPrograms() {
 
   return programs.map((program) => ({
     loc: `/programmes/${stringToSlug(`${program.level} ${program.name}`)}`,
-    lastmod: program.date,
+    lastmod: dayjs().format("YYYY-MM-DD"),
     changefreq: "daily",
     priority: 0.9,
   }));
