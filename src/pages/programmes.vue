@@ -280,19 +280,34 @@ function openProgram(programName) {
             >
               {{ program.details }}
             </p>
-            <NuxtLink
-              class="programs__list__cursus__card__button button-tertiary"
-              :to="program.link.url"
-              :target="program.link.target"
-              :aria-label="program.name"
-              v-if="programOpened === program.name"
-            >
-              <img
-                class="programs__list__cursus__card__button__img"
-                src="@/assets/icons/contract.svg"
-                alt="icone inscription inseec"
-              />Inscription
-            </NuxtLink>
+            <div class="programs__list__cursus__card__buttons">
+              <NuxtLink
+                class="programs__list__cursus__card__buttons__button button-primary"
+                :to="program.link.url"
+                :target="program.link.target"
+                :aria-label="program.name"
+                v-if="programOpened === program.name"
+              >
+                <img
+                  class="programs__list__cursus__card__buttons__button__img"
+                  src="@/assets/icons/contract.svg"
+                  alt="icone inscription inseec"
+                />Inscription
+              </NuxtLink>
+              <NuxtLink
+                class="programs__list__cursus__card__buttons__button button-secondary"
+                :to="program.link.url"
+                :target="program.link.target"
+                :aria-label="program.name"
+                v-if="programOpened === program.name"
+              >
+                <img
+                  class="programs__list__cursus__card__buttons__button__img"
+                  src="@/assets/icons/info.svg"
+                  alt="icone inscription inseec"
+                />En savoir plus
+              </NuxtLink>
+            </div>
           </div>
         </div>
       </div></Container
@@ -551,7 +566,7 @@ function openProgram(programName) {
         width: 100%;
         max-width: 600px;
         height: 100%;
-        max-height: 114px;
+        max-height: 7.75rem;
         animation: popUp 0.4s ease;
         transition:
           box-shadow 0.3s,
@@ -560,7 +575,6 @@ function openProgram(programName) {
 
         @media (min-width: $big-tablet-screen) {
           height: fit-content;
-          // max-height: 92px;
 
           &:hover {
             background-color: $secondary-color;
@@ -624,17 +638,36 @@ function openProgram(programName) {
           color: $text-color-alt;
         }
 
-        &__button {
+        &__buttons {
           display: flex;
-          width: fit-content;
-          gap: 0.5rem;
-          align-items: center;
-          cursor: pointer;
-          color: $text-color-alt;
+          gap: 1rem;
+          width: 100%;
+          margin-top: 1rem;
+          flex-direction: column;
 
-          &__img {
-            width: 16px;
-            height: 16px;
+          @media (min-width: $big-tablet-screen) {
+            flex-direction: row;
+          }
+
+          &__button {
+            display: flex;
+            width: 100%;
+            gap: 0.5rem;
+            align-items: center;
+            cursor: pointer;
+
+            &__img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+          .button-primary {
+            background-color: $primary-color;
+            color: $secondary-color;
+          }
+          .button-secondary {
+            color: $text-color-alt;
+            border-color: $primary-color;
           }
         }
 
