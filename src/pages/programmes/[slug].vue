@@ -107,7 +107,7 @@ console.log(program);
         </div>
       </div>
 
-      <div class="program__objectives">
+      <div class="program__objectives" v-if="program.objectives">
         <h2 class="program__objectives__title subtitles">Objectifs</h2>
 
         <div class="program__objectives__tags">
