@@ -569,7 +569,7 @@ function openProgram(programName) {
         width: 100%;
         max-width: 600px;
         height: 100%;
-        max-height: 7.75rem;
+        max-height: 120px;
         animation: popUp 0.4s ease;
         transition:
           box-shadow 0.3s,
