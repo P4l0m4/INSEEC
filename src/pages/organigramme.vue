@@ -320,6 +320,7 @@ useHead(() => {
         margin-left: 92%;
         width: 20px;
         height: 20px;
+        opacity: 0.6;
         cursor: pointer;
       }
     }
@@ -432,6 +433,7 @@ useHead(() => {
   &__buttons {
     display: flex;
     justify-content: flex-end;
+
     &__button {
       width: 100%;
 
