@@ -3,7 +3,7 @@ import { ref, computed } from "vue";
 import { groupBy } from "@/utils/groupBy.js";
 import { sortArray } from "@/utils/sortArray";
 import { stringToSlug } from "@/utils/slugify.js";
-const story = await useAsyncStoryblok("programmes", { version: "published" });
+const story = await useAsyncStoryblok("programs", { version: "published" });
 
 useHead(() => {
   return {

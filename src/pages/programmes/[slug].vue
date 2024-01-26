@@ -1,6 +1,6 @@
 <script setup>
 import { stringToSlug } from "@/utils/slugify.js";
-const story = await useAsyncStoryblok("programmes", { version: "published" });
+const story = await useAsyncStoryblok("programs", { version: "published" });
 const route = useRoute();
 const programSlug = route.params.slug;
 const program = story.value.content.programsList.find(
