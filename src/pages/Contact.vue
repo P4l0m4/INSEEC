@@ -387,8 +387,6 @@ console.log(story.value.content.faq[1].link);
           v-for="(question, index) in story.content.faq"
           :key="index"
           @click="toggleQuestion(index)"
-          @mouseover="questionOpened = index"
-          @mouseleave="questionOpened = ''"
         >
           <h2 class="contact__faq__card__question">
             {{ question.title
