@@ -15,7 +15,7 @@
   gap: 4rem;
 
   @media (min-width: $big-tablet-screen) {
-    width: 80%;
+    width: 84%;
     padding: 2rem;
   }
   @media (min-width: $super-big-screen) {

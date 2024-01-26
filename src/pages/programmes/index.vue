@@ -558,7 +558,7 @@ function openProgram(programName) {
       height: fit-content;
 
       @media (min-width: $big-tablet-screen) {
-        grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+        grid-template-columns: repeat(auto-fill, minmax(426px, 1fr));
       }
 
       &__card {
