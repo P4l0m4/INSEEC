@@ -28,19 +28,28 @@ let isMenuOpen = ref(false);
         <li class="header__nav__ul__li">
           <NuxtLink
             class="header__nav__ul__li__link"
-            to="/programmes"
+            to="/evenements"
             exact
             @click="isMenuOpen = !isMenuOpen"
-            >Programmes</NuxtLink
+            >Evénements</NuxtLink
           >
         </li>
         <li class="header__nav__ul__li">
           <NuxtLink
             class="header__nav__ul__li__link"
-            to="/evenements"
+            to="/actualites"
             exact
             @click="isMenuOpen = !isMenuOpen"
-            >Evénements</NuxtLink
+            >Actualités</NuxtLink
+          >
+        </li>
+        <li class="header__nav__ul__li">
+          <NuxtLink
+            class="header__nav__ul__li__link"
+            to="/programmes"
+            exact
+            @click="isMenuOpen = !isMenuOpen"
+            >Programmes</NuxtLink
           >
         </li>
         <li class="header__nav__ul__li">
@@ -58,7 +67,7 @@ let isMenuOpen = ref(false);
             to="/partenaires"
             exact
             @click="isMenuOpen = !isMenuOpen"
-            >Partenaires & Associations</NuxtLink
+            >Partenaires & Assos</NuxtLink
           >
         </li>
         <li class="header__nav__ul__li">

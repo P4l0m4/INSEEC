@@ -129,6 +129,8 @@ pc"
       </div>
     </picture>
 
+    <EventsCalendar />
+
     <Container>
       <div class="index__presentation">
         <div class="index__presentation__img">
@@ -182,24 +184,8 @@ pc"
         </div>
       </div>
     </Container>
-    <Container>
-      <div class="index__categories">
-        <h2 class="index__categories__title titles">
-          L'INSEEC Campus Chambéry Savoie, c'est aussi des...
-        </h2>
-        <div class="index__categories__boxes">
-          <NuxtLink class="index__categories__boxes__link" to="/evenements"
-            >ÉVÉNEMENTS</NuxtLink
-          >
-          <NuxtLink class="index__categories__boxes__link" to="/equipes"
-            >ÉQUIPES</NuxtLink
-          >
-          <NuxtLink class="index__categories__boxes__link" to="/partenaires"
-            >PARTENAIRES</NuxtLink
-          >
-        </div>
-      </div></Container
-    >
+    <News />
+
     <Container>
       <iframe
         class="index__video"
@@ -372,6 +358,21 @@ pc"
     >
 
     <Container>
+      <a
+        class="index__mini-banner"
+        href="https://www.inseec.com/"
+        target="_blank"
+      >
+        <h3 class="index__mini-banner__title subtitles">
+          En savoir plus sur les inscriptions à l'INSEEC
+        </h3>
+        <img
+          class="index__mini-banner__icon"
+          src="@/assets/icons/arrow-blue.svg"
+        /> </a
+    ></Container>
+
+    <Container>
       <div class="index__presentation">
         <div id="lbd" class="index__presentation__img">
           <h2 class="index__presentation__img__title titles">
@@ -440,21 +441,23 @@ pc"
     >
 
     <Container>
-      <a
-        class="index__mini-banner"
-        href="https://www.inseec.com/"
-        target="_blank"
-      >
-        <h3 class="index__mini-banner__title subtitles">
-          En savoir plus sur les inscriptions à l'INSEEC
-        </h3>
-        <img
-          class="index__mini-banner__icon"
-          src="@/assets/icons/arrow-blue.svg"
-        /> </a
-    ></Container>
-
-    <News />
+      <div class="index__categories">
+        <h2 class="index__categories__title titles">
+          L'INSEEC Campus Chambéry Savoie, c'est aussi des...
+        </h2>
+        <div class="index__categories__boxes">
+          <NuxtLink class="index__categories__boxes__link" to="/evenements"
+            >ÉVÉNEMENTS</NuxtLink
+          >
+          <NuxtLink class="index__categories__boxes__link" to="/equipes"
+            >ÉQUIPES</NuxtLink
+          >
+          <NuxtLink class="index__categories__boxes__link" to="/partenaires"
+            >PARTENAIRES</NuxtLink
+          >
+        </div>
+      </div></Container
+    >
   </section>
   <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
