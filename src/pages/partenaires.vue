@@ -350,7 +350,7 @@ const breadcrumbs = [
           padding: 1rem;
           color: $primary-color;
           backdrop-filter: blur(4px);
-          margin-bottom: -4rem;
+          margin-bottom: -10rem;
           transition: margin-bottom 0.4s ease;
 
           &__name {
@@ -359,7 +359,7 @@ const breadcrumbs = [
 
           &__description {
             font-size: $small-text;
-            height: 48px;
+            height: 9rem;
             overflow: hidden;
             text-shadow: $shadow-text;
           }

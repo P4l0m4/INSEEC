@@ -500,6 +500,7 @@ pc"
       padding: 2rem;
       gap: 2rem;
       height: calc(100svh - 80px);
+      max-width: 2500px;
     }
 
     &::after {
