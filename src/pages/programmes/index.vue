@@ -256,7 +256,10 @@ function openProgram(programName) {
               }"
             >
               {{ program.pole
-              }}<img
+              }}<span class="programs__list__cursus__card__title__level">{{
+                program.level
+              }}</span
+              ><img
                 class="programs__list__cursus__card__title__img"
                 src="@/assets/icons/add-blue.svg"
                 alt="icone inseec plus"
@@ -603,15 +606,24 @@ function openProgram(programName) {
           font-size: 1rem;
           display: flex;
           width: 100%;
+          gap: 0.5rem;
           text-transform: uppercase;
           color: $secondary-color;
-          opacity: 0.6;
+          opacity: 0.7;
           transition: color 0.3s;
+          white-space: nowrap;
           display: flex;
           justify-content: space-between;
+          align-items: center;
 
           &--blue {
             color: $primary-color;
+          }
+
+          &__level {
+            width: 100%;
+            font-size: $small-text;
+            font-weight: $skinny;
           }
 
           &__img {
