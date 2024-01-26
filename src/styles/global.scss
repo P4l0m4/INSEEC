@@ -33,6 +33,13 @@
 
 html {
   scroll-behavior: smooth;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  @media (min-width: $big-tablet-screen) {
+    -ms-overflow-style: inherit; /* IE and Edge */
+    scrollbar-width: inherit; /* Firefox */
+  }
 }
 
 body {
@@ -189,23 +196,27 @@ input[type="number"] {
 ::-webkit-scrollbar {
   width: 8px;
   display: none;
+
+  @media (min-width: $big-tablet-screen) {
+    display: block !important;
+  }
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #e1e1e1;
-  border-radius: 20px;
+  background: $base-color;
+  border-radius: 8px;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: white;
-  border-radius: 2px;
+  background: $secondary-color-ultra-faded;
+  border-radius: 8px;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: rgb(237, 237, 237);
+  background: $secondary-color;
 }
 
 //DETAILS

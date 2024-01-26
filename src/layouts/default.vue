@@ -45,17 +45,24 @@ useJsonld(() => ({
   <PopUp />
   <FooterComponent />
 </template>
-<style scoped lang="scss">
+<style lang="scss">
 main {
   display: flex;
   flex-direction: column;
   gap: 2rem;
   padding-top: 88px;
   min-height: 100svh;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 
   @media (min-width: $big-tablet-screen) {
     gap: 4rem;
     padding-top: 80px;
+  }
+
+  & ::-webkit-scrollbar {
+    width: 8px;
+    display: none !important;
   }
 }
 </style>
