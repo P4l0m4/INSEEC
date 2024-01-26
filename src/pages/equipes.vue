@@ -209,7 +209,7 @@ story.value.content.list.forEach((poles) => {
     background-image: url("@/assets/images/placeholder.svg");
     background-size: cover;
     background-position: center;
-    height: calc(100svh - 88px);
+    height: calc(100svh - 84px);
     max-height: 1200px;
     width: 100%;
     padding: 1rem;
@@ -223,7 +223,7 @@ story.value.content.list.forEach((poles) => {
       align-items: flex-start;
       padding: 2rem;
       gap: 2rem;
-      height: calc(100svh - 80px);
+      height: calc(100svh - 76px);
     }
 
     &::after {

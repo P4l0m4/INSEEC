@@ -50,14 +50,14 @@ main {
   display: flex;
   flex-direction: column;
   gap: 2rem;
-  padding-top: 88px;
+  padding-top: 84px;
   min-height: 100svh;
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
   @media (min-width: $big-tablet-screen) {
     gap: 4rem;
-    padding-top: 80px;
+    padding-top: 76px;
   }
 
   & ::-webkit-scrollbar {
