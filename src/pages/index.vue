@@ -321,7 +321,7 @@ pc"
     <Container>
       <img
         class="index__img"
-        src="@/assets/images/placeholder.svg"
+        src="@/assets/images/amphi.webp"
         alt="campus inseec chambéry savoie"
     /></Container>
 
