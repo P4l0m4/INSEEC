@@ -137,6 +137,7 @@ input[type="number"] {
   font-weight: $skinny-thick !important;
   font-family: "Custom" !important;
   font-size: $base-text;
+  height: fit-content;
 
   @media (min-width: $big-tablet-screen) {
     &:hover {

@@ -76,12 +76,19 @@ const breadcrumbs = [
           majestueuses montagnes, offrant ainsi un cadre remarquable à nos
           étudiants.
         </p>
-        <NuxtLink
-          class="index__banner__txt__link button-secondary"
-          target="_blank"
-          to="https://www.inseec.com/procedures-admissions/"
-          >M'inscrire à l'INSEEC Chambéry</NuxtLink
-        >
+        <div class="index__banner__txt__buttons">
+          <NuxtLink
+            class="index__banner__txt__buttons__button button-primary"
+            to="/actualites"
+            >Actualités du campus</NuxtLink
+          >
+          <NuxtLink
+            class="index__banner__txt__buttons__button button-secondary"
+            target="_blank"
+            to="https://www.inseec.com/procedures-admissions/"
+            >M'inscrire à l'INSEEC Chambéry</NuxtLink
+          >
+        </div>
       </div>
       <div class="index__banner__socials">
         <a
@@ -561,10 +568,30 @@ pc"
         width: 100%;
       }
 
-      &__link {
-        color: $primary-color;
-        text-shadow: $shadow-text;
-        border-color: $primary-color;
+      &__buttons {
+        display: flex;
+        gap: 1rem;
+        flex-direction: column;
+        width: 100%;
+
+        @media (min-width: $big-tablet-screen) {
+          flex-direction: row;
+        }
+
+        & .button-primary {
+          background-color: $primary-color;
+          color: $secondary-color;
+          cursor: pointer;
+          z-index: 1;
+          width: 100%;
+        }
+        & .button-secondary {
+          border-color: $primary-color;
+          color: $primary-color;
+          cursor: pointer;
+          z-index: 1;
+          width: 100%;
+        }
       }
     }
     &__socials {
