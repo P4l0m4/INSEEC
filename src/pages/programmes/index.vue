@@ -454,7 +454,7 @@ function openProgram(programName) {
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
     width: 100%;
     position: relative;
 
