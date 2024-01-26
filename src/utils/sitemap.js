@@ -23,7 +23,7 @@ export async function getNews() {
   }));
 }
 export async function getPrograms() {
-  const { data } = await Storyblok.get("cdn/stories/programs", {});
+  const { data } = await Storyblok.get("cdn/stories/programmes", {});
 
   const programs = data.story.content.programsList;
 
