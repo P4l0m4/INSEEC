@@ -454,14 +454,21 @@ function openProgram(programName) {
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: 2rem;
     width: 100%;
     position: relative;
 
     &__filters {
       display: flex;
-      gap: 1rem;
+      gap: 0.5rem;
       width: 100%;
+      flex-direction: column;
+      height: fit-content;
+
+      @media (min-width: $big-tablet-screen) {
+        flex-direction: row;
+        gap: 1rem;
+      }
 
       &__poles-and-levels {
         display: flex;
@@ -472,7 +479,7 @@ function openProgram(programName) {
           display: flex;
           flex-direction: column;
           gap: 0.5rem;
-          padding-top: 3.4rem;
+          padding-top: 2.8rem;
           position: relative;
           height: 2.2rem;
           width: 100%;
@@ -493,6 +500,10 @@ function openProgram(programName) {
               box-shadow 0.3s,
               background-color 0.3s,
               color 0.3s;
+
+            &:nth-of-type(1) {
+              margin-top: 0.5rem;
+            }
 
             @media (min-width: $big-tablet-screen) {
               &:hover {
