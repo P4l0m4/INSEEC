@@ -11,6 +11,7 @@ const monthsRef = ref();
 const displayedEvents = ref([]);
 
 let selected = ref();
+let hasScrolled = ref(false);
 
 //by default, display all the events of the current month
 onMounted(() => {
@@ -19,16 +20,24 @@ onMounted(() => {
   );
 
   window.addEventListener("scroll", () => {
-    if (window.scrollY >= 300 && window.scrollY <= 400) {
-      selectDotAndScroll(
-        eventsGroupedByMonth.value[currentMonthWithYear],
-        startIndex
-      );
+    if (
+      hasScrolled.value === false &&
+      window.scrollY >= 300 &&
+      window.scrollY <= 450
+    ) {
+      setTimeout(() => {
+        selectDotAndScroll(
+          eventsGroupedByMonth.value[currentMonthWithYear],
+          startIndex
+        );
+      }, 1000);
     }
   });
 });
 
 function selectDotAndScroll(events, index) {
+  hasScrolled.value = true;
+
   selected.value = index;
   let selectedDot = monthsRef.value[index];
   displayedEvents.value = events;
