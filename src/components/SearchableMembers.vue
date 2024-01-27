@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from "vue";
 const query = ref("");
+const copyStatus = ref(false);
 const matchingMembers = ref(props.story.content.members);
 const props = defineProps({
   story: {
@@ -21,6 +22,15 @@ function search() {
       member.desk.toLowerCase().includes(query.value.toLowerCase())
     );
   });
+}
+
+function copyToClipboard(mail) {
+  navigator.clipboard.writeText(mail);
+  copyStatus.value = true;
+
+  setTimeout(() => {
+    copyStatus.value = false;
+  }, 500);
 }
 </script>
 <template>
@@ -71,12 +81,29 @@ function search() {
           <p class="search-section__members__member__txt__description">
             {{ member.description }}
           </p>
-          <span class="search-section__members__member__txt__desk"
-            ><img
-              src="@/assets/icons/distance-white.svg"
-              alt="icone bureau inseec"
-            />{{ member.desk }}</span
-          >
+          <div class="search-section__members__member__txt__desk-and-email">
+            <span
+              class="search-section__members__member__txt__desk-and-email__desk"
+              ><img
+                src="@/assets/icons/desk-map.svg"
+                alt="icone bureau inseec"
+              />{{ member.desk }}</span
+            >
+            <button
+              class="search-section__members__member__txt__desk-and-email__email button-tertiary"
+              @click="copyToClipboard(member.email)"
+            >
+              <img
+                src="@/assets/icons/copy.svg"
+                alt="icone bureau inseec"
+                v-if="!copyStatus"
+              /><img
+                src="@/assets/icons/copied.svg"
+                alt="icone bureau inseec"
+                v-if="copyStatus"
+              />{{ member.email }}
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -172,6 +199,7 @@ function search() {
         backdrop-filter: blur(4px);
         margin-bottom: -6.2rem;
         transition: margin-bottom 0.4s ease;
+        cursor: default;
 
         &__name {
           text-shadow: $shadow-text;
@@ -191,17 +219,30 @@ function search() {
           text-shadow: $shadow-text;
         }
 
-        &__desk {
+        &__desk-and-email {
           display: flex;
-          align-items: center;
-          gap: 0.25rem;
-          font-size: $small-text;
-          text-shadow: $shadow-text;
-          color: $text-color-alt;
+          gap: 1rem;
+          width: 100%;
 
-          & img {
-            width: 20px;
-            height: 20px;
+          &__desk,
+          &__email {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            font-size: $small-text;
+            text-shadow: $shadow-text;
+            color: $text-color-alt;
+            white-space: nowrap;
+            overflow: ellipsis;
+
+            & img {
+              width: 20px;
+              height: 20px;
+            }
+          }
+
+          &__email {
+            cursor: pointer;
           }
         }
       }
