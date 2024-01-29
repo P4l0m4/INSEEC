@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script setup>
 const story = await useAsyncStoryblok("home", { version: "published" });
 
 useHead(() => {
@@ -37,11 +37,70 @@ useHead(() => {
         content:
           "L'INSEEC Campus Chambéry Savoie regroupe de nombreux étudiants Bachelor (BAC+1 à BAC+3) et MSc (BAC+4 à BAC+5). De multiples formations peuvent également être suivies en rythme classique mais également en alternance",
       },
+      {
+        hid: "og:type",
+        property: "og:type",
+        content: "video",
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: "Campus INSEEC Chambéry Savoie",
+      },
+      {
+        hid: "og:url",
+        property: "og:url",
+        content: "https://www.youtube.com/watch?v=1N-n2IGfsps&t=5s",
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: "INSEEC Chambéry Savoie",
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "INSEEC Chambéry Savoie",
+      },
+      {
+        hid: "og:actor",
+        property: "og:actor",
+        content: "INSEEC Chambéry Savoie",
+      },
+      {
+        hid: "og:director",
+        property: "og:director",
+        content: "INSEEC Chambéry Savoie",
+      },
+      {
+        hid: "og:writer",
+        property: "og:writer",
+        content: "INSEEC Chambéry Savoie",
+      },
     ],
   };
 });
 
 //JSONLD
+useJsonld(() => ({
+  "@context": "https://schema.org/",
+  "@type": "VideoObject",
+  name: "Campus INSEEC Chambéry Savoie",
+  "@id": "http://example.com/video",
+  datePublished: "2022-01-18",
+  description:
+    "L'INSEEC Campus Chambéry Savoie regroupe de nombreux étudiants Bachelor (BAC+1 à BAC+3) et MSc (BAC+4 à BAC+5). De multiples formations peuvent également être suivies en rythme classique mais également en alternance",
+  thumbnailURL:
+    "https://yt3.ggpht.com/ytc/AIf8zZQKNvaJmyPxQn6h6WnaWwS8cQz1t75P0gHWFqXbZg=s88-c-k-c0x00ffffff-no-rj",
+  thumbnail:
+    "https://yt3.ggpht.com/ytc/AIf8zZQKNvaJmyPxQn6h6WnaWwS8cQz1t75P0gHWFqXbZg=s88-c-k-c0x00ffffff-no-rj",
+  duration: "T1M55S",
+  uploadDate: "2022-01-18",
+  author: {
+    "@type": "Person",
+    name: "INSEEC Chambery Savoie",
+  },
+}));
 const breadcrumbs = [
   {
     name: "Accueil",

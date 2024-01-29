@@ -19,6 +19,7 @@ useHead(() => {
   };
 });
 //JSONLD
+
 const breadcrumbs = [
   {
     name: "Accueil",
