@@ -174,7 +174,7 @@ const breadcrumbs = [
 
     &__link {
       display: flex;
-      width: 80%;
+      width: 100%;
       height: 490px;
       background-color: $primary-color;
       border-radius: $radius;
