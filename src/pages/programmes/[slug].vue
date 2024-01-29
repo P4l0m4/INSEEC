@@ -299,11 +299,11 @@ const breadcrumbs = [
       gap: 2rem;
       max-width: 600px;
 
-      &__title {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
+      // &__title {
+      //   display: flex;
+      //   flex-direction: column;
+      //   gap: 1rem;
+      // }
     }
 
     &__tags {
