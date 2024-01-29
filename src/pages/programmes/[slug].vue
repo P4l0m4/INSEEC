@@ -6,6 +6,33 @@ const programSlug = route.params.slug;
 const program = story.value.content.programsList.find(
   (p) => stringToSlug(`${p.level} ${p.name}`) === programSlug
 );
+useHead(() => {
+  return {
+    title: program.title,
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: program.details,
+      },
+    ],
+  };
+});
+//JSONLD
+const breadcrumbs = [
+  {
+    name: "Accueil",
+    url: window.location.origin,
+  },
+  {
+    name: "Programmes",
+    url: window.location.origin + "/programmes",
+  },
+  {
+    name: program.title,
+    url: window.location.href,
+  },
+];
 </script>
 
 <template>
@@ -124,6 +151,7 @@ const program = story.value.content.programsList.find(
       </div>
     </Container>
   </section>
+  <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
 <style scoped lang="scss">
 .program {
