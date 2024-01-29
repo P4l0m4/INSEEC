@@ -37,12 +37,6 @@ useHead(() => {
         content: article.images[0].filename,
       },
     ],
-    script: [
-      {
-        src: "https://www.tiktok.com/embed.js",
-        async: true,
-      },
-    ],
   };
 });
 
@@ -110,6 +104,7 @@ useJsonld(() => ({
             :src="article.video.filename"
             :title="article.video.title"
             v-if="article.video.filename"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>
         </div>

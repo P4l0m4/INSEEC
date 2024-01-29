@@ -322,6 +322,17 @@ function openProgram(programName) {
         </div>
       </div></Container
     >
+
+    <Container
+      ><iframe
+        class="programs__video"
+        src="https://www.youtube.com/embed/EaxaynX71EU?si=oJDwnf6VQDNqbX07"
+        title="YouTube video player"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen
+      ></iframe
+    ></Container>
   </section>
   <News />
   <JsonldBreadcrumb :links="breadcrumbs" />
@@ -709,6 +720,19 @@ function openProgram(programName) {
           color: $primary-color;
         }
       }
+    }
+  }
+
+  &__video {
+    width: 100%;
+    height: 400px;
+    border-radius: $radius;
+    box-shadow: $shadow;
+    border: none;
+    outline: none;
+
+    @media (min-width: $big-tablet-screen) {
+      height: 600px;
     }
   }
 }
