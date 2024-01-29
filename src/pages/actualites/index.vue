@@ -12,8 +12,15 @@ useHead(() => {
           "Retrouvez toutes les actualités de l'INSEEC Chambéry Savoie : événements, conférences, partenariats, vie étudiante, etc.",
       },
     ],
+    script: [
+      {
+        async: "true",
+        src: "https://www.tiktok.com/embed.js",
+      },
+    ],
   };
 });
+
 //JSONLD
 const breadcrumbs = [
   {
@@ -45,6 +52,33 @@ const breadcrumbs = [
       </div>
     </div></Container
   >
+  <Container>
+    <div class="news__medias">
+      <blockquote
+        class="tiktok-embed"
+        cite="https://www.tiktok.com/@inseec_campus_chambery"
+        data-unique-id="inseec_campus_chambery"
+        data-embed-type="creator"
+        style="max-width: 780px; min-width: 288px; min-height: 400px"
+      >
+        <section>
+          <a
+            target="_blank"
+            href="https://www.tiktok.com/@inseec_campus_chambery?refer=creator_embed"
+            >@inseec_campus_chambery</a
+          >
+        </section>
+      </blockquote>
+      <NuxtLink
+        class="news__medias__link"
+        to="https://www.instagram.com/inseec_campus_chambery/"
+        target="_blank"
+        aria-label="Instagram INSEEC Chambéry"
+      >
+        <img class="news__medias__link__qr" src="@/assets/images/qr-code.webp"
+      /></NuxtLink>
+    </div>
+  </Container>
   <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
 <style lang="scss" scoped>
@@ -115,6 +149,41 @@ const breadcrumbs = [
         font-size: $subtitles;
         text-shadow: $shadow-text;
         width: 100%;
+      }
+    }
+  }
+
+  &__medias {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+
+    @media (min-width: $big-tablet-screen) {
+      gap: 2rem;
+      flex-direction: row;
+    }
+
+    & blockquote {
+      width: 100%;
+      border-radius: $radius;
+      box-shadow: $shadow;
+    }
+
+    &__link {
+      display: flex;
+      width: 80%;
+      height: 490px;
+      background-color: $primary-color;
+      border-radius: $radius;
+      box-shadow: $shadow;
+
+      &__qr {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
       }
     }
   }
