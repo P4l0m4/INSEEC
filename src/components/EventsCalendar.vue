@@ -153,7 +153,7 @@ story.value.content.calendar.forEach((event) => {
 
   &::before {
     content: "";
-    width: 120px;
+    width: 80px;
     height: 110px;
     position: absolute;
     left: 0;
@@ -172,7 +172,7 @@ story.value.content.calendar.forEach((event) => {
   }
   &::after {
     content: "";
-    width: 120px;
+    width: 80px;
     height: 110px;
     position: absolute;
     right: 0;
