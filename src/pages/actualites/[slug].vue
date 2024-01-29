@@ -37,6 +37,12 @@ useHead(() => {
         content: article.images[0].filename,
       },
     ],
+    script: [
+      {
+        src: "https://www.tiktok.com/embed.js",
+        async: true,
+      },
+    ],
   };
 });
 
@@ -93,10 +99,19 @@ useJsonld(() => ({
       <div class="article__content">
         <div class="article__content__txt">
           <p
+            class="article__content__paragraph"
             v-html="renderRichText(paragraph.text)"
             v-for="paragraph in article.paragraphs"
             :key="paragraph._uid"
           ></p>
+
+          <iframe
+            class="article__content__txt__video"
+            :src="article.video.filename"
+            :title="article.video.title"
+            v-if="article.video.filename"
+            allowfullscreen
+          ></iframe>
         </div>
         <div class="article__content__images">
           <div
@@ -155,6 +170,15 @@ useJsonld(() => ({
 
       @media (min-width: $big-tablet-screen) {
         gap: 2rem;
+      }
+
+      &__video {
+        width: 100%;
+        height: 400px;
+        border-radius: $radius;
+        box-shadow: $shadow;
+        border: none;
+        outline: none;
       }
     }
     &__images {
