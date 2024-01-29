@@ -133,6 +133,7 @@ useJsonld(() => ({
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  overflow-x: hidden;
 
   @media (min-width: $big-tablet-screen) {
     gap: 4rem;
