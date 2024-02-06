@@ -349,6 +349,7 @@ const breadcrumbs = [
       display: flex;
       flex-direction: column;
       gap: 2rem;
+      max-width: 600px;
 
       &__tags {
         display: flex;
