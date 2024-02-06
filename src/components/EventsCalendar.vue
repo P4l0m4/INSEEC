@@ -30,7 +30,7 @@ onMounted(() => {
           eventsGroupedByMonth.value[currentMonthWithYear],
           startIndex
         );
-      }, 1000);
+      }, 500);
     }
   });
 });
