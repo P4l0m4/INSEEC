@@ -7,6 +7,7 @@ const articleSlug = route.params.slug;
 const article = story.value.content.newsList.find(
   (a) => stringToSlug(a.title) === articleSlug
 );
+
 useHead(() => {
   return {
     title: article.title,
@@ -103,7 +104,7 @@ useJsonld(() => ({
             class="article__content__txt__video"
             :src="article.video.filename"
             :title="article.video.title"
-            v-if="article.video.filename"
+            v-if="article?.video?.filename"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>
