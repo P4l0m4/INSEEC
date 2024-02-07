@@ -1,92 +1,91 @@
 <script setup>
-// import { stringToSlug } from "@/utils/slugify.js";
-// const story = await useAsyncStoryblok("news", { version: "published" });
-// const dayjs = useDayjs();
+import { stringToSlug } from "@/utils/slugify.js";
+const story = await useAsyncStoryblok("news", { version: "published" });
+const dayjs = useDayjs();
 const route = useRoute();
-// const articleSlug = route.params.slug;
-// const article = story.value.content.newsList.find(
-//   (a) => stringToSlug(a.title) === articleSlug
-// );
+const articleSlug = route.params.slug;
+const article = story.value.content.newsList.find(
+  (a) => stringToSlug(a.title) === articleSlug
+);
 
-// useHead(() => {
-//   return {
-//     title: article.title,
-//     meta: [
-//       {
-//         hid: "description",
-//         name: "description",
-//         content: article.TLDR,
-//       },
-//       {
-//         hid: "og:type",
-//         property: "og:type",
-//         content: "article",
-//       },
-//       {
-//         hid: "og:title",
-//         property: "og:title",
-//         content: article.title,
-//       },
-//       {
-//         hid: "og:url",
-//         property: "og:url",
-//         content: window.location.href,
-//       },
-//       {
-//         hid: "og:image",
-//         property: "og:image",
-//         content: article.images[0].filename,
-//       },
-//     ],
-//   };
-// });
+useHead(() => {
+  return {
+    title: article.title,
+    meta: [
+      {
+        hid: "description",
+        name: "description",
+        content: article.TLDR,
+      },
+      {
+        hid: "og:type",
+        property: "og:type",
+        content: "article",
+      },
+      {
+        hid: "og:title",
+        property: "og:title",
+        content: article.title,
+      },
+      {
+        hid: "og:url",
+        property: "og:url",
+        content: window.location.href,
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: article.images[0].filename,
+      },
+    ],
+  };
+});
 
-// //JSONLD
-// const breadcrumbs = [
-//   {
-//     name: "Accueil",
-//     url: window.location.origin,
-//   },
-//   {
-//     name: "Actualités",
-//     url: window.location.origin + "/actualites",
-//   },
-//   {
-//     name: article.title,
-//     url: window.location.href,
-//   },
-// ];
+//JSONLD
+const breadcrumbs = [
+  {
+    name: "Accueil",
+    url: window.location.origin,
+  },
+  {
+    name: "Actualités",
+    url: window.location.origin + "/actualites",
+  },
+  {
+    name: article.title,
+    url: window.location.href,
+  },
+];
 
-// useJsonld(() => ({
-//   "@context": "https://schema.org",
-//   "@type": "NewsArticle",
-//   mainEntityOfPage: {
-//     "@type": "WebPage",
-//     "@id": window.location.href,
-//   },
-//   headline: article.title,
-//   description: article.TLDR,
-//   image: article.images[0].filename,
-//   author: {
-//     "@type": "Organization",
-//     name: "INSEEC Chambéry",
-//     url: window.location.origin,
-//   },
-//   publisher: {
-//     "@type": "Organization",
-//     name: "INSEEC Chambéry",
-//     logo: {
-//       "@type": "ImageObject",
-//       url: "https://chamberycampus.com/_nuxt/logo-inseec.a0368931.svg",
-//     },
-//   },
-//   datePublished: dayjs(article.date).format("YYYY[-]MM[-]DD[T]HH[:]mm"),
-// }));
+useJsonld(() => ({
+  "@context": "https://schema.org",
+  "@type": "NewsArticle",
+  mainEntityOfPage: {
+    "@type": "WebPage",
+    "@id": window.location.href,
+  },
+  headline: article.title,
+  description: article.TLDR,
+  image: article.images[0].filename,
+  author: {
+    "@type": "Organization",
+    name: "INSEEC Chambéry",
+    url: window.location.origin,
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "INSEEC Chambéry",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://chamberycampus.com/_nuxt/logo-inseec.a0368931.svg",
+    },
+  },
+  datePublished: dayjs(article.date).format("YYYY[-]MM[-]DD[T]HH[:]mm"),
+}));
 </script>
 <template>
   <Container>
-    {{ route.params.slug }}
-    <!-- <div class="article">
+    <div class="article">
       <h1 class="article__title titles">
         {{ article.title }}
       </h1>
@@ -123,10 +122,10 @@ const route = useRoute();
           </div>
         </div>
       </div>
-    </div> -->
+    </div>
   </Container>
-  <!-- <News /> -->
-  <!-- <JsonldBreadcrumb :links="breadcrumbs" /> -->
+  <News />
+  <JsonldBreadcrumb :links="breadcrumbs" />
 </template>
 <style lang="scss" scoped>
 .article {
