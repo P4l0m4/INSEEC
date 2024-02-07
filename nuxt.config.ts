@@ -50,8 +50,4 @@ export default defineNuxtConfig({
       htmlAttrs: { lang: "fr" },
     },
   },
-  generate: {
-    fallback: "404.html",
-    routes: ["/"],
-  },
 });
