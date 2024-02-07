@@ -11,17 +11,17 @@
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.39.3",
-    "nuxt-jsonld": "^2.0.8",
-    "nuxt-simple-sitemap": "^2.4.11"
+    "nuxt-jsonld": "^2.0.8"
   },
   "devDependencies": {
     "@emailjs/browser": "^3.10.0",
     "@nuxt/devtools": "latest",
+    "@nuxtjs/sitemap": "^5.1.0",
     "@storyblok/nuxt": "^5.4.4",
     "@vuelidate/core": "^2.0.0",
     "@vuelidate/validators": "^2.0.0",
     "dayjs-nuxt": "^1.1.2",
-    "nuxt": "^3.7.3",
+    "nuxt": "^3.9.0",
     "sass": "^1.58.0",
     "sass-loader": "^13.2.0"
   }

@@ -6,7 +6,7 @@ export default defineNuxtConfig({
   srcDir: "src/",
   css: ["@/styles/global.scss"],
   modules: [
-    "nuxt-simple-sitemap",
+    "@nuxtjs/sitemap",
     [
       "@storyblok/nuxt",
       { accessToken: process.env.STORYBLOK_KEY, cacheProvider: "memory" },
@@ -30,13 +30,14 @@ export default defineNuxtConfig({
     },
   },
   sitemap: {
-    sitemaps: true,
-    siteUrl: "https://chamberycampus.com/",
     urls: async () => {
       const newsPages = await getNews();
       const programPages = await getPrograms();
       return [...newsPages, ...programPages];
     },
+  },
+  site: {
+    url: "https://chamberycampus.com/",
   },
   vue: {
     compilerOptions: {
