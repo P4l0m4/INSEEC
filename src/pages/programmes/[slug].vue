@@ -30,7 +30,7 @@ const breadcrumbs = [
     url: window.location.origin + "/programmes",
   },
   {
-    name: program.title,
+    name: program.name,
     url: window.location.href,
   },
 ];
