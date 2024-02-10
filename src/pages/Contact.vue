@@ -65,6 +65,15 @@ console.log(story.value.content.faq[1].link);
         <div class="contact__list__people">
           <div class="contact__list__people__card">
             <span class="contact__list__people__card__title subtitles"
+              >Directeur INSEEC Campus Chambéry</span
+            >
+
+            <span class="contact__list__people__card__name"
+              >Damien Bezançon</span
+            >
+          </div>
+          <div class="contact__list__people__card">
+            <span class="contact__list__people__card__title subtitles"
               >Accueil</span
             >
 
@@ -155,7 +164,7 @@ console.log(story.value.content.faq[1].link);
 
           <div class="contact__list__people__card">
             <span class="contact__list__people__card__title subtitles"
-              >Communication</span
+              >Responsable Communication</span
             >
 
             <span class="contact__list__people__card__name"
@@ -357,16 +366,6 @@ console.log(story.value.content.faq[1].link);
                 />sbau[@]omneseducation.com</span
               >
             </div>
-          </div>
-
-          <div class="contact__list__people__card">
-            <span class="contact__list__people__card__title subtitles"
-              >Directeur INSEEC Campus Chambéry</span
-            >
-
-            <span class="contact__list__people__card__name"
-              >Damien Bezançon</span
-            >
           </div>
         </div>
       </div>
