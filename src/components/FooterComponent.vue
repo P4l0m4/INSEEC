@@ -84,6 +84,13 @@ pc"
       /></a>
     </div>
     <BugSignaling :isBugOpen="isBugOpen" @close="isBugOpen = false" />
+    <a
+      class="footer__dev button-tertiary"
+      href="https://tekilawebfactory.com"
+      target="_blank"
+      dofollow
+      >Coordonnées du développeur</a
+    >
   </footer>
 </template>
 
@@ -143,6 +150,12 @@ pc"
         height: 24px;
       }
     }
+  }
+
+  &__dev {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
   }
 }
 </style>
