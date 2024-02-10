@@ -1,8 +1,6 @@
 <script setup>
 import { ref } from "vue";
-const query = ref("");
-const copyStatus = ref(false);
-const matchingMembers = ref(props.story.content.members);
+
 const props = defineProps({
   story: {
     type: Object,
@@ -10,12 +8,16 @@ const props = defineProps({
   },
 });
 
+const query = ref("");
+const copyStatus = ref(false);
+const matchingMembers = ref(props.story.content.members);
+
 function search() {
   matchingMembers.value = props.story.content.members.filter((member) => {
     return (
-      member.tags.some((tag) => {
-        return tag.text.toLowerCase().includes(query.value.toLowerCase());
-      }) ||
+      member.tags.some((tag) =>
+        tag.text.toLowerCase().includes(query.value.toLowerCase())
+      ) ||
       member.name.toLowerCase().includes(query.value.toLowerCase()) ||
       member.role.toLowerCase().includes(query.value.toLowerCase()) ||
       member.description.toLowerCase().includes(query.value.toLowerCase()) ||
@@ -33,6 +35,7 @@ function copyToClipboard(mail) {
   }, 500);
 }
 </script>
+
 <template>
   <div class="search-section">
     <div class="search-section__header">
