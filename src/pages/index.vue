@@ -214,13 +214,13 @@ pc"
               >de nombreuses installations destinées à l'ensemble des
               étudiants,</strong
             >
-            il abonde en espaces de travail favorisant le co-working convivial.
+            il abonde en espaces de travail favorisant le coworking convivial.
             Une "salle du futur" a également vu le jour il y a quelques années,
             révolutionnant l'approche pédagogique avec un écran interactif
             novateur.
           </p>
           <p class="index__presentation__txt__description">
-            Ce campus dispose également de salle dédiée aux cours de
+            Ce campus dispose également de salles dédiées aux cours de
             <strong>développement informatique</strong>, ainsi que de
             <strong
               >salles de classe modernes, plaisantes et spacieuses.</strong
@@ -305,7 +305,7 @@ pc"
 
         <div class="index__presentation__txt">
           <h3 class="index__presentation__txt__title subtitles">
-            Un environnement d'exception au coeur de la Savoie
+            Un environnement d'exception au cœur de la Savoie
           </h3>
           <p class="index__presentation__txt__description">
             Niché au cœur d'Aix Riviera, le campus de Chambéry bénéficie d'un
@@ -316,7 +316,7 @@ pc"
           </p>
           <p class="index__presentation__txt__description">
             S'étendant aux pieds des Alpes, Chambéry est du fait de son
-            emplacement proche des plus grands lacs naturels de France. Cete
+            emplacement proche des plus grands lacs naturels de France. Cette
             ville se trouve à
             <strong
               >proximité immédiate de la Suisse, de l'Italie et de l'Allemagne,
@@ -403,9 +403,9 @@ pc"
               >stations de ski et ses nombreuses opportunités de sport
               outdoor.</strong
             >
-            La destination Savoie Mont- Blanc, avec ses stations d'altitude
-            parmi les plus prisées de France, offre des paysages idylliques pour
-            les amateurs de tourisme.
+            La destination Savoie Mont-Blanc, avec ses stations d'altitude parmi
+            les plus prisées de France, offre des paysages idylliques pour les
+            amateurs de tourisme.
           </p>
           <p class="index__presentation__txt__description">
             Chambéry se distingue par une architecture d'inspiration
@@ -493,7 +493,7 @@ pc"
           </ul>
           <p class="index__presentation__txt__description">
             Le campus de Chambéry offre une variété de services adaptés à toutes
-            les atentes et besoins de nos étudiants.
+            les attentes et besoins de nos étudiants.
           </p>
 
           <NuxtLink

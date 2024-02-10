@@ -104,7 +104,7 @@ const breadcrumbs = [
         Ce qui rend ces événements exceptionnels, c'est l'engagement massif des
         étudiants dans ces projets.
         <strong
-          >En tant que bénévoles ou porteur de projets, les étudiants sont
+          >En tant que bénévoles ou porteurs de projets, les étudiants sont
           habituellement impliqués dans l'organisation d'au moins un événement
           au cours de l'année !</strong
         >
