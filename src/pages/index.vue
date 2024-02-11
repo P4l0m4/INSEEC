@@ -1,5 +1,5 @@
 <script setup>
-const story = await useAsyncStoryblok("home", { version: "published" });
+const story = await useAsyncStoryblok("accueil", { version: "published" });
 
 useHead(() => {
   return {
