@@ -111,7 +111,7 @@ let isMenuOpen = ref(false);
             class="header__nav__ul--desktop__li__link"
             to="/partenaires"
             exact
-            >Partenaires & Associations</NuxtLink
+            >Partenaires & Assos</NuxtLink
           >
         </li>
         <li class="header__nav__ul--desktop__li">
