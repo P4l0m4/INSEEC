@@ -145,6 +145,7 @@ input[type="number"] {
   font-family: "Custom" !important;
   font-size: $base-text;
   height: fit-content;
+  white-space: nowrap;
 
   @media (min-width: $big-tablet-screen) {
     &:hover {
