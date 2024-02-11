@@ -372,6 +372,13 @@ const breadcrumbs = [
         font-weight: $skinny-thick;
         line-height: $line-height-subtitles;
       }
+      &:deep(span) {
+        color: $text-color !important;
+        font-size: $subtitles !important;
+        font-weight: $skinny-thick !important;
+        font-family: "Custom" !important;
+        background-color: $base-color !important;
+      }
     }
 
     &__wrapper {
@@ -446,6 +453,24 @@ const breadcrumbs = [
               border-radius: $radius;
               box-shadow: $shadow;
             }
+          }
+        }
+
+        &__description {
+          font-size: $subtitles;
+          line-height: $line-height-subtitles;
+
+          &:deep(p) {
+            font-size: $base-text;
+            font-weight: $skinny;
+          }
+
+          &:deep(span) {
+            color: $text-color !important;
+            font-size: $base-text !important;
+            font-weight: $skinny !important;
+            font-family: "Custom" !important;
+            background-color: $base-color !important;
           }
         }
       }
