@@ -169,6 +169,14 @@ useJsonld(() => ({
         gap: 2rem;
       }
 
+      &:deep(span) {
+        color: $text-color !important;
+        font-size: $base-text !important;
+        font-weight: $skinny !important;
+        font-family: "Custom" !important;
+        background-color: $base-color !important;
+      }
+
       &__video {
         width: 100%;
         height: 400px;
