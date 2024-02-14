@@ -85,7 +85,7 @@ pc"
     </div>
     <BugSignaling :isBugOpen="isBugOpen" @close="isBugOpen = false" />
     <a
-      class="footer__dev button-tertiary"
+      class="sr-only"
       href="https://tekilawebfactory.com"
       target="_blank"
       dofollow
@@ -150,12 +150,6 @@ pc"
         height: 24px;
       }
     }
-  }
-
-  &__dev {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
   }
 }
 </style>
