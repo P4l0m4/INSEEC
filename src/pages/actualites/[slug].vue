@@ -102,9 +102,9 @@ useJsonld(() => ({
 
           <iframe
             class="article__content__txt__video"
-            :src="article.video.filename"
-            :title="article.video.title"
-            v-if="article?.video?.filename"
+            :src="article.video"
+            title="vidéo inseec campus chambéry"
+            v-if="article.video"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen
           ></iframe>
