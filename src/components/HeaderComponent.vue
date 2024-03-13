@@ -43,16 +43,6 @@ let isMenuOpen = ref(false);
             >Actualités</NuxtLink
           >
         </li>
-
-        <li class="header__nav__ul__li">
-          <NuxtLink
-            class="header__nav__ul__li__link"
-            to="/equipes"
-            exact
-            @click="isMenuOpen = !isMenuOpen"
-            >Équipes</NuxtLink
-          >
-        </li>
         <li class="header__nav__ul__li">
           <NuxtLink
             class="header__nav__ul__li__link"
@@ -62,6 +52,16 @@ let isMenuOpen = ref(false);
             >Partenaires & Assos</NuxtLink
           >
         </li>
+        <li class="header__nav__ul__li">
+          <NuxtLink
+            class="header__nav__ul__li__link"
+            to="/equipes"
+            exact
+            @click="isMenuOpen = !isMenuOpen"
+            >Équipes</NuxtLink
+          >
+        </li>
+
         <li class="header__nav__ul__li">
           <NuxtLink
             class="header__nav__ul__li__link"
@@ -91,20 +91,21 @@ let isMenuOpen = ref(false);
             >Evénements</NuxtLink
           >
         </li>
-        <li class="header__nav__ul--desktop__li">
-          <NuxtLink
-            class="header__nav__ul--desktop__li__link"
-            to="/equipes"
-            exact
-            >Équipes</NuxtLink
-          >
-        </li>
+
         <li class="header__nav__ul--desktop__li">
           <NuxtLink
             class="header__nav__ul--desktop__li__link"
             to="/partenaires"
             exact
             >Partenaires & Assos</NuxtLink
+          >
+        </li>
+        <li class="header__nav__ul--desktop__li">
+          <NuxtLink
+            class="header__nav__ul--desktop__li__link"
+            to="/equipes"
+            exact
+            >Équipes</NuxtLink
           >
         </li>
         <li class="header__nav__ul--desktop__li">
