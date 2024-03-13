@@ -43,15 +43,7 @@ let isMenuOpen = ref(false);
             >Actualités</NuxtLink
           >
         </li>
-        <li class="header__nav__ul__li">
-          <NuxtLink
-            class="header__nav__ul__li__link"
-            to="/programmes"
-            exact
-            @click="isMenuOpen = !isMenuOpen"
-            >Programmes</NuxtLink
-          >
-        </li>
+
         <li class="header__nav__ul__li">
           <NuxtLink
             class="header__nav__ul__li__link"
@@ -73,6 +65,15 @@ let isMenuOpen = ref(false);
         <li class="header__nav__ul__li">
           <NuxtLink
             class="header__nav__ul__li__link"
+            to="/programmes"
+            exact
+            @click="isMenuOpen = !isMenuOpen"
+            >Programmes</NuxtLink
+          >
+        </li>
+        <li class="header__nav__ul__li">
+          <NuxtLink
+            class="header__nav__ul__li__link"
             to="/contact"
             exact
             @click="isMenuOpen = !isMenuOpen"
@@ -82,14 +83,6 @@ let isMenuOpen = ref(false);
       </ul>
 
       <ul class="header__nav__ul--desktop">
-        <li class="header__nav__ul--desktop__li">
-          <NuxtLink
-            class="header__nav__ul--desktop__li__link"
-            to="/programmes"
-            exact
-            >Programmes</NuxtLink
-          >
-        </li>
         <li class="header__nav__ul--desktop__li">
           <NuxtLink
             class="header__nav__ul--desktop__li__link"
@@ -112,6 +105,14 @@ let isMenuOpen = ref(false);
             to="/partenaires"
             exact
             >Partenaires & Assos</NuxtLink
+          >
+        </li>
+        <li class="header__nav__ul--desktop__li">
+          <NuxtLink
+            class="header__nav__ul--desktop__li__link"
+            to="/programmes"
+            exact
+            >Programmes</NuxtLink
           >
         </li>
         <li class="header__nav__ul--desktop__li">
