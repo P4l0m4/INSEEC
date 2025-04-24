@@ -1,6 +1,6 @@
-# Nuxt 3 Minimal Starter
+# This website is available on https://inseec.netlify.app
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+⚠️ It is no longer updated, used and indexed
 
 ## Setup
 
